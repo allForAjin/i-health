@@ -28,7 +28,6 @@ public class AdminDaoImpl implements AdminDao {
         }
         sql += " order by id";
         sql += " limit ?,?";
-        System.out.println(sql);
         List<OperateRecord> recordList = new ArrayList<>();
         List<Object> objectList = SqlUtil.executeQuery(sql, begin, limit);
         for (Object object : objectList) {
@@ -40,7 +39,7 @@ public class AdminDaoImpl implements AdminDao {
 
     @Override
     public int getRecordCount(String operate, String type) {
-        String sql = "select count(*) from operate_record";
+        String sql = "select count(*) from record_view where 1=1";
         if (operate.length() != 0 && operate != null) {
             sql += " and operate='" + operate + "'";
         }
