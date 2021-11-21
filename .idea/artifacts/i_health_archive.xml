@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="i-health archive">
+    <output-path>$PROJECT_DIR$/out/artifacts/i_health_archive</output-path>
+    <root id="archive" name="i-health archive.war">
+      <element id="artifact" artifact-name="i-health" />
+    </root>
+  </artifact>
+</component>

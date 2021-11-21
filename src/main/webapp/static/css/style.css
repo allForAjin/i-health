@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+a {
+    color: #20a53a;
+}
+
+a:hover {
+    color: #23527c;
+    text-decoration: none;
+}
+
+body, html {
+    height: 100%;
+}
+
+.wrap {
+    height: 100%;
+    background-color: #f2f2f2;
+}
+
+.wrap .container-fluid {
+    padding: 0;
+    height: 100%;
+}
+
+.left-nav {
+    float: left;
+    background-color: #3c444d;
+    width: 200px;
+    height: 100%;
+
+}
+
+.left-nav .navbar a {
+    color: #d6d7d9;
+}
+
+.left-nav .navbar {
+    height: 100%;
+    margin-bottom: 0;
+}
+
+.left-nav .navbar .active {
+    border-left: #20a53a 3px solid;
+}
+
+.ul-menu {
+    background-color: #353d44;
+}
+
+.nav > li > a {
+    padding: 15px 15px;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:focus,
+.nav-pills > li.active > a:hover {
+    color: #fff;
+    background-color: #2c3138;
+}
+
+.nav > li > a:focus,
+.nav > li > a:hover {
+    text-decoration: none;
+    background-color: #2c3138;
+    color: #fff;
+}
+
+.mytitle h3 {
+    display: inline-block;
+    color: #d6d7d9;
+    text-align: center;
+    font-size: 17px;
+    margin: 15px 25px;
+}
+
+.mytitle:hover {
+    background-color: #20a53a;
+    cursor: pointer;
+}
+
+.main-content {
+    margin-left: 200px;
+    height: 100%;
+    padding: 0 15px;
+}
+
+.nav-path {
+    margin: 15px 0;
+    height: 55px;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+    background-color: #fff;
+}
+
+.ol-path {
+    height: 100%;
+    background-color: #fff;
+    line-height: 40px;
+}
+
+
+.welcome {
+    float: right;
+    margin-top: -60px;
+    margin-right: 60px;
+    font-size: 0;
+}
+
+.welcome .user {
+    font-size: 15px;
+}
+
+.welcome a {
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.show-box {
+    margin-top: 30px;
+    height: 80%;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+    padding: 10px 15px;
+}
+
+.table-div {
+    height: 400px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.show-box .visitor-title{
+    display: inline-block;
+    width: 60%;
+}
+
+.show-box .query-div{
+    display: inline-block;
+}
+
+.query-div .bootstrap-select > .dropdown-toggle {
+    width: 100px;
+}
+
+
+.query-div .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 100px;
+}
+
+.query-div select option{
+    font-size: 10px;
+}
+
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+.table-div .bootstrap-table.bootstrap3 {
+    height: 400px;
+}
+
+table {
+    width: 100%;
+    /*height: 100%;*/
+}
+
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.table-div .table {
+    border: 1px solid #ddd;
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.table-bordered > tr >td {
+    height: 20px;
+    max-height: 20px;
+}
+
+/*去边框!*/
+.table-bordered > tbody > tr > td,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > td,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > thead > tr > th {
+    border: 0 solid #ddd;
+}
+
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+    padding: 8px;
+    line-height: 1.4;
+    vertical-align: top;
+    border-top: 0.5px solid #ddd;
+    text-align: center;
+}
+
+
+.table-div .table thead th {
+    vertical-align: inherit;
+    background-color: #f6f6f6;
+    /*border-bottom: 1px solid #e6e6e6;*/
+    color: #666;
+    font-weight: normal;
+    padding: 8px;
+}
+
+.table-div tr th > span,
+.table-div tr td > span {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+
+
+.cust—checkbox {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    vertical-align: top;
+    position: relative;
+    border-radius: 2px;
+    margin-top: 5px;
+}
+
+.cust—checkbox + input {
+    display: none;
+}
+
+input[type='checkbox'] {
+    margin: 4px;
+}
+
+.table-div .cust—checkbox.active {
+    background-color: #20a53a;
+    border-color: #20a53a;
+}
+
+.cust—checkbox.active::after {
+    content: '';
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 50%;
+    margin-left: -2.5px;
+    margin-top: -6px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/*.table tbody tr td:nth-child(7) {*/
+/*    width: 220px;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.table tbody tr td span a{*/
+/*    color: #20a53a;*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*.table tbody tr td span a:hover{*/
+/*    color: #337ab7;*/
+/*}*/
+
+
+.bootstrap-table .fixed-table-container {
+    clear: none;
+}
+
+.fixed-table-toolbar {
+    display: none;
+}
+
+.fixed-table-loading {
+    display: none;
+}
+
+
+
