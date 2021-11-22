@@ -32,7 +32,8 @@ body, html {
     background-color: #3c444d;
     width: 200px;
     height: 100%;
-
+    /*overflow: hidden;*/
+    position: fixed;
 }
 
 .left-nav .navbar a {
@@ -121,7 +122,7 @@ body, html {
 
 .show-box {
     margin-top: 30px;
-    height: 80%;
+    height: 70%;
     background-color: #fff;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
     padding: 10px 15px;
@@ -133,13 +134,16 @@ body, html {
     width: 100%;
 }
 
-.show-box .visitor-title{
+.show-box .box-header .table-title{
     display: inline-block;
-    width: 60%;
+    /*width: 60%;*/
 }
 
 .show-box .query-div{
     display: inline-block;
+    float: right;
+    margin-top: 15px;
+
 }
 
 .query-div .bootstrap-select > .dropdown-toggle {
@@ -153,6 +157,15 @@ body, html {
 
 .query-div select option{
     font-size: 10px;
+}
+
+.query-div #username-query{
+    display: inline-block;
+    width: 120px;
+}
+
+a:focus{
+    outline: none;
 }
 
 .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
@@ -196,6 +209,7 @@ table {
     border: 0 solid #ddd;
 }
 
+/*单元格设置*/
 .table > tbody > tr > td,
 .table > tbody > tr > th,
 .table > tfoot > tr > td,
@@ -209,7 +223,7 @@ table {
     text-align: center;
 }
 
-
+/*表头设置*/
 .table-div .table thead th {
     vertical-align: inherit;
     background-color: #f6f6f6;

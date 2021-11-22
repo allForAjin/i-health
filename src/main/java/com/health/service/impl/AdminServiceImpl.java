@@ -16,12 +16,13 @@ import java.util.List;
  * @createTime 2021-11-20 16:58:03
  */
 public class AdminServiceImpl implements AdminService {
-    private final AdminDao adminDao=new AdminDaoImpl();
+    private final AdminDao adminDao = new AdminDaoImpl();
+
     @Override
-    public PageHelper<OperateRecord> getRecordPage(String operate,String type,int begin, int limit) {
-        int total=adminDao.getRecordCount(operate, type);
-        List<OperateRecord> recordList= adminDao.getPage(operate,type,begin,limit);
-        PageHelper<OperateRecord> pageHelper=new PageHelper<>(recordList,total);
+    public PageHelper<OperateRecord> getRecordPage(String username, String operate, String type, int begin, int limit) {
+        int total = adminDao.getRecordCount(username, operate, type);
+        List<OperateRecord> recordList = adminDao.getPage(username, operate, type, begin, limit);
+        PageHelper<OperateRecord> pageHelper = new PageHelper<>(recordList, total);
         return pageHelper;
     }
 }

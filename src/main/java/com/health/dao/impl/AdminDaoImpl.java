@@ -18,14 +18,9 @@ import java.util.List;
  */
 public class AdminDaoImpl implements AdminDao {
     @Override
-    public List<OperateRecord> getPage(String operate, String type, int begin, int limit) {
+    public List<OperateRecord> getPage(String username, String operate, String type, int begin, int limit) {
         String sql = "select id,username,ip,time,operate,type from record_view where 1=1";
-        if (operate.length() != 0 && operate != null) {
-            sql += " and operate='" + operate + "'";
-        }
-        if (type.length() != 0 && type != null) {
-            sql += " and type='" + type + "'";
-        }
+        sql += createSql(username, operate, type);
         sql += " order by id";
         sql += " limit ?,?";
         List<OperateRecord> recordList = new ArrayList<>();
@@ -38,14 +33,24 @@ public class AdminDaoImpl implements AdminDao {
     }
 
     @Override
-    public int getRecordCount(String operate, String type) {
+    public int getRecordCount(String username, String operate, String type) {
         String sql = "select count(*) from record_view where 1=1";
+        sql += createSql(username, operate, type);
+        return SqlUtil.executeQueryCount(sql);
+    }
+
+    private String createSql(String username, String operate, String type) {
+        String partSql = "";
         if (operate.length() != 0 && operate != null) {
-            sql += " and operate='" + operate + "'";
+            partSql += " and operate='" + operate + "'";
         }
         if (type.length() != 0 && type != null) {
-            sql += " and type='" + type + "'";
+            partSql += " and type='" + type + "'";
         }
-        return SqlUtil.executeQueryCount(sql);
+        if (username.length() != 0 && username != null) {
+            String patten = "'^.*" + username + ".*$'";
+            partSql += " and username REGEXP " + patten;
+        }
+        return partSql;
     }
 }

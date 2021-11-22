@@ -43,12 +43,12 @@ public class AdminServlet extends BaseServlet {
 
         String operate = "all".equals(request.getParameter("operate")) ? "" : request.getParameter("operate");
         String type = "all".equals(request.getParameter("type")) ? "" : request.getParameter("type");
-
+        String username=request.getParameter("username");
 
         int offset = WebUtil.parseInt(request.getParameter("offset"), 0);
         int limit = WebUtil.parseInt(request.getParameter("limit"), 10);
 
-        PageHelper<OperateRecord> pageHelper = adminService.getRecordPage(operate, type, offset, limit);
+        PageHelper<OperateRecord> pageHelper = adminService.getRecordPage(username,operate, type, offset, limit);
 
         response.setContentType("application/json; charset=utf-8");
         response.getWriter().write(JSON.toJSONString(pageHelper));
