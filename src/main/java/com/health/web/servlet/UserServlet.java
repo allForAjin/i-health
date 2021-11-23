@@ -97,7 +97,7 @@ public class UserServlet extends BaseServlet {
      * @Date 2021/11/20 11:58
      */
     protected void regist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("username");
+        String username = request.getParameter("phone");
         String ip = WebUtil.getRemoteHost(request);
         HttpSession session = request.getSession();
         if (userService.userIsExisted(username)) {
@@ -125,8 +125,7 @@ public class UserServlet extends BaseServlet {
 
     /**
      * 判断当前用户是否登录过并将用户实体存入application域中
-     *
-     * @param user    要登录的用户
+     * @param user 要登录的用户
      * @param request HttpServletRequest
      * @param session HttpSession
      * @return boolean 登录与否

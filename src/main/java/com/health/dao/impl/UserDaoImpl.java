@@ -22,7 +22,7 @@ import java.util.Map;
 public class UserDaoImpl implements UserDao {
     @Override
     public User queryUserByUsername(String username) {
-        String sql = "select id,username,password,type from user where username=?";
+        String sql = "select id,phone,password,type from user where phone=?";
         List<Object> objectList = SqlUtil.executeQuery(sql, username);
         if (objectList.size() == 0) {
             return null;

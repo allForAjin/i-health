@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public class SqlUtil {
     private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/healthtest";
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/ihealth";
     private static final String USER = "root";
 
 //    private static final String URL = "jdbc:mysql://106.15.50.102:3306/healthtest";

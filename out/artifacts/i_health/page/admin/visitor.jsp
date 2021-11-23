@@ -46,29 +46,33 @@
                         </div>
                         
                         <div class="show-box">
-                            <div class="visitor-title">
-                                <h3>访客记录查看</h3>
-                            </div>
-                            <div class="query-div">
-                                <span>用户类型：</span>
-                                <select class="selectpicker" id="user-type">
-                                    <option value="all">全部用户</option>
-                                    <option value="patient">患者</option>
-                                    <option value="doctor">医生</option>
-                                    <option value="admin">管理员</option>
-                                </select>
+                            <div class="box-header">
+                                <div class="table-title">
+                                    <h3>访客记录查看</h3>
+                                </div>
+                                <div class="query-div">
+                                    <span>用户类型：</span>
+                                    <select class="selectpicker" id="user-type">
+                                        <option value="all">全部用户</option>
+                                        <option value="patient">患者</option>
+                                        <option value="doctor">医生</option>
+                                        <option value="admin">管理员</option>
+                                    </select>
+        
+                                    <span>操作类型：</span>
+                                    <select class="selectpicker" id="user-operate">
+                                        <option value="all">全部操作</option>
+                                        <option value="login">登录</option>
+                                        <option value="logout">注销</option>
+                                        <option value="regist">注册</option>
+                                    </select>
     
-                                <span>操作类型：</span>
-                                <select class="selectpicker" id="user-operate">
-                                    <option value="all">全部操作</option>
-                                    <option value="login">登录</option>
-                                    <option value="logout">注销</option>
-                                    <option value="regist">注册</option>
-                                </select>
-    
-                                <button type="button" class="btn btn-primary" id="query-btn">查询</button>
-                                <button type="button" class="btn btn-success" id="all-btn">显示全部</button>
+                                    <input type="text" class="form-control" id="username-query" placeholder="用户名搜索">
+                                    <button type="button" class="btn btn-primary" id="query-btn">查询</button>
+                                    <button type="button" class="btn btn-success" id="all-btn">显示全部</button>
+                                </div>
                             </div>
+                            
                             
                             <div class="table-div">
                                 <table class="table table-hover table-no-bordered" id="visitor-table">

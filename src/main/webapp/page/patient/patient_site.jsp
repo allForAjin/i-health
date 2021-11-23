@@ -19,8 +19,8 @@
                             <h3><span>i-health问诊系统</span></h3>
                         </div>
                         <ul class="nav nav-pills nav-stacked ul-menu">
-                            <li class="active"><a href="#">首页</a></li>
-                            <li><a href="#">导航1</a></li>
+                            <li class="active"><a href="page/patient/patient_site.jsp">首页</a></li>
+                            <li><a href="page/patient/day_registration.jsp">当日挂号</a></li>
                             <li><a href="#">导航2</a></li>
                             <li><a href="#">导航3</a></li>
                             <li><a href="#">导航4</a></li>
@@ -33,8 +33,7 @@
                     <div class="container-fluid">
                         <div class="index-pos-box nav-path">
                             <ol class="breadcrumb ol-path">
-                                <li><a href="#">首页</a></li>
-                                <li class="active">导航1</li>
+                                <li><a href="page/patient/patient_site.jsp">首页</a></li>
                             </ol>
                             <%@include file="/page/common/welcome.jsp" %>
                         </div>

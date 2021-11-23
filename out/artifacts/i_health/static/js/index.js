@@ -16,19 +16,18 @@ $(function () {
 
 
     /**
-     * 用户名校验
-     * 5-12位数字字母下划线
+     * 姓名校验
      */
     $("#username").blur(function () {
-        var usernamePatten = /^\w{5,12}$/;
+        var usernamePatten = /^[\u4e00-\u9fa5]{0,10}$/;
         var usernameText = $(this).val();
         if ($(this).val() == "") {
-            $(".line:eq(0)").addClass("input-error");
-            $(".error-div:eq(0)").css("visibility", "visible");
+            $(".line:eq(3)").addClass("input-error");
+            $(".error-div:eq(3)").css("visibility", "visible");
         } else if (!usernamePatten.test(usernameText)) {
-            $("#username-error").text("用户名应为5-12位数字字母下划线！");
-            $(".line:eq(0)").addClass("input-error");
-            $(".error-div:eq(0)").css("visibility", "visible");
+            $("#username-error").text("请正确输入姓名！");
+            $(".line:eq(3)").addClass("input-error");
+            $(".error-div:eq(3)").css("visibility", "visible");
         }
 
     });
@@ -75,12 +74,12 @@ $(function () {
         var phoneText = $(this).val();
         var phonePatten = /^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/;
         if ($(this).val() == "") {
-            $(".line:eq(3)").addClass("input-error");
-            $(".error-div:eq(3)").css("visibility", "visible");
+            $(".line:eq(0)").addClass("input-error");
+            $(".error-div:eq(0)").css("visibility", "visible");
         } else if (!phonePatten.test(phoneText)) {
             $("#phone-error").text("请输入正确的手机号！");
-            $(".line:eq(3)").addClass("input-error");
-            $(".error-div:eq(3)").css("visibility", "visible");
+            $(".line:eq(0)").addClass("input-error");
+            $(".error-div:eq(0)").css("visibility", "visible");
         }
     });
 
@@ -94,8 +93,8 @@ $(function () {
     });
 
     $("#username").focus(function () {
-        $(".line:eq(0)").removeClass("input-error");
-        $(".error-div:eq(0)").css("visibility", "hidden");
+        $(".line:eq(3)").removeClass("input-error");
+        $(".error-div:eq(3)").css("visibility", "hidden");
     });
     $("#password").focus(function () {
         $(".line:eq(1)").removeClass("input-error");
@@ -106,8 +105,8 @@ $(function () {
         $(".error-div:eq(2)").css("visibility", "hidden");
     });
     $("#phone").focus(function () {
-        $(".line:eq(3)").removeClass("input-error");
-        $(".error-div:eq(3)").css("visibility", "hidden");
+        $(".line:eq(0)").removeClass("input-error");
+        $(".error-div:eq(0)").css("visibility", "hidden");
     });
 
 
@@ -138,7 +137,7 @@ $(function () {
 
 
 function registInfoCheck() {
-    var usernamePatten = /^\w{5,12}$/;
+    var usernamePatten = /^[\u4e00-\u9fa5]{0,10}$/;
     var usernameText = $("#username").val();
     var passwordPatten = /^\w{8,16}$/;
     var passwordText = $("#password").val();

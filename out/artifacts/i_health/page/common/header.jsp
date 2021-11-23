@@ -13,9 +13,10 @@
             + request.getContextPath() + "/";
     application.setAttribute("basePath",basePath);
 %>
-<meta http-equiv="Expires" CONTENT="0">
-<meta http-equiv="Cache-Control" CONTENT="no-cache">
-<meta http-equiv="Pragma" CONTENT="no-cache">
+<%--<meta http-equiv="Expires" CONTENT="0">--%>
+<%--<meta http-equiv="Cache-Control" CONTENT="no-cache">--%>
+<%--<meta http-equiv="Pragma" CONTENT="no-cache">--%>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <base href="<%=basePath%>">
 <link rel="stylesheet" href="static/css/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="static/css/bootstrap/bootstrap-table.min.css">

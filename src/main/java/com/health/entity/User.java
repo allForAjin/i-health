@@ -8,14 +8,14 @@ package com.health.entity;
  * @createTime 2021-11-15 19:26:05
  */
 public class User {
-    public static final String PATIENT="patient";
-    public static final String DOCTOR="doctor";
-    public static final String ADMIN="admin";
+    public static final String PATIENT = "patient";
+    public static final String DOCTOR = "doctor";
+    public static final String ADMIN = "admin";
 
     private Integer id;
     private String username;
     private String password;
-    private String type=User.PATIENT;
+    private String type = User.PATIENT;
 
     public User() {
     }
@@ -24,7 +24,7 @@ public class User {
         this.id = id;
         this.username = username;
         this.password = password;
-        if (type!=null){
+        if (type != null) {
             this.type = type;
         }
 
@@ -59,7 +59,7 @@ public class User {
     }
 
     public void setType(String type) {
-        if (type!=null){
+        if (type != null) {
             this.type = type;
         }
     }

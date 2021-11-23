@@ -53,7 +53,7 @@
                     icon: 2,
                     time: 2000,
                     shade: [0.5, '#393D49'],
-                    area:['210px','66px']
+                    area: ['210px', '66px']
                 });
             }
         });
@@ -64,10 +64,10 @@
                     icon: 2,
                     time: 2000,
                     shade: [0.5, '#393D49'],
-                    area:['210px','66px']
+                    area: ['210px', '66px']
                 });
             }
         });
-        
+    
     </script>
 </html>

@@ -84,6 +84,10 @@ body, html {
     cursor: pointer;
 }
 
+.mytitle:hover h3 {
+    color: #fff;
+}
+
 .main-content {
     margin-left: 200px;
     height: 100%;
@@ -134,16 +138,19 @@ body, html {
     width: 100%;
 }
 
-.show-box .box-header .table-title{
+.show-box .box-header{
+
+}
+
+.show-box .box-header .table-title {
     display: inline-block;
     /*width: 60%;*/
 }
 
-.show-box .query-div{
+.show-box .query-div {
     display: inline-block;
     float: right;
     margin-top: 15px;
-
 }
 
 .query-div .bootstrap-select > .dropdown-toggle {
@@ -155,16 +162,18 @@ body, html {
     width: 100px;
 }
 
-.query-div select option{
+.query-div select option {
     font-size: 10px;
 }
 
-.query-div #username-query{
+.query-div #username-query {
     display: inline-block;
     width: 120px;
 }
 
-a:focus{
+
+
+a:focus {
     outline: none;
 }
 
@@ -194,7 +203,7 @@ table {
     margin-bottom: 0;
 }
 
-.table-bordered > tr >td {
+.table-bordered > tr > td {
     height: 20px;
     max-height: 20px;
 }

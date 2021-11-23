@@ -12,10 +12,10 @@ $(function () {
             var temp = {//如果是在服务器端实现分页，limit、offset这两个参数是必须的
                 limit: params.limit, // 每页显示数量
                 offset: params.offset, // SQL语句起始索引
+                // page : (params.offset / params.limit) + 1, //当前页码
                 type:$("#user-type option:selected").val(),
                 operate:$("#user-operate option:selected").val(),
-                // page : (params.offset / params.limit) + 1, //当前页码
-
+                username:$("#username-query").val(),
             };
             return temp;
         },
@@ -34,7 +34,7 @@ $(function () {
             title: '操作时间',
             field: 'time',
         }, {
-            title: '操作',
+            title: '操作类型',
             field: 'type',
             formatter: operation,
         }],
@@ -53,10 +53,13 @@ $(function () {
     });
 
     $("#all-btn").click(function () {
-        $("select[id='user-type'] option[value='all']").attr("selected","selected");
-        $("select[id='user-operate'] option[value='all']").attr("selected","selected");
+        $("#user-type option[value='all']").attr('selected',true);
+        $("#user-operate option[value='all']").attr('selected',true);
+        $("#user-type").selectpicker('refresh');
+        $("#user-operate").selectpicker('refresh');
+        $("#username-query").val("");
         $("#visitor-table").bootstrapTable('refresh');
-    })
+    });
 });
 
 function operation(value, row, index) {

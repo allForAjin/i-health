@@ -17,11 +17,11 @@
                 <input type="hidden" name="action" value="regist">
                 <input type="hidden" name="type" value="patient">
                 <div class="line">
-                    <i class="iconfont formal-icon">&#xe648;</i><span class="split">|</span>
-                    <input type="text" class="text" placeholder="用户名（5-12位数字字母下划线）" id="username" name="username" />
+                    <i class="iconfont formal-icon">&#xe61c;</i><span class="split">|</span>
+                    <input type="text" class="text" placeholder="手机号" id="phone" name="phone" />
                     <div class="error-div">
                         <i class="iconfont error-icon">&#xe8b3;</i>
-                        <span class="text-error" id="username-error">请输入用户名！</span>
+                        <span class="text-error" id="phone-error">请输入手机号！</span>
                     </div>
                 </div>
                 <div class="line">
@@ -41,11 +41,11 @@
                     </div>
                 </div>
                 <div class="line">
-                    <i class="iconfont formal-icon">&#xe61c;</i><span class="split">|</span>
-                    <input type="text" class="text" placeholder="手机号" id="phone" name="phone" />
+                    <i class="iconfont formal-icon">&#xe648;</i><span class="split">|</span>
+                    <input type="text" class="text" placeholder="姓名" id="username" name="username" />
                     <div class="error-div">
                         <i class="iconfont error-icon">&#xe8b3;</i>
-                        <span class="text-error" id="phone-error">请输入手机号！</span>
+                        <span class="text-error" id="username-error">请输入用户姓名！</span>
                     </div>
                 </div>
                 <input type="submit" value="注册" id="regist-btn">

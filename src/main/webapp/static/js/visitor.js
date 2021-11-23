@@ -34,7 +34,7 @@ $(function () {
             title: '操作时间',
             field: 'time',
         }, {
-            title: '操作',
+            title: '操作类型',
             field: 'type',
             formatter: operation,
         }],
