@@ -249,7 +249,7 @@ function normalRegistResponse(data) {
         });
     } else {
         layer.msg('注册失败！', {
-            icon: 2,
+            icon: 23,
             time: 3000,
             shade: [0.5, '#393D49'],
             area: ['120px', '66px']
