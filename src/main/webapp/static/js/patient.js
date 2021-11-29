@@ -239,7 +239,6 @@ function normalRegistResponse(data) {
             shade: [0.5, '#393D49'],
             area: ['120px', '66px']
         });
-
     } else if (data.result == "existed") {
         layer.msg('请勿重复挂号！', {
             icon: 2,
