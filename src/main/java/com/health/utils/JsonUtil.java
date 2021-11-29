@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,9 +22,16 @@ public class JsonUtil {
 
         Map map= new HashMap();
         JSONObject jsonObject= JSON.parseObject(jsonData);
-        for (String key:keys){
-            map.put(key,jsonObject.get(key));
+        for (Object object:jsonObject.keySet()){
+            map.put(object,jsonObject.get(object));
         }
         return map;
+    }
+
+    public static String toJson(Object object){
+        if (object==null){
+            return JSON.toJSON("").toString();
+        }
+        return JSON.toJSON(object).toString();
     }
 }

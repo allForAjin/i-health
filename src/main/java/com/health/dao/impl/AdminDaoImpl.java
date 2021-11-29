@@ -27,7 +27,8 @@ public class AdminDaoImpl implements AdminDao {
         List<Object> objectList = SqlUtil.executeQuery(sql, begin, limit);
         for (Object object : objectList) {
             Object[] record = (Object[]) object;
-            recordList.add(new OperateRecord((Integer) record[0], (String) record[1], (String) record[2], WebUtil.dateToStrong((Date) record[3]), (String) record[4]));
+            recordList.add(new OperateRecord((Integer) record[0], (String) record[1], (String) record[2],
+                    WebUtil.dateToStrong((Date) record[3],WebUtil.DATETIME), (String) record[4]));
         }
         return recordList;
     }
@@ -37,6 +38,12 @@ public class AdminDaoImpl implements AdminDao {
         String sql = "select count(*) from record_view where 1=1";
         sql += createSql(username, operate, type);
         return SqlUtil.executeQueryCount(sql);
+    }
+
+    @Override
+    public int updateNormalRegistDate(String date) {
+        String sql="update normal set regist_date=?";
+        return SqlUtil.executeUpdate(sql,date);
     }
 
     private String createSql(String username, String operate, String type) {

@@ -3,6 +3,8 @@ package com.health.service;
 import com.health.entity.OperateRecord;
 import com.health.utils.PageHelper;
 
+import java.util.Date;
+
 /**
  * @author lmk
  * @version 1.0.0
@@ -23,4 +25,13 @@ public interface AdminService {
      * @return com.health.utils.PageHelper<com.health.entity.OperateRecord>
      */
     public PageHelper<OperateRecord> getRecordPage(String username,String operate,String type,int begin,int limit);
+
+    /**
+     * 更新门诊日期
+     * @author lmk
+     * @Date 2021/11/26 16:59
+     * @param date 当日日期
+     * @return int
+     */
+    public int updateNormalRegistDate(Date date);
 }

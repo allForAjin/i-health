@@ -37,4 +37,13 @@ public interface AdminDao {
      * @Date 2021/11/21 0:27
      */
     public int getRecordCount(String username, String operate, String type);
+
+    /**
+     * 更新门诊日期
+     * @author lmk
+     * @Date 2021/11/26 16:59
+     * @param date 当日日期
+     * @return int
+     */
+    public int updateNormalRegistDate(String date);
 }

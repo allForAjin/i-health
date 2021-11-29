@@ -40,7 +40,7 @@ public class UserServlet extends BaseServlet {
         User user=(User) session.getAttribute("user");
         String username = user.getUsername();
         String ip = WebUtil.getRemoteHost(request);
-        OperateRecord record = new OperateRecord(null, username, ip, WebUtil.dateToStrong(new Date()), OperateRecord.LOGOUT);
+        OperateRecord record = new OperateRecord(null, username, ip, WebUtil.dateToStrong(new Date(),WebUtil.DATETIME), OperateRecord.LOGOUT);
         userService.addUserOperation(record);
         session.invalidate();
         //response.sendRedirect(request.getContextPath() + "/page/user/login.jsp");
@@ -75,7 +75,7 @@ public class UserServlet extends BaseServlet {
             if (flag) {
                 User user = userService.getUserByUsername(username);
                 System.out.println("是否登录" + isLogin(user, request, session));
-                OperateRecord record = new OperateRecord(null, username, ip, WebUtil.dateToStrong(new Date()), OperateRecord.LOGIN);
+                OperateRecord record = new OperateRecord(null, username, ip, WebUtil.dateToStrong(new Date(),WebUtil.DATETIME), OperateRecord.LOGIN);
                 userService.addUserOperation(record);
                 response.sendRedirect(request.getContextPath() + "/page/user/login.jsp");
                 //用户名或密码错误
@@ -110,7 +110,7 @@ public class UserServlet extends BaseServlet {
             if (flag) {
                 System.out.println("成功");
                 request.setAttribute("regist", "success");
-                OperateRecord record = new OperateRecord(null, username, ip, WebUtil.dateToStrong(new Date()), OperateRecord.REGIST);
+                OperateRecord record = new OperateRecord(null, username, ip, WebUtil.dateToStrong(new Date(),WebUtil.DATETIME), OperateRecord.REGIST);
                 userService.addUserOperation(record);
                 request.getRequestDispatcher("/page/user/regist.jsp").forward(request, response);
             } else {

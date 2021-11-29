@@ -5,7 +5,9 @@ import com.health.dao.impl.AdminDaoImpl;
 import com.health.entity.OperateRecord;
 import com.health.service.AdminService;
 import com.health.utils.PageHelper;
+import com.health.utils.WebUtil;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,5 +26,10 @@ public class AdminServiceImpl implements AdminService {
         List<OperateRecord> recordList = adminDao.getPage(username, operate, type, begin, limit);
         PageHelper<OperateRecord> pageHelper = new PageHelper<>(recordList, total);
         return pageHelper;
+    }
+
+    @Override
+    public int updateNormalRegistDate(Date date) {
+        return adminDao.updateNormalRegistDate(WebUtil.dateToStrong(date,WebUtil.DATE));
     }
 }

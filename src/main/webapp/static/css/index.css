@@ -1,55 +1,54 @@
-*{
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
 }
 
 
-
-a:hover{
+a:hover {
     color: #23527c;
     text-decoration: none;
 }
 
-body{
+body {
     background-color: #666;
 }
 
 .container .login,
-.container .regist{
+.container .regist {
     border: 1px solid #333;
     background-color: #ffffff;
     border-radius: 15px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
-.container .login{
+.container .login {
     width: 450px;
     height: 400px;
 }
 
-.container .regist{
+.container .regist {
     width: 450px;
     height: 600px;
 }
 
 
-h3{
+h3 {
     text-align: center;
     margin-top: 10%;
 }
 
 .login-form,
-.regist-form{
+.regist-form {
     margin-top: -20px;
     padding: 20px 30px;
 }
 
 .login-form .line,
-.regist-form .line{
+.regist-form .line {
     margin: 35px 0;
     border: 2px solid #EDEDED;
     font-size: 0;
@@ -58,14 +57,14 @@ h3{
 }
 
 .login-form .input-error,
-.regist-form .input-error{
+.regist-form .input-error {
     border: 1px solid #F94F17;
     box-shadow: 0 0 15px 0 rgb(255 101 128 / 28%);
 }
 
 
 .login-form .line input,
-.regist-form .line input{
+.regist-form .line input {
     margin: 5px;
     width: 80%;
     font-size: 15px;
@@ -76,11 +75,11 @@ h3{
 }
 
 
-::-webkit-input-placeholder{
+::-webkit-input-placeholder {
     padding-left: 3px;
 }
 
-input[type='submit']{
+input[type='submit'] {
     display: block;
     border: none;
     outline: none;
@@ -93,8 +92,8 @@ input[type='submit']{
 }
 
 .login-form .line i,
-.regist-form .line i{
-    
+.regist-form .line i {
+
     width: 20px;
     height: 15px;
     font-size: 20px;
@@ -102,25 +101,25 @@ input[type='submit']{
 }
 
 .login-form .line .formal-icon,
-.regist-form .line .formal-icon{
+.regist-form .line .formal-icon {
     margin: 8px;
 }
 
 .login-form .line .error-div,
-.regist-form .line .error-div{
+.regist-form .line .error-div {
     visibility: hidden;
     float: left;
     margin-top: 8px;
 }
 
 .login-form .line .error-icon,
-.regist-form .line .error-icon{
+.regist-form .line .error-icon {
     color: #F94F17;
     font-size: 8px;
 }
 
 .login-form .line .split,
-.regist-form .line .split{
+.regist-form .line .split {
     display: inline-block;
     padding: 0 5px;
     font-size: 15px;
@@ -129,37 +128,37 @@ input[type='submit']{
 }
 
 .login-form .text-error,
-.regist-form .text-error{
+.regist-form .text-error {
     font-family: sans-serif;
     color: #F94F17;
     font-size: 5px;
     margin-left: 3px;
 }
 
-.clearfix::after{
+.clearfix::after {
     content: '';
     display: block;
     clear: both;
 }
 
 
-a{
+a {
     color: #20a53a;
 }
 
-.link{
+.link {
     margin-top: 50px;
 }
 
-#regist{
+#regist {
     float: right;
 }
 
-#forget{
+#forget {
     float: left;
 }
 
-.back{
+.back {
     text-align: center;
     margin-top: 15px;
 }

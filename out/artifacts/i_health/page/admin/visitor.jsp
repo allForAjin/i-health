@@ -50,7 +50,7 @@
                                 <div class="table-title">
                                     <h3>访客记录查看</h3>
                                 </div>
-                                <div class="query-div">
+                                <div class="visitor-query">
                                     <span>用户类型：</span>
                                     <select class="selectpicker" id="user-type">
                                         <option value="all">全部用户</option>
@@ -74,11 +74,11 @@
                             </div>
                             
                             
-                            <div class="table-div">
                                 <table class="table table-hover table-no-bordered" id="visitor-table">
                                 </table>
                             
-                            </div>
+                        </div>
+                        <div class="bottom">
                         </div>
                     </div>
                 </div>

@@ -28,7 +28,7 @@ class WebUtilTest {
     }
     @Test
     void date(){
-        System.out.println(WebUtil.dateToStrong(new Date()));
+        //System.out.println(WebUtil.dateToStrong(new Date()));
 
     }
 

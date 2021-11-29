@@ -19,6 +19,8 @@ import java.util.Map;
  * @createTime 2021-11-07 20:13:14
  */
 public class WebUtil {
+    public static final String DATETIME="yyyy-MM-dd HH:mm:ss";
+    public static final String DATE="yyyy-MM-dd";
 
     /**
      * 把Map中的值注入到bean中
@@ -40,7 +42,6 @@ public class WebUtil {
 
     /**
      * 将JavaBean转化为Map
-     *
      * @param object 待转换的Bean
      * @return java.util.Map
      * @author lmk
@@ -86,12 +87,28 @@ public class WebUtil {
      * @author lmk
      * @Date 2021/11/20 11:40
      */
-    public static String dateToStrong(Date date) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static String dateToStrong(Date date,String formatStr) {
+        SimpleDateFormat format = new SimpleDateFormat(formatStr);
         if (date == null) {
             date = new Date();
         }
         return format.format(date);
+    }
+
+    /**
+     * long转int
+     * @author lmk
+     * @Date 2021/11/28 12:56
+     * @param value 要转换的值
+     * @param defaultValue 出现异常时的默认值
+     * @return int
+     */
+    public static int parseLongToInt(Long value,int defaultValue){
+        try {
+            return parseInt(Long.toString(value),defaultValue);
+        } catch (Exception e) {
+            return defaultValue;
+        }
     }
 
 

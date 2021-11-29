@@ -12,6 +12,7 @@
 <script src="static/js/bootstrap/bootstrap-table-zh-CN.min.js"></script>
 <script src="static/js/bootstrap/bootstrap-select.min.js"></script>
 <script src="static/js/bootstrap/defaults-zh_CN.min.js"></script>
+<script src="static/js/bootstrap/bootstrapSelect.js"></script>
 <script src="static/js/layer3.1.1/layer.js"></script>
 <script>
     //防止页面后退

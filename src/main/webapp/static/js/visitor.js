@@ -4,7 +4,7 @@ $(function () {
         pageNumber: 1, //初始化加载第一页
         pageSize: 10,   //一页显示的行数
         paginationLoop: false,   //是否开启分页条无限循环，最后一页时点击下一页是否转到第一页
-        pageList: [5, 10],  //选择每页显示多少行，数据过少时可能会没有效果
+        pageList: [10, 15],  //选择每页显示多少行，数据过少时可能会没有效果
         url: 'admin/adminServlet?action=getVisitorRecord',
         method: 'get',
         sidePagination: 'server',//server:服务器端分页|client：前端分页

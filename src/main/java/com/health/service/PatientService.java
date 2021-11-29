@@ -1,6 +1,14 @@
 package com.health.service;
 
+import com.health.entity.Hospital;
+import com.health.entity.NormalRegistInfo;
+import com.health.entity.NormalRegistRecord;
 import com.health.entity.Patient;
+import com.health.utils.PageHelper;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author lmk
@@ -12,31 +20,62 @@ import com.health.entity.Patient;
 public interface PatientService {
 
     /**
-     * 患者登录
+     * 获取所有医院名称
      * @author lmk
-     * @Date 2021/11/15 15:36
-     * @param username 用户名
-     * @param password 密码
-     * @return boolean true表示成功，false表示失败
+     * @Date 2021/11/24 14:56
+     * @return List<Hospital> 返回null则表示无医院或获取失败
      */
-
-    public boolean patientLogin(String username,String password);
+    public List<Hospital> getAllHospitalName();
 
     /**
-     * 通过用户名判断患者是否存在
+     * 功能描述
      * @author lmk
-     * @Date 2021/11/15 13:52
-     * @param username 患者用户名
-     * @return boolean true表示存在，false表示是不存在
+     * @Date 2021/11/25 19:13
+     * @param hospitalId 医院编号
+     * @param date 当日日期
+     * @param begin sql开始索引
+     * @param limit 每页数据量
+     * @return com.health.utils.PageHelper<com.health.entity.NormalRegistInfo>
      */
-    public boolean patientIsExisted(String username);
+    public PageHelper<NormalRegistInfo> getNormalRegistInfoPage(String hospitalId,String date, int begin, int limit);
 
     /**
      * 通过用户名获取患者信息
      * @author lmk
-     * @Date 2021/11/15 16:01
-     * @param username 用户名
-     * @return com.health.entity.Patient 信息
+     * @Date 2021/11/28 10:15
+     * @param phone 患者账号（手机号）
+     * @return com.health.entity.Patient null表示没有该用户
      */
-    public Patient getPatientByUsername(String username);
+    public Patient getPatientByPhone(String phone);
+
+
+    /**
+     * 添加用户门诊挂号记录
+     * @author lmk
+     * @Date 2021/11/28 22:58
+     * @param record 待添加的记录
+     * @return int
+     */
+    public int addNormalRegistRecord(NormalRegistRecord record);
+
+    /**
+     * 查询用户是否已挂过当前号
+     * @author lmk
+     * @Date 2021/11/29 12:57
+     * @param patientId 患者序号
+     * @param normalId 门诊序号
+     * @return boolean
+     */
+    public boolean normalRecordIsExisted(Integer patientId,Integer normalId);
+
+    /**
+     * 挂号时减少剩余号量
+     * @author lmk
+     * @Date 2021/11/29 12:45
+     * @param id 序号
+     * @param remain 待更新剩余号量
+     * @return int
+     */
+    public int decreaseNormalRemain(Integer id,Integer remain);
+
 }

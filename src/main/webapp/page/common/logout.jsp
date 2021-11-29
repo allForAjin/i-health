@@ -9,7 +9,6 @@
 <script>
     $(function () {
         $("#logout").click(function () {
-
             layer.confirm('是否确认注销？', {
                 icon: 3,
                 title: '提示',

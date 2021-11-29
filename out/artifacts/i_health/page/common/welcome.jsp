@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="welcome">
     <span class="user">欢迎您！用户&nbsp;&nbsp;</span>
-    <span class="user">${sessionScope.user.username}</span>
+    <span class="user" id="user-phone">${sessionScope.user.username}</span>
     <a href="javascript:void(0)" id="logout">注销</a>
 </div>
 
