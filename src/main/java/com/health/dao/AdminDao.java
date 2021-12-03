@@ -46,4 +46,6 @@ public interface AdminDao {
      * @return int
      */
     public int updateNormalRegistDate(String date);
+
+
 }

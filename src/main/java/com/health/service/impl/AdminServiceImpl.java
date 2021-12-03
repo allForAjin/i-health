@@ -1,7 +1,9 @@
 package com.health.service.impl;
 
 import com.health.dao.AdminDao;
+import com.health.dao.NormalDao;
 import com.health.dao.impl.AdminDaoImpl;
+import com.health.dao.impl.NormalDaoImpl;
 import com.health.entity.OperateRecord;
 import com.health.service.AdminService;
 import com.health.utils.PageHelper;
@@ -19,6 +21,8 @@ import java.util.List;
  */
 public class AdminServiceImpl implements AdminService {
     private final AdminDao adminDao = new AdminDaoImpl();
+    private final NormalDao normalDao = new NormalDaoImpl();
+
 
     @Override
     public PageHelper<OperateRecord> getRecordPage(String username, String operate, String type, int begin, int limit) {
@@ -31,5 +35,10 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public int updateNormalRegistDate(Date date) {
         return adminDao.updateNormalRegistDate(WebUtil.dateToStrong(date,WebUtil.DATE));
+    }
+
+    @Override
+    public int updatePayStatusEveryday(int payStatus) {
+        return normalDao.updatePayStatusEveryday(payStatus);
     }
 }

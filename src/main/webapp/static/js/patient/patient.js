@@ -3,27 +3,72 @@ var registId = undefined;
 
 $(function () {
     hospitalSelectorInit();
+    getHospitalList();
     normalTableInit();
     normalRegistModal();
 });
 
 
+/**
+ * 条件搜索
+ * 刷新表格
+ */
 $(function () {
     $("#query-btn").click(function () {
         $("#registration-table").bootstrapTable('refresh');
     });
 
     $("#all-btn").click(function () {
-        //$("#hospital option[value='all']").attr('selected',true);
         $("#hospital").selectpicker('val', 'all');
         $("#hospital").selectpicker('refresh');
+        $("#all-time").selectpicker('val', 'all');
+        $("#all-time").selectpicker('refresh');
+
         $("#registration-table").bootstrapTable('refresh');
     });
 });
 
-$(function () {
-    $("#conform-regist")
-});
+function getHospitalList(){
+    $.ajax({
+        url: 'patient/patientServlet',
+        async: false,
+        method: 'post',
+        data: {
+            action: 'getHospitalNormalInfo'
+        },
+        success:function (data){
+            createHospitalList(data)
+        }
+    });
+}
+
+function createHospitalList(data){
+    var hospital=JSON.parse(data);
+    var htm;
+    for (var i=0;i<hospital.length;i++){
+        htm='<div class="list-item">\n' +
+            '<div class="hospital-item">\n' +
+            '<div class="hospital-img">\n' +
+            '<img src="'+hospital[i].imgPath+'" alt="">\n' +
+            '</div>\n' +
+            '\n' +
+            '<div class="info">\n' +
+            '<div class="item-title">\n' +
+            '<h3><a href="javasctipt:void(0)" id=hospital_"'+hospital[i].id+'">'+hospital[i].name+'</a></h3>\n' +
+            '</div>\n' +
+            '        \n' +
+            '<div class="hospital-description">\n' +
+            '<span>'+hospital[i].level+'</span>\n' +
+            '</div>\n' +
+            '</div>\n' +
+            '\n' +
+            '</div>\n' +
+            '</div>';
+
+        $(".list-container").append(htm);
+    }
+}
+
 
 function hospitalSelectorInit() {
     $.ajax({
@@ -70,6 +115,7 @@ function normalTableInit() {
                 // page : (params.offset / params.limit) + 1, //当前页码
                 action: 'getNormalInfo',
                 hospitalId: $("#hospital").val(),
+                time:$("#all-time").val()
             };
         },
         columns: [{
@@ -112,6 +158,7 @@ function normalTableInit() {
     });
 }
 
+
 /**
  * 加入挂号按钮
  * @param value
@@ -128,7 +175,7 @@ function registOperation(value, row, index) {
     htm = '<span>\n' +
         '<a href="javascript:void(0)" class="regist-btn"' +
         'data-toggle="modal" data-target="#regist-modal"' +
-        'class="regist-btn" onclick="getRegistInfo(' + row.id + ')">挂号</a></span>';
+        'onclick="getRegistInfo(' + row.id + ')">挂号</a></span>';
     return htm;
 }
 
@@ -146,20 +193,7 @@ function getRegistInfo(id) {
     $("#normal-cost").val(row.cost + "元");
     $("#remain").val(row.remain);
 
-    var patientPhone = $("#user-phone").text();
-    $.ajax({
-        url: 'patient/patientServlet',
-        method: 'post',
-        async: false,
-        dataType: 'json',
-        data: {
-            action: 'getPersonInfo',
-            patientPhone: patientPhone
-        },
-        success: function (result) {
-            setInfoInModal(result);
-        }
-    });
+    setInfoInModal();
 }
 
 /**
@@ -172,19 +206,18 @@ function normalRegistModal() {
         keyboard: false
     });
     //按下确认挂号后
-    $("#conform-regist").click(confirmRegistNormal);
+    $("#confirm-regist").click(confirmRegistNormal);
 }
 
 /**
  * 设置模态框中患者信息
  * @param result 通过ajax请求得到的数据
  */
-function setInfoInModal(result) {
-    patientId = result.id;
-    $("#patient-phone").val(result.phone);
-    $("#patient-name").val(result.name);
-    $("#patient-age").val(result.age);
-    $("#patient-sex").val(result.sex);
+function setInfoInModal() {
+    $("#patient-phone").val(patientObj.phone);
+    $("#patient-name").val(patientObj.name);
+    $("#patient-age").val(patientObj.age);
+    $("#patient-sex").val(patientObj.sex);
 }
 
 /**
@@ -192,9 +225,18 @@ function setInfoInModal(result) {
  * 按下模态框确认预约按钮后调用
  */
 function confirmRegistNormal() {
+    if ($("#identify").val()!=code){
+        layer.msg('验证码错误！', {
+            icon: 2,
+            time: 2000,
+            shade: [0.5, '#393D49'],
+            area: ['120px', '66px']
+        });
+        return;
+    }
     var cost = $("#normal-cost").val();
     var registData = {
-        patientId: patientId,
+        patientId: patientObj.id,
         normalId: registId,
         cost: cost.slice(0, cost.length - 1),
         registDate: $("#regist-date").val(),
@@ -235,7 +277,7 @@ function normalRegistResponse(data) {
     if (data.result == "success") {
         layer.msg('挂号成功！', {
             icon: 1,
-            time: 3000,
+            time: 2000,
             shade: [0.5, '#393D49'],
             area: ['120px', '66px']
         });
@@ -243,14 +285,14 @@ function normalRegistResponse(data) {
     } else if (data.result == "existed") {
         layer.msg('请勿重复挂号！', {
             icon: 2,
-            time: 3000,
+            time: 2000,
             shade: [0.5, '#393D49'],
             area: ['120px', '66px']
         });
     } else {
-        layer.msg('注册失败！', {
+        layer.msg('挂号失败！', {
             icon: 2,
-            time: 3000,
+            time: 2000,
             shade: [0.5, '#393D49'],
             area: ['120px', '66px']
         });
@@ -259,3 +301,71 @@ function normalRegistResponse(data) {
     $("#registration-table").bootstrapTable('refresh');
 }
 
+
+$(function () {
+    if ($("#identify").val() == "") {
+        $("#confirm-regist").prop('disabled', true);
+        //$("#confirm-regist").addClass('disabled');
+    }
+    $("#identify").bind("input propertychange", function () {
+        if ($(this).val() == "") {
+            $("#confirm-regist").prop('disabled', true);
+        } else {
+            $("#confirm-regist").prop('disabled', false);
+        }
+    });
+
+    $("#get-identify").click(getMessage);
+});
+
+
+var time = 60;
+function getCode() {
+    if (time === 0) {
+        time = 60;
+        $("#get-identify").prop('disabled', false);
+        $("#get-identify").text("获取验证码");
+        return;
+    } else {
+        time--;
+        $("#get-identify").text(time + "秒后重新发送");
+    }
+    setTimeout(function () {
+        getCode();
+    }, 1000);
+}
+
+var code="";
+function getMessage() {
+    $("#get-identify").prop('disabled', true);
+    getCode();
+    $.ajax({
+        url: 'patient/patientServlet',
+        async: false,
+        method: 'post',
+        data: {
+            action: 'getMessage',
+            phone: $("#patient-phone").val(),
+        },
+        success: function (result) {
+            var data=JSON.parse(result);
+            if (data.resultCode==2){
+                code=data.messageCode;
+                layer.msg('验证码发送成功，请注意查收！', {
+                    icon: 1,
+                    time: 2000,
+                    shade: [0.5, '#393D49'],
+                    area: ['200px', '66px']
+                });
+            }else if(data.resultCode==408){
+                layer.msg('发送超限！', {
+                    icon: 2,
+                    time: 2000,
+                    shade: [0.5, '#393D49'],
+                    area: ['200px', '66px']
+                });
+            }
+        }
+    });
+
+}

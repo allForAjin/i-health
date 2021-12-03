@@ -91,5 +91,5 @@
     </body>
     <%@include file="/page/common/foot.jsp" %>
     <%@include file="/page/common/logout.jsp" %>
-    <script src="static/js/visitor.js"></script>
+    <script src="static/js/admin/visitor.js"></script>
 </html>

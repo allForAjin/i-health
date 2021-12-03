@@ -20,7 +20,7 @@
                     <div class="line">
                         <i class="iconfont formal-icon">&#xe648;</i><span class="split">|</span>
                         <input type="text" class="text" placeholder="账号"
-                               id="username-login" name="username" value="${sessionScope.username}"/>
+                               id="username-login" name="username" value="${cookie.username.value}"/>
                         <div class="error-div">
                             <i class="iconfont error-icon">&#xe8b3;</i><span class="text-error">请输入账号！</span>
                         </div>
@@ -28,7 +28,7 @@
                     
                     <div class="line">
                         <i class="iconfont formal-icon">&#xe8b2;</i><span class="split">|</span>
-                        <input type="password" class="password" placeholder="密码" id="password-login" name="password"/>
+                        <input type="password" class="password" placeholder="密码" id="password-login" name="password" value="${cookie.password.value}"/>
                         <div class="error-div">
                             <i class="iconfont error-icon">&#xe8b3;</i><span class="text-error">请输入密码！</span>
                         </div>

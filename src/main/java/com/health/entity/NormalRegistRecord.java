@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * @Description TODO
  * @createTime 2021-11-28 14:31:09
  */
-public class NormalRegistRecord {
+public class NormalRegistRecord extends Page{
     private Integer patientId;
     private Integer normalId;
     private BigDecimal cost;
@@ -18,13 +18,19 @@ public class NormalRegistRecord {
     private String department;
     private String hospital;
     private String operateTime;
+    private Integer payStatus = 0;
+    private String patientName;
+    private String phone;
+    private String sex;
+    private Integer age;
+    private String orderId;
 
     public NormalRegistRecord() {
     }
 
-    public NormalRegistRecord(Integer patientId, Integer normalId, BigDecimal cost,
-                              String registDate, String time, String department,
-                              String hospital, String operateTime) {
+    public NormalRegistRecord(Integer patientId, Integer normalId, BigDecimal cost, String registDate,
+                              String time, String department, String hospital, String operateTime,
+                              Integer payStatus) {
         this.patientId = patientId;
         this.normalId = normalId;
         this.cost = cost;
@@ -33,7 +39,56 @@ public class NormalRegistRecord {
         this.department = department;
         this.hospital = hospital;
         this.operateTime = operateTime;
+        if (payStatus!=null){
+            this.payStatus = payStatus;
+        }
     }
+
+    public NormalRegistRecord(Integer patientId, Integer normalId,
+                              BigDecimal cost, String registDate,
+                              String time, String department, String hospital,
+                              String operateTime, Integer payStatus,
+                              String patientName, String phone, String sex,
+                              Integer age, String orderId) {
+        this.patientId = patientId;
+        this.normalId = normalId;
+        this.cost = cost;
+        this.registDate = registDate;
+        this.time = time;
+        this.department = department;
+        this.hospital = hospital;
+        this.operateTime = operateTime;
+        this.payStatus = payStatus;
+        this.patientName = patientName;
+        this.phone = phone;
+        this.sex = sex;
+        this.age = age;
+        this.orderId = orderId;
+    }
+
+    public NormalRegistRecord(Integer patientId, Integer normalId, BigDecimal cost,
+                              String registDate, String time, String department,
+                              String hospital, String operateTime, Integer payStatus,
+                              String patientName, String phone,
+                              String sex, Integer age) {
+        this.patientId = patientId;
+        this.normalId = normalId;
+        this.cost = cost;
+        this.registDate = registDate;
+        this.time = time;
+        this.department = department;
+        this.hospital = hospital;
+        this.operateTime = operateTime;
+        this.payStatus = payStatus;
+        this.patientName = patientName;
+        this.phone = phone;
+        this.sex = sex;
+        this.age = age;
+    }
+
+
+
+
 
     public Integer getPatientId() {
         return patientId;
@@ -99,6 +154,56 @@ public class NormalRegistRecord {
         this.operateTime = operateTime;
     }
 
+    public Integer getPayStatus() {
+        return payStatus;
+    }
+
+    public void setPayStatus(Integer payStatus) {
+        if (payStatus!=null){
+            this.payStatus = payStatus;
+        }
+    }
+
+    public String getPatientName() {
+        return patientName;
+    }
+
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
     @Override
     public String toString() {
         return "NormalRegistRecord{" +
@@ -110,6 +215,12 @@ public class NormalRegistRecord {
                 ", department='" + department + '\'' +
                 ", hospital='" + hospital + '\'' +
                 ", operateTime='" + operateTime + '\'' +
+                ", payStatus=" + payStatus +
+                ", patientName='" + patientName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", sex='" + sex + '\'' +
+                ", age=" + age +
+                ", orderId=" + orderId +
                 '}';
     }
 }

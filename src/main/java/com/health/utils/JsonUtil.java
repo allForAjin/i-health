@@ -15,7 +15,7 @@ import java.util.Map;
  * @createTime 2021-11-20 17:53:27
  */
 public class JsonUtil {
-    public static Map convertJsonToMap(String jsonData,String...keys){
+    public static Map convertJsonToMap(String jsonData){
         if (jsonData==null){
             return null;
         }

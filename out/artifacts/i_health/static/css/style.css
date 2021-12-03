@@ -13,9 +13,17 @@ a:hover {
     text-decoration: none;
 }
 
+a :focus {
+    text-decoration: none;
+}
+
 body, html {
     height: 100%;
     background-color: #f2f2f2;
+}
+
+#user-phone {
+    display: none;
 }
 
 .wrap {
@@ -152,6 +160,7 @@ body, html {
 .show-box .regist-query {
     display: inline-block;
     margin-top: 10px;
+    /*width: 80%;*/
 }
 
 .visitor-query .bootstrap-select > .dropdown-toggle {
@@ -176,6 +185,7 @@ body, html {
     display: inline-block;
     margin: 8px;
 }
+
 
 a:focus {
     outline: none;
@@ -368,8 +378,18 @@ input[type='checkbox'] {
     background-color: #8d8989;
 }
 
-#regist-modal {
+#regist-modal,
+#pay-modal {
     overflow-y: hidden;
+}
+
+#identify {
+    display: inline-block;
+    width: 69%;
+}
+
+#get-identify {
+    width: 30%;
 }
 
 .scroll {
@@ -380,4 +400,6 @@ input[type='checkbox'] {
 .bottom {
     height: 100px;
 }
+
+
 

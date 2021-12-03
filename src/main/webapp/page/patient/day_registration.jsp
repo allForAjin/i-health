@@ -11,6 +11,7 @@
         <%@include file="/page/common/header.jsp" %>
         <title>当日挂号</title>
         <link rel="stylesheet" href="static/css/style.css">
+        <link rel="stylesheet" href="static/css/hospital-info.css">
     </head>
     <body>
         <div class="wrap bge6">
@@ -24,7 +25,7 @@
                         <ul class="nav nav-pills nav-stacked ul-menu">
                             <li><a href="page/patient/patient_site.jsp">首页</a></li>
                             <li class="active"><a href="page/patient/day_registration.jsp">当日挂号</a></li>
-                            <li><a href="#">导航2</a></li>
+                            <li><a href="page/patient/regist_record.jsp">预约-挂号记录</a></li>
                             <li><a href="#">导航3</a></li>
                             <li><a href="#">导航4</a></li>
                         </ul>
@@ -50,8 +51,16 @@
                                 <div class="regist-query">
                                     <div class="query-selector">
                                         <select class="selectpicker show-tick form-control"
-                                                data-live-search="true" data-live-search-placeholder="搜索"
+                                                data-live-search="true" data-live-search-placeholder="搜索医院"
                                                 id="hospital">
+                                        </select>
+                                    </div>
+                                    <div class="query-selector">
+                                        <select class="selectpicker show-tick form-control"
+                                                id="all-time">
+                                            <option value="all">全部时间段</option>
+                                            <option value="morning">上午</option>
+                                            <option value="afternoon">下午</option>
                                         </select>
                                     </div>
                                     
@@ -62,10 +71,47 @@
                             </div>
                             
                             
-                            <div class="table-div">
-                            <table class="table table-hover table-no-bordered" id="registration-table">
-                            </table>
+                            <%--<div class="table-div">--%>
+                            <%--<table class="table table-hover table-no-bordered" id="registration-table">--%>
+                            <%--</table>--%>
                             
+                            <%--</div>--%>
+                            
+                            <div class="list-container">
+                                <div class="list-item">
+                                    <div class="hospital-item">
+                                            <div class="hospital-img">
+                                                <img src="static/img/hospital-1.jpg" alt="">
+                                            </div>
+    
+                                            <div class="info">
+                                                <div class="item-title">
+                                                    <h3><a href="">上海市第六人民医院东院</a></h3>
+                                                </div>
+        
+                                                <div class="hospital-description">
+                                                    <span>uiruqioeuiqwoeyuqioeiqoeq</span>
+                                                </div>
+                                            </div>
+                                        
+                                    </div>
+                                </div>
+    
+                                <div class="list-item">
+                                    <div class="hospital-item">
+                                        <div class="hospital-img">
+                                            <img src="static/img/hospital-1.jpg" alt="">
+                                        </div>
+                                        <div class="info">
+                                            <div class="item-title">
+                                                <h3><a href="">上海市第六人民医院东院</a></h3>
+                                            </div>
+                                            <div class="hospital-description">
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="bottom">
@@ -124,13 +170,19 @@
                                     
                                     <label for="patient-phone" class="control-label">手机号:</label>
                                     <input type="text" class="form-control" id="patient-phone" disabled>
+                                    <label for="identify" class="control-label">验证码：</label>
+                                    <div class="identify-div">
+                                        <input type="text" class="form-control" id="identify">
+                                        <button type="button" class="btn btn-primary" id="get-identify">获取验证码</button>
+                                    </div>
+                                    
                                 </div>
                             </form>
                         </div>
                         
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                            <button type="button" class="btn btn-primary" id="conform-regist">确认挂号</button>
+                            <button type="button" class="btn btn-primary" id="confirm-regist">确认挂号</button>
                         </div>
                     </div>
                 </div>
@@ -140,6 +192,6 @@
     </body>
     <%@include file="/page/common/foot.jsp" %>
     <%@include file="/page/common/logout.jsp" %>
-    <script src="static/js/patient.js"></script>
+    <script src="static/js/patient/patient.js"></script>
 
 </html>

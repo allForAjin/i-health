@@ -1,0 +1,54 @@
+.list-container {
+
+}
+
+.list-item {
+    border-bottom: 1px solid #ededed;
+    background: #fff;
+}
+
+.hospital-item {
+    padding: 16px 24px;
+}
+
+.hospital-img {
+    display: inline-block;
+    width: 170px;
+    height: 100px;
+}
+
+.hospital-img img {
+    width: 170px;
+    height: 100px;
+}
+
+.info {
+    display: inline-block;
+
+}
+
+.item-title {
+    width: 100%;
+}
+
+.item-title h3{
+    font-size: 18px;
+    vertical-align: top;
+    font-weight: 600;
+}
+
+.item-title a{
+    color: #000;
+}
+
+.item-title a:hover{
+    color: #3d84ff;
+    text-decoration: none;
+}
+
+.hospital-description {
+}
+
+
+
+

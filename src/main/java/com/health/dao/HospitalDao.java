@@ -15,9 +15,19 @@ import java.util.Map;
 public interface HospitalDao {
     /**
      * 获取所有医院的名称
+     *
+     * @return java.util.List<Hospital> 返回null则表示无医院或获取失败
      * @author lmk
      * @Date 2021/11/24 14:47
-     * @return java.util.List<Hospital> 返回null则表示无医院或获取失败
      */
     public List<Hospital> getAllHospitalName();
+
+    /**
+     * 获取所有医院信息
+     *
+     * @return java.util.List<com.health.entity.Hospital> 返回null则表示无医院或获取失败
+     * @author lmk
+     * @Date 2021/12/3 14:41
+     */
+    public List<Hospital> getAllHospitalInfo();
 }

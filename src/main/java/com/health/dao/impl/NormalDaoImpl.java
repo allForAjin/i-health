@@ -20,9 +20,9 @@ import java.util.List;
  */
 public class NormalDaoImpl implements NormalDao {
     @Override
-    public List<NormalRegistInfo> getNormalRegistInfo(String hospitalId, String date, int begin, int limit) {
+    public List<NormalRegistInfo> getNormalRegistInfo(String hospitalId, String time, String date, int begin, int limit) {
         String sql = "select id,hospital,level,department,regist_date,time,cost,remain from normal_regist_info where 1=1";
-        sql += createSql(hospitalId, date);
+        sql += createSql(hospitalId, time, date);
         sql += " order by hospital";
         sql += " limit ?,?";
         List<Object> objectList = SqlUtil.executeQuery(sql, begin, limit);
@@ -38,9 +38,9 @@ public class NormalDaoImpl implements NormalDao {
     }
 
     @Override
-    public int getTotalCount(String hospitalId, String date) {
+    public int getTotalCount(String hospitalId, String time, String date) {
         String sql = "select count(*) from normal_regist_info where 1=1";
-        sql += createSql(hospitalId, date);
+        sql += createSql(hospitalId, time, date);
         return SqlUtil.executeQueryCount(sql);
     }
 
@@ -52,13 +52,12 @@ public class NormalDaoImpl implements NormalDao {
     }
 
 
-
     @Override
     public int addNormalRegistRecord(NormalRegistRecord record) {
-        String sql = "insert into normal_regist_record (pid,normal_id,operate_time,cost,register_date,time,department,hospital) values(?,?,?,?,?,?,?,?)";
-        return SqlUtil.executeUpdate(sql, record.getPatientId(), record.getNormalId(),
+        String sql = "insert into normal_regist_record (order_id,pid,normal_id,operate_time,cost,register_date,time,department,hospital,pay_status) values(?,?,?,?,?,?,?,?,?,?)";
+        return SqlUtil.executeUpdate(sql, record.getOrderId(), record.getPatientId(), record.getNormalId(),
                 record.getOperateTime(), record.getCost(), record.getRegistDate(),
-                record.getTime(), record.getDepartment(), record.getHospital());
+                record.getTime(), record.getDepartment(), record.getHospital(), record.getPayStatus());
     }
 
     @Override
@@ -67,7 +66,50 @@ public class NormalDaoImpl implements NormalDao {
         return SqlUtil.executeUpdate(sql, remain, id);
     }
 
-    private String createSql(String hospitalId, String date) {
+    @Override
+    public List<NormalRegistRecord> getNormalRegistRecordByPatient(String phone, int begin, int limit) {
+        String sql = "select pid,normal_id,cost,register_date,time,department,hospital,operate_time,pay_status,pName,pPhone,pSex,age,order_id from normal_record_info where pPhone=? limit ?,?";
+        List<Object> objectList = SqlUtil.executeQuery(sql, phone, begin, limit);
+        List<NormalRegistRecord> recordList = new ArrayList<>();
+        for (Object objects : objectList) {
+            Object[] result = (Object[]) objects;
+            String registDate = WebUtil.dateToStrong((Date) result[3], WebUtil.DATE);
+            String operateTime = WebUtil.dateToStrong((Date) result[7], WebUtil.DATETIME);
+            int age = WebUtil.parseLongToInt((Long) result[12], 0);
+            recordList.add(new NormalRegistRecord((Integer) result[0], (Integer) result[1], (BigDecimal) result[2],
+                    registDate, (String) result[4], (String) result[5],
+                    (String) result[6], operateTime, (Integer) result[8],
+                    (String) result[9], (String) result[10], (String) result[11],
+                    age, (String) result[13]));
+        }
+        return recordList;
+    }
+
+    @Override
+    public int getNormalRegistRecordCount(String phone) {
+        String sql = "select count(*) from normal_record_info where pPhone=?";
+        return SqlUtil.executeQueryCount(sql, phone);
+    }
+
+    @Override
+    public int updatePayStatusEveryday(int payStatus) {
+        String sql = "update `normal_regist_record` set pay_status=? where TO_DAYS(NOW())>TO_DAYS(register_date)";
+        return SqlUtil.executeUpdate(sql, payStatus);
+    }
+
+    @Override
+    public int updatePayStatus(String orderId, int payStatus) {
+        String sql = "update `normal_regist_record` set pay_status=? where order_id=?";
+        return SqlUtil.executeUpdate(sql, payStatus, orderId);
+    }
+
+    @Override
+    public int deleteNormalRegistRecord(Integer patientId, Integer normalId) {
+        String sql = "delete from `normal_regist_record` where pid=? and normal_id=?";
+        return SqlUtil.executeUpdate(sql, patientId, normalId);
+    }
+
+    private String createSql(String hospitalId, String time, String date) {
         String partSql = "";
         if (hospitalId != "" && hospitalId != null) {
             partSql += " and hospital_id='" + hospitalId + "'";
@@ -75,7 +117,9 @@ public class NormalDaoImpl implements NormalDao {
         if (date != "" && date != null) {
             partSql += " and regist_date='" + date + "'";
         }
-
+        if (time != "" && time != null) {
+            partSql += " and time='" + time + "'";
+        }
         return partSql;
     }
 }

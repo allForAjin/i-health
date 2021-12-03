@@ -7,7 +7,9 @@ package com.health.web.listener;
  * @createTime 2021-11-26 16:43:46
  */
 
+import com.health.dao.AdminDao;
 import com.health.dao.impl.AdminDaoImpl;
+import com.health.service.AdminService;
 import com.health.service.impl.AdminServiceImpl;
 
 import javax.servlet.*;
@@ -19,14 +21,15 @@ import java.util.TimerTask;
 
 @WebListener
 public class DayInterval implements ServletContextListener {
-
+    private final AdminService adminService=new AdminServiceImpl();
     public DayInterval() {
+
     }
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         /* This method is called when the servlet context is initialized(when the Web application is deployed). */
-        showDayTime();
+        updateDayTime();
     }
 
     @Override
@@ -34,9 +37,10 @@ public class DayInterval implements ServletContextListener {
         /* This method is called when the servlet Context is undeployed or Application Server shuts down. */
     }
 
-    public static void showDayTime() {
+    public void updateDayTime() {
         Date sendDate = new Date();
         Timer dTimer = new Timer();
+
         dTimer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -45,7 +49,8 @@ public class DayInterval implements ServletContextListener {
                 int minutes = c.get(Calendar.MINUTE);
                 int second = c.get(Calendar.SECOND);
                 //if (hour == 0 && minutes == 0) {
-                    new AdminServiceImpl().updateNormalRegistDate(new Date());
+                adminService.updateNormalRegistDate(new Date());
+                adminService.updatePayStatusEveryday(-1);
                 //}
             }
             //设置24小时执行一次

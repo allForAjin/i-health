@@ -15,22 +15,22 @@
     <listener>
         <listener-class>com.health.web.listener.LoginListener</listener-class>
     </listener>
-    <!--    <filter-mapping>-->
-<!--        <filter-name>UserFilter</filter-name>-->
-<!--        <url-pattern>/page/common/welcome.jsp</url-pattern>-->
-<!--    </filter-mapping>-->
+        <filter-mapping>
+        <filter-name>UserFilter</filter-name>
+        <url-pattern>/page/common/welcome.jsp</url-pattern>
+    </filter-mapping>
 
-    <!--patient资源过滤-->
-<!--    <filter>-->
-<!--        <filter-name>PatientFilter</filter-name>-->
-<!--        <filter-class>com.health.web.filter.PatientFilter</filter-class>-->
-<!--    </filter>-->
-<!--    <filter-mapping>-->
-<!--        <filter-name>PatientFilter</filter-name>-->
-<!--        <url-pattern>/page/patient/*</url-pattern>-->
-<!--        <url-pattern>/patient/*</url-pattern>-->
-<!--    </filter-mapping>-->
-<!--    -->
+<!--    patient资源过滤-->
+    <filter>
+        <filter-name>PatientFilter</filter-name>
+        <filter-class>com.health.web.filter.PatientFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PatientFilter</filter-name>
+        <url-pattern>/page/patient/*</url-pattern>
+        <url-pattern>/patient/*</url-pattern>
+    </filter-mapping>
+
 
     <!--doctor资源过滤-->
     <filter>

@@ -12,6 +12,7 @@ public class Hospital {
     private String name;
     private String phone;
     private String level;
+    private String imgPath;
 
     public Hospital() {
     }
@@ -21,6 +22,14 @@ public class Hospital {
         this.name = name;
         this.phone = phone;
         this.level = level;
+    }
+
+    public Hospital(Integer id, String name, String phone, String level, String imgPath) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.level = level;
+        this.imgPath = imgPath;
     }
 
     public Integer getId() {
@@ -55,6 +64,14 @@ public class Hospital {
         this.level = level;
     }
 
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+
     @Override
     public String toString() {
         return "Hospital{" +
@@ -62,6 +79,7 @@ public class Hospital {
                 ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
                 ", level='" + level + '\'' +
+                ", imgPath='" + imgPath + '\'' +
                 '}';
     }
 }

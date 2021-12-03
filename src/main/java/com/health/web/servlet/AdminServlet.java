@@ -30,16 +30,7 @@ public class AdminServlet extends BaseServlet {
     private final AdminService adminService = new AdminServiceImpl();
 
     protected void getVisitorRecord(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        InputStream inputStream = null;
-//        inputStream=request.getInputStream();
-//        String data = "";
-//        data = IOUtils.toString(inputStream, "utf-8");
-//        System.out.println(data);
 
-
-        //Map<String, Object> dataMap = JsonUtil.convertJsonToMap(data, Page.OFFSET, Page.LIMIT);
-//        int offset = (int) dataMap.get(Page.OFFSET);
-//        int limit = (int) dataMap.get(Page.LIMIT);
 
         String operate = "all".equals(request.getParameter("operate")) ? "" : request.getParameter("operate");
         String type = "all".equals(request.getParameter("type")) ? "" : request.getParameter("type");

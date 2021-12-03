@@ -34,4 +34,13 @@ public interface AdminService {
      * @return int
      */
     public int updateNormalRegistDate(Date date);
+
+    /**
+     * 更新支付状态
+     * @author lmk
+     * @Date 2021/11/30 11:21
+     * @param payStatus 要更新的数据状态
+     * @return int 更新成功的数量
+     */
+    public int updatePayStatusEveryday(int payStatus);
 }

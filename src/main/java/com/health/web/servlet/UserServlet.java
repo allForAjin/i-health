@@ -9,6 +9,7 @@ import com.health.utils.WebUtil;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -30,17 +31,18 @@ public class UserServlet extends BaseServlet {
 
     /**
      * 注销
+     *
      * @param request  HttpServletRequest
      * @param response HttpServletResponse
      * @author lmk
      * @Date 2021/11/16 10:12
      */
     protected void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session =request.getSession();
-        User user=(User) session.getAttribute("user");
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
         String username = user.getUsername();
         String ip = WebUtil.getRemoteHost(request);
-        OperateRecord record = new OperateRecord(null, username, ip, WebUtil.dateToStrong(new Date(),WebUtil.DATETIME), OperateRecord.LOGOUT);
+        OperateRecord record = new OperateRecord(null, username, ip, WebUtil.dateToStrong(new Date(), WebUtil.DATETIME), OperateRecord.LOGOUT);
         userService.addUserOperation(record);
         session.invalidate();
         //response.sendRedirect(request.getContextPath() + "/page/user/login.jsp");
@@ -74,9 +76,15 @@ public class UserServlet extends BaseServlet {
             //登录成功
             if (flag) {
                 User user = userService.getUserByUsername(username);
+                Cookie cookie = new Cookie("username", username);
+                Cookie cookiePassword = new Cookie("password", password);
+                cookie.setMaxAge(60 * 60 * 24 * 7);
+                cookiePassword.setMaxAge(60 * 60 * 24 * 7);
                 System.out.println("是否登录" + isLogin(user, request, session));
-                OperateRecord record = new OperateRecord(null, username, ip, WebUtil.dateToStrong(new Date(),WebUtil.DATETIME), OperateRecord.LOGIN);
+                OperateRecord record = new OperateRecord(null, username, ip, WebUtil.dateToStrong(new Date(), WebUtil.DATETIME), OperateRecord.LOGIN);
                 userService.addUserOperation(record);
+                response.addCookie(cookie);
+                response.addCookie(cookiePassword);
                 response.sendRedirect(request.getContextPath() + "/page/user/login.jsp");
                 //用户名或密码错误
             } else {
@@ -110,7 +118,7 @@ public class UserServlet extends BaseServlet {
             if (flag) {
                 System.out.println("成功");
                 request.setAttribute("regist", "success");
-                OperateRecord record = new OperateRecord(null, username, ip, WebUtil.dateToStrong(new Date(),WebUtil.DATETIME), OperateRecord.REGIST);
+                OperateRecord record = new OperateRecord(null, username, ip, WebUtil.dateToStrong(new Date(), WebUtil.DATETIME), OperateRecord.REGIST);
                 userService.addUserOperation(record);
                 request.getRequestDispatcher("/page/user/regist.jsp").forward(request, response);
             } else {
@@ -125,7 +133,8 @@ public class UserServlet extends BaseServlet {
 
     /**
      * 判断当前用户是否登录过并将用户实体存入application域中
-     * @param user 要登录的用户
+     *
+     * @param user    要登录的用户
      * @param request HttpServletRequest
      * @param session HttpSession
      * @return boolean 登录与否
