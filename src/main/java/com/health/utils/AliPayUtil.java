@@ -3,7 +3,8 @@ package com.health.utils;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
-import com.health.entity.AlipayConfig;
+import com.alipay.api.request.AlipayTradeRefundRequest;
+import com.health.entity.alipay.AlipayConfig;
 
 /**
  * @author lmk
@@ -49,7 +50,7 @@ public class AliPayUtil {
                     + "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
 
             //请求
-            String result="";
+            String result = "";
 
             result = alipayClient.pageExecute(alipayRequest).getBody();
             System.out.println("返回结果为：" + result);
@@ -60,5 +61,36 @@ public class AliPayUtil {
             return null;
         }
 
+    }
+
+    public static String alipayRefund(String tradeNo, String refundAmount, String refundReason, String out_request_no) {
+        if (out_request_no == null) {
+            out_request_no = "";
+        }
+        AlipayClient alipayClient = new DefaultAlipayClient(
+                AlipayConfig.GATEWAY_URL, AlipayConfig.APP_ID,
+                AlipayConfig.MERCHANT_PRIVATE_KEY, "json",
+                AlipayConfig.CHARSET, AlipayConfig.ALIPAY_PUBLIC_KEY, AlipayConfig.SIGN_TYPE);
+        AlipayTradeRefundRequest alipayRequest = new AlipayTradeRefundRequest();
+        alipayRequest.setReturnUrl(AlipayConfig.REFUND_RETURN_URL);
+        alipayRequest.setNotifyUrl(AlipayConfig.NOTIFY_URL);
+
+        try {
+            alipayRequest.setBizContent("{\"out_trade_no\":\"" + tradeNo + "\","
+                    + "\"refund_amount\":\"" + refundAmount + "\","
+                    + "\"refund_reason\":\"" + refundReason + "\"}");
+
+            //请求
+            String result = "";
+
+            //请求
+            result = alipayClient.execute(alipayRequest).getBody();
+            System.out.println(result);
+            return result;
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return null;
+        }
     }
 }

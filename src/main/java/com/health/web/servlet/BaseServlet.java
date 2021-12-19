@@ -31,5 +31,11 @@ public class BaseServlet extends HttpServlet {
         }
     }
 
+    protected void response(HttpServletResponse response,String result) throws ServletException, IOException{
+        response.getWriter().write(result);
+        response.getWriter().flush();
+        response.getWriter().close();
+    }
+
 
 }

@@ -37,8 +37,37 @@ public class HospitalDaoImpl implements HospitalDao {
         List<Hospital> result = new ArrayList<>();
         for (Object objects : objectList) {
             Object[] object = (Object[]) objects;
-            result.add(new Hospital((Integer) object[0], (String) object[1], (String) object[2], (String) object[3],(String) object[4]));
+            result.add(new Hospital((Integer) object[0], (String) object[1], (String) object[2], (String) object[3], (String) object[4]));
         }
         return result;
+    }
+
+    @Override
+    public Hospital getHospitalById(Integer hospitalId) {
+        String sql = "select * from hospital where 1=1";
+        if (hospitalId != null && hospitalId != 0) {
+            sql += " and hid=" + hospitalId;
+        }
+        List<Object> objectList = SqlUtil.executeQuery(sql);
+        Object[] object = (Object[]) objectList.get(0);
+        return new Hospital((Integer) object[0], (String) object[1], (String) object[2], (String) object[3], (String) object[4]);
+    }
+
+    @Override
+    public List<Hospital> queryHospitalForPage(int begin, int pageSize) {
+        String sql = "select * from hospital limit ?,?";
+        List<Object> objectList = SqlUtil.executeQuery(sql,begin,pageSize);
+        List<Hospital> result = new ArrayList<>();
+        for (Object objects : objectList) {
+            Object[] object = (Object[]) objects;
+            result.add(new Hospital((Integer) object[0], (String) object[1], (String) object[2], (String) object[3], (String) object[4]));
+        }
+        return result;
+    }
+
+    @Override
+    public int queryForHospitalCount() {
+        String sql="select count(*) from hospital";
+        return SqlUtil.executeQueryCount(sql);
     }
 }

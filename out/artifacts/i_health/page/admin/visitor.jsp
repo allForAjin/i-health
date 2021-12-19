@@ -27,7 +27,7 @@
                         <ul class="nav nav-pills nav-stacked ul-menu">
                             <li><a href="page/admin/admin_site.jsp">首页</a></li>
                             <li class="active"><a href="page/admin/visitor.jsp">访客记录</a></li>
-                            <li><a href="#">导航2</a></li>
+                            <li><a href="page/admin/patient_manager.jsp">患者信息管理</a></li>
                             <li><a href="#">导航3</a></li>
                             <li><a href="#">导航4</a></li>
                         </ul>
@@ -91,5 +91,6 @@
     </body>
     <%@include file="/page/common/foot.jsp" %>
     <%@include file="/page/common/logout.jsp" %>
+    <%@include file="/page/common/admin_common.jsp" %>
     <script src="static/js/admin/visitor.js"></script>
 </html>

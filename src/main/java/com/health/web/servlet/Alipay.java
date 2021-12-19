@@ -1,4 +1,5 @@
-package com.health.web.servlet; /**
+package com.health.web.servlet;
+/**
  * @ClassName ${NAME}.java
  * @author lmk
  * @version 1.0.0
@@ -27,8 +28,4 @@ public class Alipay extends HttpServlet {
         response.sendRedirect(basePath + "page/patient/regist_record.jsp");
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }

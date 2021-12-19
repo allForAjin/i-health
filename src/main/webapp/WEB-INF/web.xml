@@ -60,6 +60,30 @@
         <url-pattern>/admin/*</url-pattern>
     </filter-mapping>
 
+    <servlet>
+        <servlet-name>LogServlet</servlet-name>
+        <servlet-class>com.health.web.log.LogServlet</servlet-class>
+        <!--log4j的配置文件路径-->
+        <init-param>
+            <param-name>log4j-properties-location</param-name>
+            <param-value>/WEB-INF/log/log4j.properties</param-value>
+        </init-param>
+        <!--log4j的配置驱动-->
+        <init-param>
+            <param-name>logDriverName</param-name>
+            <param-value>logfile</param-value>
+        </init-param>
+
+        <load-on-startup>1</load-on-startup>
+
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogServlet</servlet-name>
+        <url-pattern>/log</url-pattern>
+    </servlet-mapping>
+
+
+
 
 
 

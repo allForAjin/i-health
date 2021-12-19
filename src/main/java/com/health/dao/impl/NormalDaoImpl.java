@@ -1,6 +1,7 @@
 package com.health.dao.impl;
 
 import com.health.dao.NormalDao;
+import com.health.entity.Normal;
 import com.health.entity.NormalRegistInfo;
 import com.health.entity.NormalRegistRecord;
 import com.health.utils.SqlUtil;
@@ -20,19 +21,17 @@ import java.util.List;
  */
 public class NormalDaoImpl implements NormalDao {
     @Override
-    public List<NormalRegistInfo> getNormalRegistInfo(String hospitalId, String time, String date, int begin, int limit) {
-        String sql = "select id,hospital,level,department,regist_date,time,cost,remain from normal_regist_info where 1=1";
-        sql += createSql(hospitalId, time, date);
-        sql += " order by hospital";
-        sql += " limit ?,?";
-        List<Object> objectList = SqlUtil.executeQuery(sql, begin, limit);
+    public List<NormalRegistInfo> getNormalRegistInfo(String hospitalId, String departmentId, String time, String date) {
+        String sql = "select id,department,remain,regist_date,time,cost from normal_regist_info where 1=1 and hospital_id=? and dep_id=?";
+        sql += createSql(null, time, date);
+        List<Object> objectList = SqlUtil.executeQuery(sql, hospitalId, departmentId);
         List<NormalRegistInfo> normalList = new ArrayList<>();
         for (Object objects : objectList) {
             Object[] object = (Object[]) objects;
             normalList.add(
-                    new NormalRegistInfo((Integer) object[0], null, (String) object[1], (String) object[2],
-                            null, (String) object[3], null, (Integer) object[7],
-                            WebUtil.dateToStrong((Date) object[4], WebUtil.DATE), (String) object[5], (BigDecimal) object[6]));
+                    new NormalRegistInfo((Integer) object[0], null, null, null,
+                            null, (String) object[1], null, (Integer) object[2],
+                            WebUtil.dateToStrong((Date) object[3], WebUtil.DATE), (String) object[4], (BigDecimal) object[5]));
         }
         return normalList;
     }
@@ -45,9 +44,9 @@ public class NormalDaoImpl implements NormalDao {
     }
 
     @Override
-    public boolean normalRecordIsExisted(Integer patientId, Integer normalId) {
-        String sql = "select count(*) from normal_regist_record where pid=? and normal_id=?";
-        int num = SqlUtil.executeQueryCount(sql, patientId, normalId);
+    public boolean normalRecordIsExisted(Integer patientId, Integer normalId, String date) {
+        String sql = "select count(*) from normal_regist_record where pid=? and normal_id=? and register_date=?";
+        int num = SqlUtil.executeQueryCount(sql, patientId, normalId, date);
         return num > 0;
     }
 
@@ -68,7 +67,7 @@ public class NormalDaoImpl implements NormalDao {
 
     @Override
     public List<NormalRegistRecord> getNormalRegistRecordByPatient(String phone, int begin, int limit) {
-        String sql = "select pid,normal_id,cost,register_date,time,department,hospital,operate_time,pay_status,pName,pPhone,pSex,age,order_id from normal_record_info where pPhone=? limit ?,?";
+        String sql = "select pid,normal_id,cost,register_date,time,department,hospital,operate_time,pay_status,pName,pPhone,pSex,age,order_id,id from normal_record_info where pPhone=? limit ?,?";
         List<Object> objectList = SqlUtil.executeQuery(sql, phone, begin, limit);
         List<NormalRegistRecord> recordList = new ArrayList<>();
         for (Object objects : objectList) {
@@ -80,7 +79,7 @@ public class NormalDaoImpl implements NormalDao {
                     registDate, (String) result[4], (String) result[5],
                     (String) result[6], operateTime, (Integer) result[8],
                     (String) result[9], (String) result[10], (String) result[11],
-                    age, (String) result[13]));
+                    age, (String) result[13], (Integer) result[14]));
         }
         return recordList;
     }
@@ -104,9 +103,27 @@ public class NormalDaoImpl implements NormalDao {
     }
 
     @Override
-    public int deleteNormalRegistRecord(Integer patientId, Integer normalId) {
-        String sql = "delete from `normal_regist_record` where pid=? and normal_id=?";
-        return SqlUtil.executeUpdate(sql, patientId, normalId);
+    public int deleteNormalRegistRecord(Integer id) {
+        String sql = "delete from `normal_regist_record` where id=?";
+        return SqlUtil.executeUpdate(sql, id);
+    }
+
+    @Override
+    public int addNormalRemain(Integer normalId) {
+        String sql = "update normal set remain=remain+1 where id=?";
+        return SqlUtil.executeUpdate(sql, normalId);
+    }
+
+    @Override
+    public int updateNormalRemainEveryday() {
+        String sql = "update normal set remain=total";
+        return SqlUtil.executeUpdate(sql);
+    }
+
+    @Override
+    public int addNormalInfo(Normal normal) {
+        String sql="insert into normal (dep_id,total,remain,regist_date,time) values (?,?,?,?,?)";
+        return SqlUtil.executeUpdate(sql,normal.getDepartmentId(),normal.getTotal(),normal.getRemain(),normal.getRegistDate(),normal.getTime());
     }
 
     private String createSql(String hospitalId, String time, String date) {

@@ -1,5 +1,6 @@
 package com.health.dao;
 
+import com.health.entity.Normal;
 import com.health.entity.NormalRegistInfo;
 import com.health.entity.NormalRegistRecord;
 
@@ -18,16 +19,15 @@ public interface NormalDao {
     /**
      * 获取门诊信息内容
      *
-     * @param hospitalId 医院名
-     * @param date       日期
-     * @param time       时间段
-     * @param begin      sql起始索引
-     * @param limit      每页限制条数
+     * @param hospitalId   医院id
+     * @param departmentId 科室id
+     * @param date         日期
+     * @param time         时间段
      * @return java.util.List<com.health.entity.NormalRegistInfo> null表示未找到或失败
      * @author lmk
      * @Date 2021/11/25 18:41
      */
-    public List<NormalRegistInfo> getNormalRegistInfo(String hospitalId, String time, String date, int begin, int limit);
+    public List<NormalRegistInfo> getNormalRegistInfo(String hospitalId, String departmentId, String time, String date);
 
     /**
      * 获取门诊信息总量
@@ -45,11 +45,12 @@ public interface NormalDao {
      *
      * @param patientId 患者序号
      * @param normalId  门诊序号
+     * @param date      日期
      * @return boolean
      * @author lmk
      * @Date 2021/11/29 12:57
      */
-    public boolean normalRecordIsExisted(Integer patientId, Integer normalId);
+    public boolean normalRecordIsExisted(Integer patientId, Integer normalId, String date);
 
 
     /**
@@ -117,11 +118,40 @@ public interface NormalDao {
     /**
      * 删除用户挂号记录
      *
-     * @param patientId 患者id
-     * @param normalId  挂号id
+     * @param id 记录id
      * @return int 删除条数
      * @author lmk
      * @Date 2021/12/2 22:51
      */
-    public int deleteNormalRegistRecord(Integer patientId, Integer normalId);
+    public int deleteNormalRegistRecord(Integer id);
+
+    /**
+     * 剩余号量添加
+     *
+     * @param normalId 挂号id
+     * @return int 更新条数
+     * @author lmk
+     * @Date 2021/12/6 10:42
+     */
+    public int addNormalRemain(Integer normalId);
+
+    /**
+     * 每日更新门诊剩余号量
+     *
+     * @return int 更新条数
+     * @author lmk
+     * @Date 2021/12/6 11:00
+     */
+    public int updateNormalRemainEveryday();
+
+
+    /**
+     * 添加门诊信息
+     *
+     * @param normal 待添加的信息
+     * @return int 添加成功的条数
+     * @author lmk
+     * @Date 2021/12/19 10:22
+     */
+    public int addNormalInfo(Normal normal);
 }

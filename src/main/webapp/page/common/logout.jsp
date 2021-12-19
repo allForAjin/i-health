@@ -30,5 +30,24 @@
         });
 
     });
+</script>
+<script>
+    $(function (){
+        $(".user-menu").hover(function (){
+            $("#account-operate").css('display','block');
+            $("#icon-span").html('');
+            $("#icon-span").html('<i class="iconfont arrow-icon" id="arrow">&#xe601;</i>');
 
+        },function (){
+            $("#account-operate").css('display','none');
+            $("#icon-span").html('');
+            $("#icon-span").html('<i class="iconfont arrow-icon" id="arrow">&#xe600;</i>');
+        });
+    });
+
+    $("#account-operate").hover(function() {
+        $(this).css('display', 'block');
+    }, function() {
+        $(this).css('display', 'none');
+    });
 </script>

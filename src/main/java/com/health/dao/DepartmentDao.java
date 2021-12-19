@@ -14,9 +14,12 @@ import java.util.List;
 public interface DepartmentDao {
     /**
      * 获取所有科室名
+     * @param hospitalId 医院id
      * @author lmk
      * @Date 2021/11/24 16:57
      * @return java.util.List<com.health.entity.Department> 返回null则表示无医院或获取失败
      */
-    public List<Department> getAllDepartmentName();
+    public List<Department> getDepartmentByHospital(String hospitalId);
+
+
 }

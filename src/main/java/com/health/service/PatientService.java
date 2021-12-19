@@ -1,9 +1,6 @@
 package com.health.service;
 
-import com.health.entity.Hospital;
-import com.health.entity.NormalRegistInfo;
-import com.health.entity.NormalRegistRecord;
-import com.health.entity.Patient;
+import com.health.entity.*;
 import com.health.utils.PageHelper;
 
 import java.math.BigDecimal;
@@ -38,18 +35,48 @@ public interface PatientService {
     public List<Hospital> getAllHospitalInfo();
 
     /**
+     * 医院信息分页
+     *
+     * @param pageNo    当前页起始索引
+     * @param pageSize 当前页码
+     * @return com.health.entity.MyPage null表示为失败，反之成功
+     * @author lmk
+     * @Date 2021/12/17 18:28
+     */
+    public MyPage queryHospitalForPage(int pageNo, int pageSize);
+
+    /**
+     * 通过医院id获取科室名
+     *
+     * @param hospitalId 医院id
+     * @return java.util.List<com.health.entity.Department> 获取的科室
+     * @author lmk
+     * @Date 2021/12/4 15:06
+     */
+    public List<Department> getDepartmentByHospital(String hospitalId);
+
+    /**
      * 功能描述
      *
-     * @param hospitalId 医院编号
-     * @param date       当日日期
-     * @param time       时间段
-     * @param begin      sql开始索引
-     * @param limit      每页数据量
+     * @param hospitalId   医院编号
+     * @param departmentId 科室id
+     * @param date         当日日期
+     * @param time         时间段
      * @return com.health.utils.PageHelper<com.health.entity.NormalRegistInfo>
      * @author lmk
      * @Date 2021/11/25 19:13
      */
-    public PageHelper<NormalRegistInfo> getNormalRegistInfoPage(String hospitalId, String time, String date, int begin, int limit);
+    public List<NormalRegistInfo> getNormalRegistInfo(String hospitalId, String departmentId, String time, String date);
+
+    /**
+     * 通过id获取医院信息
+     *
+     * @param hospitalId 医院id
+     * @return com.health.entity.Hospital
+     * @author lmk
+     * @Date 2021/12/5 0:01
+     */
+    public Hospital getHospitalById(String hospitalId);
 
     /**
      * 通过用户名获取患者信息
@@ -120,11 +147,23 @@ public interface PatientService {
 
     /**
      * 删除患者挂号记录
+     *
+     * @param id 记录id
+     * @return int
      * @author lmk
      * @Date 2021/12/2 22:55
-     * @param patientId 患者id
-     * @param normalId 挂号id
-     * @return int
      */
-    public int deleteNormalRegistRecord(Integer patientId,Integer normalId);
+    public int deleteNormalRegistRecord(Integer id);
+
+    /**
+     * 取消用户挂号
+     *
+     * @param patientId 患者id
+     * @param normalId  挂号id
+     * @param id        记录id
+     * @return int
+     * @author lmk
+     * @Date 2021/12/6 10:44
+     */
+    public int cancelNormalRegist(Integer patientId, Integer normalId, Integer id);
 }

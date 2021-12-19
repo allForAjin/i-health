@@ -1,17 +1,19 @@
 package com.health.service.impl;
 
+import com.health.dao.DepartmentDao;
 import com.health.dao.HospitalDao;
 import com.health.dao.NormalDao;
 import com.health.dao.PatientDao;
+import com.health.dao.impl.DepartmentDaoImpl;
 import com.health.dao.impl.HospitalDaoImpl;
 import com.health.dao.impl.NormalDaoImpl;
 import com.health.dao.impl.PatientDaoImpl;
 import com.health.entity.*;
+import com.health.entity.alipay.AlipayConfig;
 import com.health.service.PatientService;
 import com.health.utils.PageHelper;
 import com.health.utils.WebUtil;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -26,6 +28,7 @@ public class PatientServiceImpl implements PatientService {
     private final PatientDao patientDao = new PatientDaoImpl();
     private final HospitalDao hospitalDao = new HospitalDaoImpl();
     private final NormalDao normalDao = new NormalDaoImpl();
+    private final DepartmentDao departmentDao = new DepartmentDaoImpl();
 
     @Override
     public List<Hospital> getAllHospitalName() {
@@ -38,7 +41,33 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public PageHelper<NormalRegistInfo> getNormalRegistInfoPage(String hospitalId, String time, String date, int begin, int limit) {
+    public MyPage queryHospitalForPage(int pageNo, int pageSize) {
+        if (pageSize < 1) {
+            pageSize = 1;
+        }
+        int recordTotalCount = hospitalDao.queryForHospitalCount();
+        int totalPage = recordTotalCount / pageSize;
+
+        if (recordTotalCount % pageSize != 0) {
+            totalPage++;
+        }
+
+        if (pageNo > totalPage) {
+            pageNo = totalPage;
+        }
+
+        int begin = (pageNo - 1) * pageSize;
+        List<Hospital> items = hospitalDao.queryHospitalForPage(begin, pageSize);
+        return new MyPage(pageNo, totalPage, recordTotalCount, pageSize, items);
+    }
+
+    @Override
+    public List<Department> getDepartmentByHospital(String hospitalId) {
+        return departmentDao.getDepartmentByHospital(hospitalId);
+    }
+
+    @Override
+    public List<NormalRegistInfo> getNormalRegistInfo(String hospitalId, String departmentId, String time, String date) {
         if ("all".equals(hospitalId)) {
             hospitalId = null;
         }
@@ -50,9 +79,16 @@ public class PatientServiceImpl implements PatientService {
             time = "下午";
         }
 
-        int count = normalDao.getTotalCount(hospitalId, time, date);
-        List<NormalRegistInfo> list = normalDao.getNormalRegistInfo(hospitalId, time, date, begin, limit);
-        return new PageHelper<NormalRegistInfo>(list, count);
+        if (date==null||"".equals(date)){
+            date=WebUtil.dateToStrong(new Date(),WebUtil.DATE);
+        }
+        List<NormalRegistInfo> list = normalDao.getNormalRegistInfo(hospitalId, departmentId, time, date);
+        return list;
+    }
+
+    @Override
+    public Hospital getHospitalById(String hospitalId) {
+        return hospitalDao.getHospitalById(WebUtil.parseInt(hospitalId, 0));
     }
 
     @Override
@@ -70,7 +106,8 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public boolean normalRecordIsExisted(Integer patientId, Integer normalId) {
-        return normalDao.normalRecordIsExisted(patientId, normalId);
+        String date = WebUtil.dateToStrong(new Date(), WebUtil.DATE);
+        return normalDao.normalRecordIsExisted(patientId, normalId, date);
     }
 
     @Override
@@ -91,7 +128,16 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public int deleteNormalRegistRecord(Integer patientId, Integer normalId) {
-        return normalDao.deleteNormalRegistRecord(patientId, normalId);
+    public int deleteNormalRegistRecord(Integer id) {
+        return normalDao.deleteNormalRegistRecord(id);
+    }
+
+    @Override
+    public int cancelNormalRegist(Integer patientId, Integer normalId, Integer id) {
+        int deleteNum = this.deleteNormalRegistRecord(id);
+        if (deleteNum >= 1) {
+            return normalDao.addNormalRemain(normalId);
+        }
+        return 0;
     }
 }

@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
+import org.apache.log4j.Logger;
 /**
  * @author lmk
  * @version 1.0.0
@@ -28,6 +28,7 @@ import java.util.Map;
 @WebServlet(name = "UserServlet", value = "/userServlet")
 public class UserServlet extends BaseServlet {
     private final UserService userService = new UserServiceImpl();
+    private static final Logger logger=Logger.getLogger(UserServlet.class);
 
     /**
      * 注销
@@ -86,6 +87,7 @@ public class UserServlet extends BaseServlet {
                 response.addCookie(cookie);
                 response.addCookie(cookiePassword);
                 response.sendRedirect(request.getContextPath() + "/page/user/login.jsp");
+                logger.info(user);
                 //用户名或密码错误
             } else {
                 session.setAttribute("error", "error");

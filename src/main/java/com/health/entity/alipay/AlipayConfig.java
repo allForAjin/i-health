@@ -1,4 +1,4 @@
-package com.health.entity;
+package com.health.entity.alipay;
 
 import com.health.utils.WebUtil;
 
@@ -35,11 +35,16 @@ public class AlipayConfig {
      * 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
      */
     public static final String NOTIFY_URL = "http://127.0.0.1:8001/i_health/pay";
+//    public static final String NOTIFY_URL = "http://106.15.50.102:8083/i_health/pay/Alipay";
 
     /**
      * 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
      */
+//    public static final String RETURN_URL = "http://106.15.50.102:8083/i_health/pay/Alipay";
+//    public static final String REFUND_RETURN_URL = "http://106.15.50.102:8083/i_health/pay/refund";
     public static final String RETURN_URL = "http://127.0.0.1:8001/i_health/pay/Alipay";
+    public static final String REFUND_RETURN_URL = "http://127.0.0.1:8001/i_health/pay/refund";
+
 
     /**
      * 签名方式
@@ -56,14 +61,13 @@ public class AlipayConfig {
      */
     public static final String GATEWAY_URL = "https://openapi.alipaydev.com/gateway.do";
 
-    public static final String LOG_PATH = "E:\\";
-
+    public static final String LOG_PATH = "/www/server/tomcat9/webapps";
 
 
     public static void logResult(String sWord) {
         FileWriter writer = null;
         try {
-            writer = new FileWriter(LOG_PATH + "alipay_log_" + System.currentTimeMillis()+".txt");
+            writer = new FileWriter(LOG_PATH + "alipay_log_" + System.currentTimeMillis() + ".txt");
             writer.write(sWord);
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,21 +82,21 @@ public class AlipayConfig {
         }
     }
 
-    public static String createOrderId(){
-        String date= new SimpleDateFormat("yyyyMMdd").format(new Date());
-        String part2="00001000";
-        String random1=createRandom();
-        String part3="00";
-        String seconds=new SimpleDateFormat("HHmmssSSSS").format(new Date());
-        String random2=createRandom();
-        return date+part2+random1+part3+seconds+random2;
+    public static String createOrderId() {
+        String date = new SimpleDateFormat("yyyyMMdd").format(new Date());
+        String part2 = "00001000";
+        String random1 = createRandom();
+        String part3 = "00";
+        String seconds = new SimpleDateFormat("HHmmssSSSS").format(new Date());
+        String random2 = createRandom();
+        return date + part2 + random1 + part3 + seconds + random2;
     }
 
-    private static String createRandom(){
-        Random random=new Random();
-        String result=random.nextInt(100)+"";
-        if (result.length()==1){
-            result="0"+result;
+    private static String createRandom() {
+        Random random = new Random();
+        String result = random.nextInt(100) + "";
+        if (result.length() == 1) {
+            result = "0" + result;
         }
         return result;
     }

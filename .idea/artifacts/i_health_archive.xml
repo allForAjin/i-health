@@ -3,6 +3,14 @@
     <output-path>$PROJECT_DIR$/out/artifacts/i_health_archive</output-path>
     <root id="archive" name="i-health archive.war">
       <element id="artifact" artifact-name="i-health" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+          <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/log4j-api-2.16.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/log4j-core-2.16.0.jar" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>

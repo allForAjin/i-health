@@ -14,4 +14,3 @@
 <script src="static/js/bootstrap/defaults-zh_CN.min.js"></script>
 <script src="static/js/bootstrap/bootstrapSelect.js"></script>
 <script src="static/js/layer3.1.1/layer.js"></script>
-<script src="static/js/common.js"></script>

@@ -11,6 +11,7 @@ import com.health.dao.AdminDao;
 import com.health.dao.impl.AdminDaoImpl;
 import com.health.service.AdminService;
 import com.health.service.impl.AdminServiceImpl;
+import com.health.utils.WebUtil;
 
 import javax.servlet.*;
 import javax.servlet.annotation.*;
@@ -21,7 +22,8 @@ import java.util.TimerTask;
 
 @WebListener
 public class DayInterval implements ServletContextListener {
-    private final AdminService adminService=new AdminServiceImpl();
+    private final AdminService adminService = new AdminServiceImpl();
+
     public DayInterval() {
 
     }
@@ -49,8 +51,13 @@ public class DayInterval implements ServletContextListener {
                 int minutes = c.get(Calendar.MINUTE);
                 int second = c.get(Calendar.SECOND);
                 //if (hour == 0 && minutes == 0) {
-                adminService.updateNormalRegistDate(new Date());
-                adminService.updatePayStatusEveryday(-1);
+//                System.out.println(
+//                        "每日日期更新：" +
+//                                adminService.updateNormalRegistDate(new Date()) + "条，"
+//                                + WebUtil.dateToStrong(new Date(), WebUtil.DATE));
+                System.out.println("每日支付状态更新：" + adminService.updatePayStatusEveryday(-1) + "条");
+                //System.out.println("每日剩余号量更新：" + adminService.updateNormalRemainEveryday() + "条");
+
                 //}
             }
             //设置24小时执行一次

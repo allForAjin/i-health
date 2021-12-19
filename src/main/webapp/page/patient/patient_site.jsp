@@ -52,13 +52,6 @@
     </body>
     <%@include file="/page/common/foot.jsp" %>
     <%@include file="/page/common/logout.jsp" %>
-    <script type="text/javascript">
+    <%@include file="/page/common/patient_common.jsp" %>
 
-        history.pushState(null, null, document.URL);
-        window.addEventListener("popstate", function () {
-            history.pushState(null, null, document.URL);
-            //location.href=document.URL;
-        });
-    
-    </script>
 </html>

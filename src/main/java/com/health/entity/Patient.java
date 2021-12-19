@@ -7,23 +7,29 @@ package com.health.entity;
  * @Description TODO
  * @createTime 2021-11-15 13:21:28
  */
-public class Patient {
+public class Patient extends Page{
     private Integer id;
     private String phone;
     private String name;
     private String sex;
     private Integer age;
+    private String birth;
 
     public Patient() {
     }
 
-    public Patient(Integer id, String phone, String name, String sex, Integer age) {
+    public Patient(Integer id, String phone, String name, String sex, Integer age, String birth) {
         this.id = id;
         this.phone = phone;
         this.name = name;
         this.sex = sex;
         this.age = age;
+        this.birth = birth;
     }
+
+
+
+
 
     public Integer getId() {
         return id;
@@ -65,6 +71,14 @@ public class Patient {
         this.age = age;
     }
 
+    public String getBirth() {
+        return birth;
+    }
+
+    public void setBirth(String birth) {
+        this.birth = birth;
+    }
+
     @Override
     public String toString() {
         return "Patient{" +
@@ -72,7 +86,8 @@ public class Patient {
                 ", phone='" + phone + '\'' +
                 ", name='" + name + '\'' +
                 ", sex='" + sex + '\'' +
-                ", age='" + age + '\'' +
+                ", age=" + age +
+                ", birth='" + birth + '\'' +
                 '}';
     }
 }

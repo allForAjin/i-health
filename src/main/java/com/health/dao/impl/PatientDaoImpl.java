@@ -28,7 +28,7 @@ public class PatientDaoImpl implements PatientDao {
         List<Object> objectList = SqlUtil.executeQuery(sql, phone);
         Object[] result = (Object[]) objectList.get(0);
         return new Patient((Integer) result[0], (String) result[1], (String) result[2],
-                (String) result[3], WebUtil.parseLongToInt((Long) result[4], 0));
+                (String) result[3], WebUtil.parseLongToInt((Long) result[4], 0),null);
     }
 
 

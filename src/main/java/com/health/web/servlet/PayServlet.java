@@ -6,17 +6,25 @@ package com.health.web.servlet; /**
  * @createTime 2021-12-01 13:39:57
  */
 
-import com.health.entity.PayInfo;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.health.entity.alipay.PayInfo;
+import com.health.service.PatientService;
+import com.health.service.impl.PatientServiceImpl;
 import com.health.utils.AliPayUtil;
+import com.health.utils.JsonUtil;
 import com.health.utils.WebUtil;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @WebServlet(name = "PayServlet", value = "/pay/goAlipay")
 public class PayServlet extends BaseServlet {
+    private final PatientService patientService = new PatientServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,8 +51,29 @@ public class PayServlet extends BaseServlet {
         Cookie cookie = new Cookie("user", request.getSession().getId());
         cookie.setMaxAge(60 * 60 * 24);
         response.addCookie(cookie);
-        response.getWriter().write(result);
-        response.getWriter().flush();
-        response.getWriter().close();
+        super.response(response, result);
     }
+
+    protected void normalRegistPayRefund(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String tradeNo = request.getParameter("id");
+        String totalAmount = request.getParameter("cost");
+
+        String result = "";
+        result = AliPayUtil.alipayRefund(tradeNo, totalAmount, "不需要了", null);
+        JSONObject jsonObject= JSON.parseObject(result);
+        String code=(String) jsonObject.getJSONObject("alipay_trade_refund_response").get("code");
+
+        Map<String,String> map=new HashMap<>();
+        int num=-1;
+        if("10000".equals(code)){
+            num=patientService.payForNormalRegist(tradeNo, -2);
+        }
+
+        if (num>=1){
+            map.put("result","success");
+        }
+
+        super.response(response, JsonUtil.toJson(map));
+    }
+
 }

@@ -24,6 +24,7 @@ public class NormalRegistRecord extends Page{
     private String sex;
     private Integer age;
     private String orderId;
+    private Integer id;
 
     public NormalRegistRecord() {
     }
@@ -44,12 +45,33 @@ public class NormalRegistRecord extends Page{
         }
     }
 
-    public NormalRegistRecord(Integer patientId, Integer normalId,
-                              BigDecimal cost, String registDate,
-                              String time, String department, String hospital,
-                              String operateTime, Integer payStatus,
+//    public NormalRegistRecord(Integer patientId, Integer normalId,
+//                              BigDecimal cost, String registDate,
+//                              String time, String department, String hospital,
+//                              String operateTime, Integer payStatus,
+//                              String patientName, String phone, String sex,
+//                              Integer age, String orderId) {
+//        this.patientId = patientId;
+//        this.normalId = normalId;
+//        this.cost = cost;
+//        this.registDate = registDate;
+//        this.time = time;
+//        this.department = department;
+//        this.hospital = hospital;
+//        this.operateTime = operateTime;
+//        this.payStatus = payStatus;
+//        this.patientName = patientName;
+//        this.phone = phone;
+//        this.sex = sex;
+//        this.age = age;
+//        this.orderId = orderId;
+//    }
+
+    public NormalRegistRecord(Integer patientId, Integer normalId, BigDecimal cost,
+                              String registDate, String time, String department,
+                              String hospital, String operateTime, Integer payStatus,
                               String patientName, String phone, String sex,
-                              Integer age, String orderId) {
+                              Integer age, String orderId, Integer id) {
         this.patientId = patientId;
         this.normalId = normalId;
         this.cost = cost;
@@ -64,31 +86,8 @@ public class NormalRegistRecord extends Page{
         this.sex = sex;
         this.age = age;
         this.orderId = orderId;
+        this.id = id;
     }
-
-    public NormalRegistRecord(Integer patientId, Integer normalId, BigDecimal cost,
-                              String registDate, String time, String department,
-                              String hospital, String operateTime, Integer payStatus,
-                              String patientName, String phone,
-                              String sex, Integer age) {
-        this.patientId = patientId;
-        this.normalId = normalId;
-        this.cost = cost;
-        this.registDate = registDate;
-        this.time = time;
-        this.department = department;
-        this.hospital = hospital;
-        this.operateTime = operateTime;
-        this.payStatus = payStatus;
-        this.patientName = patientName;
-        this.phone = phone;
-        this.sex = sex;
-        this.age = age;
-    }
-
-
-
-
 
     public Integer getPatientId() {
         return patientId;
@@ -204,6 +203,14 @@ public class NormalRegistRecord extends Page{
         this.orderId = orderId;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "NormalRegistRecord{" +
@@ -220,7 +227,8 @@ public class NormalRegistRecord extends Page{
                 ", phone='" + phone + '\'' +
                 ", sex='" + sex + '\'' +
                 ", age=" + age +
-                ", orderId=" + orderId +
+                ", orderId='" + orderId + '\'' +
+                ", id='" + id + '\'' +
                 '}';
     }
 }

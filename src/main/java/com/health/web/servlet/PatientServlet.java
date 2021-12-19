@@ -11,10 +11,9 @@ package com.health.web.servlet;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.health.entity.Hospital;
-import com.health.entity.NormalRegistInfo;
-import com.health.entity.NormalRegistRecord;
-import com.health.entity.Patient;
+import com.health.entity.*;
+import com.health.entity.response.Code;
+import com.health.entity.response.ResponseResult;
 import com.health.service.PatientService;
 import com.health.service.impl.PatientServiceImpl;
 import com.health.utils.*;
@@ -25,10 +24,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @WebServlet(name = "PatientServlet", value = "/patient/patientServlet")
 public class PatientServlet extends BaseServlet {
@@ -45,35 +41,68 @@ public class PatientServlet extends BaseServlet {
     }
 
     protected void getHospitalName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Hospital> hospitalMao = patientService.getAllHospitalName();
-        String data = JsonUtil.toJson(hospitalMao);
-        System.out.println(data);
-        response.getWriter().write(data);
-        response.getWriter().flush();
-        response.getWriter().close();
+        List<Hospital> hospitalList = patientService.getAllHospitalName();
+        String data = JsonUtil.toJson(hospitalList);
+        ResponseResult<List<Hospital>> result = new ResponseResult<>(Code.SUCCESS, hospitalList);
+        super.response(response, JsonUtil.toJson(result));
     }
 
-    protected void getNormalInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int offset = WebUtil.parseInt(request.getParameter("offset"), 0);
-        int limit = WebUtil.parseInt(request.getParameter("limit"), 5);
+    protected void getNormalDepartment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String hospitalId = request.getParameter("hospitalId");
-        String time = request.getParameter("time");
-        PageHelper<NormalRegistInfo> pageHelper = new PageHelper<>();
-        pageHelper = patientService.getNormalRegistInfoPage(hospitalId, time,
-                WebUtil.dateToStrong(new Date(), WebUtil.DATE), offset, limit);
-        String result = JsonUtil.toJson(pageHelper);
-        System.out.println(result);
-        response.getWriter().write(result);
-        response.getWriter().flush();
-        response.getWriter().close();
+        List<Department> departmentList = patientService.getDepartmentByHospital(hospitalId);
+        ResponseResult<List<Department>> result = new ResponseResult<>(Code.SUCCESS, departmentList);
+
+        super.response(response, JsonUtil.toJson(result));
     }
 
-    protected void getHospitalNormalInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Hospital> hospitalList=patientService.getAllHospitalInfo();
-        String result=JsonUtil.toJson(hospitalList);
-        response.getWriter().write(result);
-        response.getWriter().flush();
-        response.getWriter().close();
+    protected void getHospitalById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String hospitalId = request.getParameter("hospitalId");
+        List<Hospital> hospitalList = new ArrayList<>();
+        if ("all".equals(hospitalId)) {
+            hospitalList = patientService.getAllHospitalInfo();
+        } else {
+            Hospital hospital = patientService.getHospitalById(hospitalId);
+            hospitalList.add(hospital);
+        }
+
+        ResponseResult<List<Hospital>> result = new ResponseResult<>(Code.SUCCESS, hospitalList);
+
+        super.response(response, JsonUtil.toJson(result));
+    }
+
+
+    protected void getNormalDepartmentInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String hospitalId = request.getParameter("hospitalId");
+        String departmentId = request.getParameter("departmentId");
+        String date = request.getParameter("date");
+        String time = request.getParameter("time");
+        System.out.println(date);
+        List<NormalRegistInfo> resultList = patientService.getNormalRegistInfo(hospitalId, departmentId,
+                time, date);
+        ResponseResult<List<NormalRegistInfo>> result = new ResponseResult<>(Code.SUCCESS, resultList);
+
+        super.response(response, JsonUtil.toJson(result));
+    }
+
+    protected void getHospitalAllNormalInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Hospital> hospitalList = patientService.getAllHospitalInfo();
+        ResponseResult<List<Hospital>> result = new ResponseResult<>(Code.SUCCESS, hospitalList);
+
+        super.response(response, JsonUtil.toJson(result));
+    }
+
+    protected void getHospitalForPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int pageNo=WebUtil.parseInt(request.getParameter("pageNo"),1);
+        int pageSize=WebUtil.parseInt(request.getParameter("pageSize"),1);
+        MyPage page= patientService.queryHospitalForPage(pageNo,pageSize);
+        System.out.println(page);
+        ResponseResult<MyPage> result=null;
+        if (page!=null){
+            result=new ResponseResult<>(Code.SUCCESS,page);
+        }else {
+            result=new ResponseResult<>(Code.FAIL,null);
+        }
+        super.response(response,JsonUtil.toJson(result));
 
     }
 
@@ -81,9 +110,7 @@ public class PatientServlet extends BaseServlet {
         String phone = request.getParameter("patientPhone");
         Patient patient = patientService.getPatientByPhone(phone);
 
-        response.getWriter().write(JsonUtil.toJson(patient));
-        response.getWriter().flush();
-        response.getWriter().close();
+        super.response(response, JsonUtil.toJson(patient));
 
     }
 
@@ -101,9 +128,7 @@ public class PatientServlet extends BaseServlet {
         jsonObject.put("resultCode", map.get("code"));
         jsonObject.put("messageCode", code);
 
-        response.getWriter().write(JSONObject.toJSONString(jsonObject));
-        response.getWriter().flush();
-        response.getWriter().close();
+        super.response(response, JSONObject.toJSONString(jsonObject));
     }
 
     protected void confirmNormalRegist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -112,14 +137,15 @@ public class PatientServlet extends BaseServlet {
         Map map = JsonUtil.convertJsonToMap(data);
 
         NormalRegistRecord normalRegistRecord = WebUtil.createBeanByMap(map, new NormalRegistRecord());
-        System.out.println(normalRegistRecord);
 
         boolean flag = patientService.normalRecordIsExisted(
                 normalRegistRecord.getPatientId(),
                 normalRegistRecord.getNormalId());
         Map<String, String> resultMap = new HashMap<>();
+        ResponseResult<String> result;
+
         if (flag) {
-            System.out.println("existed");
+            result = new ResponseResult<>(Code.EXISTED, "existed");
             resultMap.put("result", "existed");
         } else {
             int num = patientService.addNormalRegistRecord(normalRegistRecord);
@@ -129,15 +155,13 @@ public class PatientServlet extends BaseServlet {
             System.out.println(num + "," + decreaseNum);
             if (num != 1 || decreaseNum != 1) {
                 System.out.println("fail");
-                resultMap.put("result", "fail");
+                result = new ResponseResult<>(Code.FAIL, "fail");
             } else {
                 System.out.println("success");
-                resultMap.put("result", "success");
+                result = new ResponseResult<>(Code.SUCCESS, "success");
             }
         }
-        response.getWriter().write(JSON.toJSONString(resultMap));
-        response.getWriter().flush();
-        response.getWriter().close();
+        super.response(response, JsonUtil.toJson(result));
     }
 
     protected void getNormalRegistRecord(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -146,15 +170,61 @@ public class PatientServlet extends BaseServlet {
         int limit = WebUtil.parseInt(request.getParameter("limit"), 5);
         PageHelper<NormalRegistRecord> pageHelper = patientService.getNormalRegistRecordByPhone(phone, offset, limit);
 
-        response.getWriter().write(JSON.toJSONString(pageHelper));
-        response.getWriter().flush();
-        response.getWriter().close();
+        super.response(response, JSON.toJSONString(pageHelper));
     }
 
     protected void deleteNormalRecord(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String patientId=request.getParameter("patientId");
-        String normalId=request.getParameter("normalId");
+        String id = request.getParameter("id");
 
+        int num = patientService.deleteNormalRegistRecord(WebUtil.parseInt(id, 0));
+
+        Map<String, String> map = new HashMap<>();
+        if (num >= 1) {
+            map.put("result", "success");
+        } else {
+            map.put("result", "fail");
+        }
+        super.response(response, JsonUtil.toJson(map));
 
     }
+
+    protected void cancelNormalRegist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String patientId = request.getParameter("patientId");
+        String normalId = request.getParameter("normalId");
+        String id = request.getParameter("id");
+
+        int num = patientService.cancelNormalRegist(WebUtil.parseInt(patientId, 0),
+                WebUtil.parseInt(normalId, 0),
+                WebUtil.parseInt(id, 0));
+
+        Map<String, String> map = new HashMap<>();
+        if (num >= 1) {
+            map.put("result", "success");
+        } else {
+            map.put("result", "fail");
+        }
+        super.response(response, JsonUtil.toJson(map));
+
+    }
+
+    protected void batchDeleteNormalRecord(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String values = request.getParameter("values");
+        JSONArray jsonArray = JSONArray.parseArray(values);
+        int num = 0;
+        for (int i = 0; i < jsonArray.size(); i++) {
+            num += patientService.deleteNormalRegistRecord((Integer) jsonArray.getJSONObject(i).get("id"));
+        }
+        ResponseResult<String> result;
+        System.out.println(num);
+        if (num == jsonArray.size()) {
+            result = new ResponseResult<>(Code.SUCCESS, "删除成功");
+        } else {
+            result = new ResponseResult<>(Code.FAIL, "删除失败");
+        }
+
+        response(response, JsonUtil.toJson(result));
+
+    }
+
+
 }

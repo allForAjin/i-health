@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * @Description TODO
  * @createTime 2021-11-25 18:37:00
  */
-public class NormalRegistInfo extends Page{
+public class NormalRegistInfo {
     private Integer id;
     private Integer hospitalId;
     private String hospitalName;

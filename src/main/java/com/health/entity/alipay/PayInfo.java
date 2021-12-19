@@ -1,4 +1,4 @@
-package com.health.entity;
+package com.health.entity.alipay;
 
 /**
  * @author lmk

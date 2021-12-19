@@ -1,4 +1,5 @@
 var patientObj;
+
 $(function (){
 
     //防止页面后退
@@ -32,6 +33,8 @@ $(function (){
     });
     $("#user-name").text(patientObj.name);
 });
+
+
 
 $(function (){
     $('#info-modal').modal({

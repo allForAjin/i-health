@@ -20,8 +20,8 @@ public class SqlUtil {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/ihealth";
     private static final String USER = "root";
 
-//    private static final String URL = "jdbc:mysql://106.15.50.102:3306/healthtest";
-//    private static final String USER = "healthtest";
+//    private static final String URL = "jdbc:mysql://106.15.50.102:3306/ihealth";
+//    private static final String USER = "ihealth";
 
     private static final String PASSWORD = "165404026lmkaz";
     private static Connection CONN = null;
@@ -64,6 +64,7 @@ public class SqlUtil {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
         closeConnection();
         return list;
@@ -87,8 +88,9 @@ public class SqlUtil {
                 setParams(ps, i + 1, objects[i]);
             }
             num = ps.executeUpdate();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            return -1;
         }
         closeConnection();
         return num;
@@ -113,6 +115,7 @@ public class SqlUtil {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            return -1;
         }
         closeConnection();
         return -1;
@@ -166,6 +169,7 @@ public class SqlUtil {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
         return outputMap;
     }
@@ -186,7 +190,7 @@ public class SqlUtil {
                 setParams(ps, i + 1, objects[i]);
             }
             return ps.executeQuery();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }

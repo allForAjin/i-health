@@ -30,4 +30,31 @@ public interface HospitalDao {
      * @Date 2021/12/3 14:41
      */
     public List<Hospital> getAllHospitalInfo();
+
+    /**
+     * 通过id获取医院信息
+     * @author lmk
+     * @Date 2021/12/5 0:01
+     * @param hospitalId 医院id
+     * @return com.health.entity.Hospital
+     */
+    public Hospital getHospitalById(Integer hospitalId);
+
+    /**
+     * 医院信息分页
+     * @author lmk
+     * @Date 2021/12/17 18:28
+     * @param begin 当前页起始索引
+     * @param pageSize 当前页码
+     * @return java.util.List<com.health.entity.Hospital> null表示失败，反之成功
+     */
+    public List<Hospital> queryHospitalForPage(int begin,int pageSize);
+
+    /**
+     * 查询医院数量
+     * @author lmk
+     * @Date 2021/12/17 18:42
+     * @return int -1表示失败
+     */
+    public int queryForHospitalCount();
 }

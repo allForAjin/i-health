@@ -7,6 +7,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -137,6 +138,20 @@ public class WebUtil {
             ip = request.getRemoteAddr();
         }
         return "0:0:0:0:0:0:0:1".equals(ip) ? "127.0.0.1" : ip;
+    }
+
+    public static String getDateBefore(Date date,int day){
+        Calendar now=Calendar.getInstance();
+        now.setTime(date);
+        now.set(Calendar.DATE,now.get(Calendar.DATE)-day);
+        return WebUtil.dateToStrong(now.getTime(),WebUtil.DATE);
+    }
+
+    public static String getDateAfter(Date date,int day){
+        Calendar now =Calendar.getInstance();
+        now.setTime(date);
+        now.set(Calendar.DATE,now.get(Calendar.DATE)+day);
+        return WebUtil.dateToStrong(now.getTime(),WebUtil.DATE);
     }
 
 }
