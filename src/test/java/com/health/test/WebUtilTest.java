@@ -32,17 +32,17 @@ class WebUtilTest {
     @Test
     void date() {
         //System.out.println(WebUtil.dateToStrong(new Date()));
-        String str = "2021-11-29";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            Date date = simpleDateFormat.parse(str);
-            System.out.println(date.getTime() > new Date().getTime());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println();
-
+//        String str = "2021-11-29";
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        try {
+//            Date date = simpleDateFormat.parse(str);
+//            System.out.println(date.getTime() > new Date().getTime());
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//
+//        System.out.println();
+        System.out.println(WebUtil.getWeekOfDate("2021-12-22"));
     }
 
 }

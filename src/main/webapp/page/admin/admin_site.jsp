@@ -22,7 +22,7 @@
                         <li class="active"><a href="page/admin/admin_site.jsp">首页</a></li>
                         <li><a href="page/admin/visitor.jsp">访客记录</a></li>
                         <li><a href="page/admin/patient_manager.jsp">患者信息管理</a></li>
-                        <li><a href="#">导航3</a></li>
+                        <li><a href="page/admin/normal_manager.jsp">普通门诊管理</a></li>
                         <li><a href="#">导航4</a></li>
                     </ul>
                 </nav>
@@ -49,7 +49,7 @@
                                         用户总数
                                     </p>
                                     <div class="li-val">
-                                        <a href="" class="li-link" id="total">10</a>
+                                        <a href="page/admin/admin_site.jsp" class="li-link" id="total">10</a>
                                     </div>
                                 </li>
                                 <li class="li-box col-xs-4 col-sm-4 col-md-4 col-lg-3">
@@ -57,7 +57,7 @@
                                         在线用户
                                     </p>
                                     <div class="li-val">
-                                        <a href="" class="li-link" id="online">10</a>
+                                        <a href="page/admin/admin_site.jsp" class="li-link" id="online">10</a>
                                     </div>
                                 </li>
                                 <li class="li-box col-xs-4 col-sm-4 col-md-4 col-lg-3"></li>
@@ -67,14 +67,11 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 
 
 </body>
     <%@include file="/page/common/foot.jsp"%>
-    <%@include file="/page/common/logout.jsp"%>
     <%@include file="/page/common/admin_common.jsp" %>
 </html>

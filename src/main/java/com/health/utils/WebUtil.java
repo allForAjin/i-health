@@ -154,4 +154,23 @@ public class WebUtil {
         return WebUtil.dateToStrong(now.getTime(),WebUtil.DATE);
     }
 
+    public static String getWeekOfDate(String dateStr){
+        String[] weekDays = {"周日", "周一", "周二", "周三", "周四", "周五", "周六"};
+        Calendar calendar=Calendar.getInstance();
+        SimpleDateFormat format=new SimpleDateFormat(WebUtil.DATE);
+        Date date= null;
+        try {
+            date = format.parse(dateStr);
+        } catch (ParseException e) {
+            date=new Date();
+            e.printStackTrace();
+        }
+        calendar.setTime(date);
+        int week=calendar.get(Calendar.DAY_OF_WEEK)-1;
+        if (week<0){
+            week=0;
+        }
+        return weekDays[week];
+    }
+
 }

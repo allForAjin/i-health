@@ -23,8 +23,8 @@
                         </div>
                         <ul class="nav nav-pills nav-stacked ul-menu">
                             <li><a href="page/patient/patient_site.jsp">首页</a></li>
-                            <li><a href="page/patient/day_registration.jsp">当日挂号</a></li>
-                            <li class="active"><a href="page/patient/regist_record.jsp">预约-挂号记录</a></li>
+                            <li><a href="page/patient/day_registration.jsp">预约挂号</a></li>
+                            <li class="active"><a href="page/patient/regist_record.jsp">预约记录</a></li>
                             <li><a href="#">导航3</a></li>
                             <li><a href="#">导航4</a></li>
                         </ul>
@@ -37,7 +37,7 @@
                         <div class="index-pos-box nav-path">
                             <ol class="breadcrumb ol-path">
                                 <li><a href="page/patient/patient_site.jsp">首页</a></li>
-                                <li class="active">预约-挂号记录</li>
+                                <li class="active">预约记录</li>
                             </ol>
                             <%@include file="/page/common/welcome.jsp" %>
                         </div>
@@ -45,22 +45,12 @@
                         <div class="show-box ">
                             <div class="box-header">
                                 <div class="regist-title">
-                                    <h3>挂号记录</h3>
+                                    <h3>普通门诊预约记录</h3>
                                 </div>
                                 <div class="regist-query">
                                     <div class="btn-div">
                                         <button type="button" class="btn btn-danger" id="delete-btn">批量删除</button>
                                     </div>
-                                    <%--<div class="query-selector">--%>
-                                    <%--    <select class="selectpicker show-tick form-control"--%>
-                                    <%--            data-live-search="true" data-live-search-placeholder="搜索"--%>
-                                    <%--            id="hospital">--%>
-                                    <%--    </select>--%>
-                                    <%--</div>--%>
-                                    
-                                    
-                                    <%--<button type="button" class="btn btn-primary" id="query-btn">查询</button>--%>
-                                    <%--<button type="button" class="btn btn-success" id="all-btn">显示全部</button>--%>
                                 </div>
                             </div>
                             
@@ -69,6 +59,26 @@
                                 <table class="table table-hover table-no-bordered" id="registrecord-table">
                                 </table>
                             
+                            </div>
+                        </div>
+    
+                        <div class="show-box ">
+                            <div class="box-header">
+                                <div class="regist-title">
+                                    <h3>专家门诊预约记录</h3>
+                                </div>
+                                <div class="regist-query">
+                                    <div class="btn-div">
+                                        <button type="button" class="btn btn-danger" id="delete_expert-btn">批量删除</button>
+                                    </div>
+                                </div>
+                            </div>
+        
+        
+                            <div class="table-div">
+                                <table class="table table-hover table-no-bordered" id="expertRecord-table">
+                                </table>
+        
                             </div>
                         </div>
                         <div class="bottom">
@@ -181,7 +191,6 @@
         </div>
     </body>
     <%@include file="/page/common/foot.jsp" %>
-    <%@include file="/page/common/logout.jsp" %>
     <%@include file="/page/common/patient_common.jsp" %>
     <script src="static/js/patient/record.js"></script>
 </html>

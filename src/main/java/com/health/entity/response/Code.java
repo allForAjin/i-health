@@ -15,7 +15,8 @@ public enum Code {
      */
     SUCCESS(10000, "操作成功"),
     FAIL(20000, "操作失败"),
-    EXISTED(30000, "资源已存在");
+    EXISTED(30000, "资源已存在"),
+    OVER(40000,"资源已过期");
 
     private Integer code;
     private String message;

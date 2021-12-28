@@ -29,6 +29,7 @@ import java.util.*;
 @WebServlet(name = "PatientServlet", value = "/patient/patientServlet")
 public class PatientServlet extends BaseServlet {
     private final PatientService patientService = new PatientServiceImpl();
+    private final Timer timer = new Timer();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -76,9 +77,9 @@ public class PatientServlet extends BaseServlet {
         String departmentId = request.getParameter("departmentId");
         String date = request.getParameter("date");
         String time = request.getParameter("time");
-        System.out.println(date);
         List<NormalRegistInfo> resultList = patientService.getNormalRegistInfo(hospitalId, departmentId,
                 time, date);
+        System.out.println(resultList);
         ResponseResult<List<NormalRegistInfo>> result = new ResponseResult<>(Code.SUCCESS, resultList);
 
         super.response(response, JsonUtil.toJson(result));
@@ -92,21 +93,21 @@ public class PatientServlet extends BaseServlet {
     }
 
     protected void getHospitalForPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int pageNo=WebUtil.parseInt(request.getParameter("pageNo"),1);
-        int pageSize=WebUtil.parseInt(request.getParameter("pageSize"),1);
-        MyPage page= patientService.queryHospitalForPage(pageNo,pageSize);
+        int pageNo = WebUtil.parseInt(request.getParameter("pageNo"), 1);
+        int pageSize = WebUtil.parseInt(request.getParameter("pageSize"), 1);
+        MyPage page = patientService.queryHospitalForPage(pageNo, pageSize);
         System.out.println(page);
-        ResponseResult<MyPage> result=null;
-        if (page!=null){
-            result=new ResponseResult<>(Code.SUCCESS,page);
-        }else {
-            result=new ResponseResult<>(Code.FAIL,null);
+        ResponseResult<MyPage> result = null;
+        if (page != null) {
+            result = new ResponseResult<>(Code.SUCCESS, page);
+        } else {
+            result = new ResponseResult<>(Code.FAIL, null);
         }
-        super.response(response,JsonUtil.toJson(result));
+        super.response(response, JsonUtil.toJson(result));
 
     }
 
-        protected void getPersonInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void getPersonInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String phone = request.getParameter("patientPhone");
         Patient patient = patientService.getPatientByPhone(phone);
 
@@ -124,6 +125,16 @@ public class PatientServlet extends BaseServlet {
         HttpSession session = request.getSession();
         session.setAttribute("messageCode", code);
 
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                session.removeAttribute("messageCode");
+                System.out.println("验证码session删除成功！");
+                timer.cancel();
+            }
+
+        }, 1000 * 60 * 5);
+
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("resultCode", map.get("code"));
         jsonObject.put("messageCode", code);
@@ -131,9 +142,60 @@ public class PatientServlet extends BaseServlet {
         super.response(response, JSONObject.toJSONString(jsonObject));
     }
 
+    /**
+     * 判断验证码是否正确
+     *
+     * @param code        前端回传验证码
+     * @param correctCode 正确验证码
+     * @param request     请求
+     * @param response    响应
+     * @return boolean
+     * @author lmk
+     * @Date 2021/12/27 16:19
+     */
+    private boolean messageCodeIsCorrected(String code, String correctCode, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ResponseResult<String> result = null;
+        System.out.println("code:"+code+",correctCode:"+correctCode);
+        if (correctCode != null) {
+            if (!correctCode.equals(code)) {
+                result = new ResponseResult<>(Code.FAIL, "验证码错误！");
+                super.response(response, JsonUtil.toJson(result));
+                return false;
+            } else {
+                request.getSession().removeAttribute("messageCode");
+                return true;
+            }
+        } else {
+            result = new ResponseResult<>(Code.OVER, "验证码已过期！");
+            super.response(response, JsonUtil.toJson(result));
+            return false;
+        }
+    }
+
+    /**
+     * 功能描述
+     *
+     * @param request
+     * @param response
+     * @return void
+     * @author lmk
+     * @Date 2021/12/27 16:45
+     */
     protected void confirmNormalRegist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String code = request.getParameter("code");
+        String correctCode = (String) request.getSession().getAttribute("messageCode");
+        ResponseResult<String> result = null;
+        if (!messageCodeIsCorrected(code, correctCode, request, response)) {
+            return;
+        }
+
         String data = request.getParameter("confirmData");
         Integer remain = WebUtil.parseInt(request.getParameter("remain"), 0);
+        if (remain<=0){
+            result=new ResponseResult<>(Code.FAIL,"无号");
+            super.response(response, JsonUtil.toJson(result));
+            return;
+        }
         Map map = JsonUtil.convertJsonToMap(data);
 
         NormalRegistRecord normalRegistRecord = WebUtil.createBeanByMap(map, new NormalRegistRecord());
@@ -141,12 +203,9 @@ public class PatientServlet extends BaseServlet {
         boolean flag = patientService.normalRecordIsExisted(
                 normalRegistRecord.getPatientId(),
                 normalRegistRecord.getNormalId());
-        Map<String, String> resultMap = new HashMap<>();
-        ResponseResult<String> result;
-
+        System.out.println(flag);
         if (flag) {
             result = new ResponseResult<>(Code.EXISTED, "existed");
-            resultMap.put("result", "existed");
         } else {
             int num = patientService.addNormalRegistRecord(normalRegistRecord);
             int decreaseNum = patientService.decreaseNormalRemain(
@@ -164,6 +223,64 @@ public class PatientServlet extends BaseServlet {
         super.response(response, JsonUtil.toJson(result));
     }
 
+    /**
+     * 功能描述
+     *
+     * @param request
+     * @param response
+     * @return void
+     * @author lmk
+     * @Date 2021/12/27 16:46
+     */
+    protected void confirmExpertRegist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String code = request.getParameter("code");
+        String correctCode = (String) request.getSession().getAttribute("messageCode");
+        ResponseResult<String> result = null;
+        if (!messageCodeIsCorrected(code, correctCode, request, response)) {
+            return;
+        }
+
+
+        String data = request.getParameter("confirmData");
+        Integer remain = WebUtil.parseInt(request.getParameter("remain"), 0);
+        if (remain<=0){
+            result=new ResponseResult<>(Code.FAIL,"缺少号量！");
+            super.response(response, JsonUtil.toJson(result));
+            return;
+        }
+        Map map = JsonUtil.convertJsonToMap(data);
+
+        ExpertRegistRecord registRecord = WebUtil.createBeanByMap(map, new ExpertRegistRecord());
+
+        boolean flag = patientService.expertRecordIsExisted(
+                registRecord.getPatientId(),
+                registRecord.getExpertId());
+        System.out.println(flag);
+        if (flag) {
+            result = new ResponseResult<>(Code.EXISTED, "existed");
+        } else {
+            int num = patientService.addExpertRegistInfo(registRecord);
+            int decreaseNum = patientService.decreaseExpertRegistRecord(registRecord.getExpertId());
+            if (num != 1 || decreaseNum != 1) {
+                System.out.println("fail");
+                result = new ResponseResult<>(Code.FAIL, "fail");
+            } else {
+                System.out.println("success");
+                result = new ResponseResult<>(Code.SUCCESS, "success");
+            }
+        }
+        super.response(response, JsonUtil.toJson(result));
+    }
+
+    /**
+     * 功能描述
+     *
+     * @param request
+     * @param response
+     * @return void
+     * @author lmk
+     * @Date 2021/12/27 16:46
+     */
     protected void getNormalRegistRecord(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String phone = request.getParameter("phone");
         int offset = WebUtil.parseInt(request.getParameter("offset"), 0);
@@ -173,6 +290,19 @@ public class PatientServlet extends BaseServlet {
         super.response(response, JSON.toJSONString(pageHelper));
     }
 
+    protected void getExpertRegistRecord(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+        /**
+         * 功能描述
+         *
+         * @param request
+         * @param response
+         * @return void
+         * @author lmk
+         * @Date 2021/12/27 16:46
+         */
     protected void deleteNormalRecord(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
 
@@ -188,6 +318,15 @@ public class PatientServlet extends BaseServlet {
 
     }
 
+    /**
+     * 功能描述
+     *
+     * @param request
+     * @param response
+     * @return void
+     * @author lmk
+     * @Date 2021/12/27 16:46
+     */
     protected void cancelNormalRegist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String patientId = request.getParameter("patientId");
         String normalId = request.getParameter("normalId");
@@ -207,6 +346,15 @@ public class PatientServlet extends BaseServlet {
 
     }
 
+    /**
+     * 功能描述
+     *
+     * @param request
+     * @param response
+     * @return void
+     * @author lmk
+     * @Date 2021/12/27 16:46
+     */
     protected void batchDeleteNormalRecord(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String values = request.getParameter("values");
         JSONArray jsonArray = JSONArray.parseArray(values);
@@ -222,9 +370,52 @@ public class PatientServlet extends BaseServlet {
             result = new ResponseResult<>(Code.FAIL, "删除失败");
         }
 
-        response(response, JsonUtil.toJson(result));
+        super.response(response, JsonUtil.toJson(result));
 
     }
 
+    /**
+     * 功能描述
+     *
+     * @param request
+     * @param response
+     * @return void
+     * @author lmk
+     * @Date 2021/12/27 16:46
+     */
+    protected void getExpertByDepartment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String departmentId = request.getParameter("departmentId");
+        List<Expert> expertList = patientService.getExpertInfoByDepartment(departmentId);
+        ResponseResult<List<Expert>> result = null;
+        if (expertList.size() != 0) {
+            result = new ResponseResult<>(Code.SUCCESS, expertList);
+        } else {
+            result = new ResponseResult<>(Code.FAIL, null);
+        }
+        super.response(response, JsonUtil.toJson(result));
+    }
+
+    /**
+     * 功能描述
+     *
+     * @param request
+     * @param response
+     * @return void
+     * @author lmk
+     * @Date 2021/12/27 16:46
+     */
+    protected void getExpertRegistInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String doctorId = request.getParameter("id");
+        String date = request.getParameter("date");
+        String time = request.getParameter("time");
+        List<ExpertRegistInfo> expertRegistInfoList = patientService.getExpertRegistInfo(doctorId, date, time);
+        ResponseResult<List<ExpertRegistInfo>> result = null;
+        if (expertRegistInfoList.size() != 0) {
+            result = new ResponseResult<>(Code.SUCCESS, expertRegistInfoList);
+        } else {
+            result = new ResponseResult<>(Code.FAIL, null);
+        }
+        super.response(response, JsonUtil.toJson(result));
+    }
 
 }

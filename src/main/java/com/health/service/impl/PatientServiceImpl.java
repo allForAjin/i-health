@@ -1,16 +1,11 @@
 package com.health.service.impl;
 
-import com.health.dao.DepartmentDao;
-import com.health.dao.HospitalDao;
-import com.health.dao.NormalDao;
-import com.health.dao.PatientDao;
-import com.health.dao.impl.DepartmentDaoImpl;
-import com.health.dao.impl.HospitalDaoImpl;
-import com.health.dao.impl.NormalDaoImpl;
-import com.health.dao.impl.PatientDaoImpl;
+import com.health.dao.*;
+import com.health.dao.impl.*;
 import com.health.entity.*;
 import com.health.entity.alipay.AlipayConfig;
 import com.health.service.PatientService;
+import com.health.utils.AliPayUtil;
 import com.health.utils.PageHelper;
 import com.health.utils.WebUtil;
 
@@ -28,6 +23,7 @@ public class PatientServiceImpl implements PatientService {
     private final PatientDao patientDao = new PatientDaoImpl();
     private final HospitalDao hospitalDao = new HospitalDaoImpl();
     private final NormalDao normalDao = new NormalDaoImpl();
+    private final ExpertDao expertDao = new ExpertDaoImpl();
     private final DepartmentDao departmentDao = new DepartmentDaoImpl();
 
     @Override
@@ -79,10 +75,18 @@ public class PatientServiceImpl implements PatientService {
             time = "下午";
         }
 
-        if (date==null||"".equals(date)){
-            date=WebUtil.dateToStrong(new Date(),WebUtil.DATE);
+        if (date == null || "".equals(date)) {
+            date = WebUtil.dateToStrong(new Date(), WebUtil.DATE);
+        }
+        if ("all".equals(date)) {
+            date = "";
         }
         List<NormalRegistInfo> list = normalDao.getNormalRegistInfo(hospitalId, departmentId, time, date);
+        for (NormalRegistInfo normalRegistInfo : list) {
+            String dateStr = normalRegistInfo.getRegistDate();
+            dateStr += WebUtil.getWeekOfDate(dateStr);
+            normalRegistInfo.setRegistDate(dateStr);
+        }
         return list;
     }
 
@@ -106,8 +110,7 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public boolean normalRecordIsExisted(Integer patientId, Integer normalId) {
-        String date = WebUtil.dateToStrong(new Date(), WebUtil.DATE);
-        return normalDao.normalRecordIsExisted(patientId, normalId, date);
+        return normalDao.normalRecordIsExisted(patientId, normalId);
     }
 
     @Override
@@ -139,5 +142,45 @@ public class PatientServiceImpl implements PatientService {
             return normalDao.addNormalRemain(normalId);
         }
         return 0;
+    }
+
+    @Override
+    public List<Expert> getExpertInfoByDepartment(String departmentId) {
+        return expertDao.getExpertInfoByDepartment(departmentId);
+    }
+
+    @Override
+    public List<ExpertRegistInfo> getExpertRegistInfo(String doctorId, String registDate, String time) {
+        if (registDate == null || registDate == "") {
+            registDate = WebUtil.dateToStrong(new Date(), WebUtil.DATE);
+        }
+        if ("morning".equals(time)) {
+            time = "上午";
+        } else if ("afternoon".equals(time)) {
+            time = "下午";
+        }
+
+        return expertDao.queryExpertRegistInfo(doctorId, registDate, time);
+    }
+
+    @Override
+    public boolean expertRecordIsExisted(Integer patientId, Integer expertId) {
+        int num = expertDao.expertRegistRecordIsExisted(String.valueOf(patientId), String.valueOf(expertId));
+        if (num > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int addExpertRegistInfo(ExpertRegistRecord record) {
+        record.setOrderId(AlipayConfig.createOrderId());
+        record.setOperateTime(WebUtil.dateToStrong(new Date(), WebUtil.DATETIME));
+        return expertDao.insertExpertRegistRecord(record);
+    }
+
+    @Override
+    public int decreaseExpertRegistRecord(Integer expertId) {
+        return expertDao.decreaseExpertRegistRemain(String.valueOf(expertId));
     }
 }

@@ -1,6 +1,7 @@
 package com.health.dao;
 
 import com.health.entity.Admin;
+import com.health.entity.NormalRegistInfo;
 import com.health.entity.OperateRecord;
 import com.health.entity.Patient;
 
@@ -107,19 +108,65 @@ public interface AdminDao {
 
     /**
      * 插入患者
-     * @author lmk
-     * @Date 2021/12/16 19:53
+     *
      * @param patient 待插入的患者
      * @return int 大于等于1为成功，反之失败
+     * @author lmk
+     * @Date 2021/12/16 19:53
      */
     public int insertPatient(Patient patient);
 
     /**
      * 通过患者的账号（手机号）获取患者数量
-     * @author lmk
-     * @Date 2021/12/16 20:14
+     *
      * @param phone 患者账号（手机号）
      * @return int
+     * @author lmk
+     * @Date 2021/12/16 20:14
      */
     public int queryUserCountByPhone(String phone);
+
+    /**
+     * 通过挂号日期查询门诊数量
+     *
+     * @param date 挂号日期
+     * @return int 查询到的数量
+     * @author lmk
+     * @Date 2021/12/19 17:51
+     */
+    public int queryNormalCountByDate(String date);
+
+    /**
+     * 获取门诊号源信息
+     *
+     * @param hospitalName 医院名
+     * @param level        医院等级
+     * @param date         就诊日期
+     * @param begin        sql语句起始索引
+     * @param limit        就诊日期
+     * @return java.util.List<com.health.entity.NormalRegistInfo> 获取到的信息，null表示失败或没有信息
+     * @author lmk
+     * @Date 2021/12/19 22:57
+     */
+    public List<NormalRegistInfo> getNormalInfo(String hospitalName, String level, String date, int begin, int limit);
+
+    /**
+     * 获取普通门诊信息数量
+     *
+     * @param hospitalName 医院名
+     * @param level        医院等级
+     * @param date         就诊日期
+     * @return int -1表示失败
+     * @author lmk
+     * @Date 2021/12/20 12:47
+     */
+    public int getNormalInfoCount(String hospitalName, String level, String date);
+
+    /**
+     * 删除今日前的门诊记录
+     * @author lmk
+     * @Date 2021/12/22 20:53
+     * @return int 删除的数量
+     */
+    public int deleteNormalInfoByDate();
 }

@@ -3,11 +3,9 @@ package com.health.service.impl;
 import com.health.dao.AdminDao;
 import com.health.dao.NormalDao;
 import com.health.dao.impl.AdminDaoImpl;
+import com.health.dao.impl.DepartmentDaoImpl;
 import com.health.dao.impl.NormalDaoImpl;
-import com.health.entity.Admin;
-import com.health.entity.OperateRecord;
-import com.health.entity.Patient;
-import com.health.entity.User;
+import com.health.entity.*;
 import com.health.service.AdminService;
 import com.health.utils.PageHelper;
 import com.health.utils.WebUtil;
@@ -100,11 +98,54 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public boolean userIsExisted(String phone) {
-        int num=adminDao.queryUserCountByPhone(phone);
-        if (num>=1){
+        int num = adminDao.queryUserCountByPhone(phone);
+        if (num >= 1) {
             LOGGER.warn("用户已存在！");
             return true;
         }
         return false;
+    }
+
+    @Override
+    public int addNormalRegistEveryday() {
+        int departmentCount = new DepartmentDaoImpl().getDepartmentCount();
+        String addDate = WebUtil.getDateAfter(new Date(), 7);
+        String week = WebUtil.getWeekOfDate(addDate);
+        int normalCount = adminDao.queryNormalCountByDate(addDate);
+        if (normalCount > 0) {
+            System.out.println("已有" + addDate + "数据，无需添加！");
+            return -1;
+        }
+        int num = 0;
+        for (int i = 1; i <= departmentCount; i++) {
+            int totalMorning = (int) ((Math.random() * 50) + 50);
+            int totalAfternoon = (int) ((Math.random() * 50) + 50);
+            if ("周日".equals(week)) {
+                System.out.println("周日！");
+                totalMorning=-1;
+                totalAfternoon=-1;
+            }
+            Normal normal = new Normal(null, i, totalMorning, totalMorning, addDate, "上午");
+            Normal normal1 = new Normal(null, i, totalAfternoon, totalAfternoon, addDate, "下午");
+            num += normalDao.addNormalInfo(normal);
+            if ("周六".equals(week)){
+                normal1.setTotal(-1);
+                normal1.setRemain(-1);
+            }
+            num += normalDao.addNormalInfo(normal1);
+        }
+        return num;
+    }
+
+    @Override
+    public PageHelper<NormalRegistInfo> getNormalInfo(String hospitalName, String level, String date, int begin, int limit) {
+        int count = adminDao.getNormalInfoCount(hospitalName, level, date);
+        List<NormalRegistInfo> data = adminDao.getNormalInfo(hospitalName, level, date, begin, limit);
+        return new PageHelper<>(data, count);
+    }
+
+    @Override
+    public int deleteNormalInfoByDate() {
+        return adminDao.deleteNormalInfoByDate();
     }
 }

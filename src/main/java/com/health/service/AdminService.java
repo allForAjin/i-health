@@ -1,6 +1,7 @@
 package com.health.service;
 
 import com.health.entity.Admin;
+import com.health.entity.NormalRegistInfo;
 import com.health.entity.OperateRecord;
 import com.health.entity.Patient;
 import com.health.utils.PageHelper;
@@ -116,11 +117,43 @@ public interface AdminService {
 
     /**
      * 查询用户名是否已存在
-     * @author lmk
-     * @Date 2021/12/16 20:22
+     *
      * @param phone 用户账号（手机号）
      * @return boolean
+     * @author lmk
+     * @Date 2021/12/16 20:22
      */
     public boolean userIsExisted(String phone);
+
+    /**
+     * 每日添加门诊号量
+     *
+     * @return int
+     * @author lmk
+     * @Date 2021/12/19 17:28
+     */
+    public int addNormalRegistEveryday();
+
+    /**
+     * 获取门诊号源信息
+     *
+     * @param hospitalName 医院名
+     * @param level        医院等级
+     * @param date         就诊日期
+     * @param begin        sql语句起始索引
+     * @param limit        就诊日期
+     * @return com.health.utils.PageHelper<com.health.entity.NormalRegistInfo> 分页信息
+     * @author lmk
+     * @Date 2021/12/20 12:52
+     */
+    public PageHelper<NormalRegistInfo> getNormalInfo(String hospitalName, String level, String date, int begin, int limit);
+
+    /**
+     * 删除今日前的门诊记录
+     * @author lmk
+     * @Date 2021/12/22 20:53
+     * @return int 删除的数量
+     */
+    public int deleteNormalInfoByDate();
 
 }

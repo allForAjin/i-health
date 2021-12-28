@@ -14,7 +14,11 @@ a:hover {
     text-decoration: none;
 }
 
-.bgf{
+a:focus {
+    text-decoration: none;
+}
+
+.bgf {
     background-color: #fff;
 }
 
@@ -23,6 +27,19 @@ body, html {
     height: 100%;
     background-color: #f2f2f2;
 }
+
+body {
+    line-height: 1.4;
+    color: #333;
+    font-family: PingFangSC-Regular, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 12px
+}
+
+body {
+    min-width: 1116px;
+    min-height: 1000px;
+}
+
 
 #user-phone {
     display: none;
@@ -197,12 +214,21 @@ li {
 
 
 .show-box,
-.admin-view {
+.admin-view,
+.hospital-header {
     margin-top: 30px;
     height: auto;
     background-color: #fff;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
     padding: 10px 30px;
+}
+
+.hospital-header {
+    padding: 20px 30px;
+}
+
+#department-box {
+    display: none;
 }
 
 .admin-view {
@@ -265,7 +291,7 @@ li {
     display: inline-block;
 }
 
-.show-box .regist-title {
+.regist-title {
     display: inline-block;
 }
 
@@ -545,12 +571,14 @@ input[type='checkbox'] {
     overflow-y: hidden;
 }
 
-#identify {
+#identify,
+#identify_expert {
     display: inline-block;
     width: 69%;
 }
 
-#get-identify {
+#get-identify,
+#get_identify_expert {
     width: 30%;
 }
 
@@ -581,16 +609,16 @@ a :focus {
     width: 30%;
 }
 
-.border{
+.border {
     padding-bottom: 8px;
     border-bottom: 1px solid #ededed;
 }
 
-.date-container{
+.date-container {
     display: flex;
 }
 
-.time-picker{
+.time-picker {
     padding: 10px;
 }
 
@@ -601,7 +629,7 @@ a :focus {
 
 }
 
-.date-picker{
+.date-picker {
     display: inline-block;
     /*width: 50%;*/
 }
@@ -626,6 +654,10 @@ a :focus {
     width: 250px;
 }
 
-.input-group-addon{
+.input-group-addon {
     cursor: pointer;
+}
+
+.modal-input {
+    margin-bottom: 10px;
 }

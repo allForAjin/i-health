@@ -112,6 +112,112 @@ function registRecordTableInit() {
     });
 }
 
+function expertRecordTableInit() {
+    $("#expertRecord-table").bootstrapTable({
+        pagination: true, //显示分页条
+        pageNumber: 1, //初始加载第一页
+        pageSize: 5,   //一页显示的行数
+        paginationLoop: false, //不开启分页条无限循环
+        pageList: [5],  //选择每页显示多少行
+        url: 'patient/patientServlet',
+        method: 'post',
+        contentType: "application/x-www-form-urlencoded; charset=UTF-8",//以key-value形式传参
+        sidePagination: 'server',//server:服务器端分页|client：前端分页
+        uniqueId: 'expertId',
+        queryParams: function (params) {
+            //上传服务器的参数
+            return {
+                limit: params.limit, // 每页显示数量
+                offset: params.offset, // SQL语句起始索引
+                // page : (params.offset / params.limit) + 1, //当前页码
+                action: 'getExpertRegistRecord',
+                phone: patientObj.phone,
+
+            };
+        },
+        onCheckAll: function () {
+            expertDeleteBtnSetting();
+        },
+        onCheck: function () {
+            expertDeleteBtnSetting();
+        },
+        onUncheck: function () {
+            expertDeleteBtnSetting();
+        },
+        onUncheckAll: function () {
+            expertDeleteBtnSetting();
+        },
+        columns: [{
+            checkbox: true,
+            formatter: function (value, row, index) {
+                expertDeleteBtnSetting();
+                if (row.payStatus == 0 || row.payStatus == 1) {
+                    return {
+                        disabled: true
+                    }
+                }
+            }
+        }, {
+            title: '就诊人',
+            field: 'patientName',
+        }, {
+            title: '性别',
+            field: 'sex',
+        }, {
+            title: '年龄',
+            field: 'age',
+        }, {
+            title: '医院',
+            field: 'hospital',
+        }, {
+            title: '科室',
+            field: 'department',
+        }, {
+            title: '专家',
+            field: 'expertName'
+        },{
+            title: '就诊日期',
+            field: 'registDate',
+        }, {
+            title: '就诊时间段',
+            field: 'time',
+        }, {
+            title: '挂号费(元)',
+            field: 'cost',
+        }, {
+            title: '支付状态',
+            field: 'payStatus',
+            formatter: payStatusSetting,
+        }, {
+            title: '挂号时间',
+            field: 'operateTime',
+        }, {
+            title: '操作',
+            field: 'operation',
+            formatter: registRecordTableOperation,
+        }, {
+            title: '患者id',
+            field: 'patientId',
+            visible: false
+        }, {
+            title: '挂号id',
+            field: 'expertId',
+            visible: false
+        }, {
+            title: '订单号',
+            field: 'orderId',
+            visible: false
+        }, {
+            title: '记录号',
+            field: 'id',
+            visible: false
+        }],
+        onLoadSuccess: function () {
+        }
+
+    });
+}
+
 /**
  * 通过判断status值以显示相应的信息
  * @param value
@@ -147,7 +253,7 @@ function registRecordTableOperation(value, row, index) {
 }
 
 /**
- * 支付订单
+ * 普通门诊支付订单
  * @param id 订单id号
  */
 function payForRegist(id) {
@@ -163,6 +269,10 @@ function payForRegist(id) {
 
 }
 
+/**
+ * 普通门诊退款
+ * @param id
+ */
 function openRefundModal(id) {
     var row = $("#registrecord-table").bootstrapTable('getRowByUniqueId', id);
     $("#hospital-name-refund").val(row.hospital);
@@ -173,8 +283,6 @@ function openRefundModal(id) {
     $("#patientName-refund").val(patientObj.name);
     $("#phone-refund").val(patientObj.phone);
     $("#cost-refund").val(row.cost);
-
-
 }
 
 function normalRegistRefund() {
@@ -312,6 +420,15 @@ function deleteBtnSetting() {
         $("#delete-btn").prop("disabled", true);
     } else {
         $("#delete-btn").prop("disabled", false);
+    }
+}
+
+function expertDeleteBtnSetting() {
+    const checkedBox = $("#expertRecord-table").bootstrapTable('getSelections');
+    if (checkedBox.length <= 0) {
+        $("#delete_expert-btn").prop("disabled", true);
+    } else {
+        $("#delete_expert-btn").prop("disabled", false);
     }
 }
 

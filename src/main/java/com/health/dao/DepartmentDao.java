@@ -21,5 +21,12 @@ public interface DepartmentDao {
      */
     public List<Department> getDepartmentByHospital(String hospitalId);
 
+    /**
+     * 获取科室数量
+     * @author lmk
+     * @Date 2021/12/19 17:26
+     * @return int 科室数量
+     */
+    public int getDepartmentCount();
 
 }

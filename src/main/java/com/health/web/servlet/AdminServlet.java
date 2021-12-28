@@ -2,10 +2,7 @@ package com.health.web.servlet;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.health.entity.Admin;
-import com.health.entity.OperateRecord;
-import com.health.entity.Page;
-import com.health.entity.Patient;
+import com.health.entity.*;
 import com.health.entity.response.Code;
 import com.health.entity.response.ResponseResult;
 import com.health.service.AdminService;
@@ -22,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -133,11 +131,12 @@ public class AdminServlet extends BaseServlet {
 
     /**
      * 添加患者
-     * @author lmk
-     * @Date 2021/12/16 20:26
-     * @param request 请求
+     *
+     * @param request  请求
      * @param response 响应
      * @return void
+     * @author lmk
+     * @Date 2021/12/16 20:26
      */
     protected void addPatient(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Patient patient = WebUtil.createBeanByMap(request.getParameterMap(), new Patient());
@@ -154,5 +153,17 @@ public class AdminServlet extends BaseServlet {
         }
 
         response(response, JsonUtil.toJson(result));
+    }
+
+    protected void getNormalInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String hospitalName=request.getParameter("hospitalName");
+        String level=request.getParameter("level");
+        String date=request.getParameter("date");
+
+        int begin=WebUtil.parseInt(request.getParameter("offset"),0);
+        int limit=WebUtil.parseInt(request.getParameter("limit"),20);
+
+        PageHelper<NormalRegistInfo> pageHelper= adminService.getNormalInfo(hospitalName,level,date,begin,limit);
+        super.response(response,JsonUtil.toJson(pageHelper));
     }
 }

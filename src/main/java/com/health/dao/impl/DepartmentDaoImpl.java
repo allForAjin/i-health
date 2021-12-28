@@ -27,4 +27,10 @@ public class DepartmentDaoImpl implements DepartmentDao {
         }
         return departmentList;
     }
+
+    @Override
+    public int getDepartmentCount() {
+        String sql="select count(*) from department";
+        return SqlUtil.executeQueryCount(sql);
+    }
 }

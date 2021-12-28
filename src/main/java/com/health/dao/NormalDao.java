@@ -45,12 +45,11 @@ public interface NormalDao {
      *
      * @param patientId 患者序号
      * @param normalId  门诊序号
-     * @param date      日期
      * @return boolean
      * @author lmk
      * @Date 2021/11/29 12:57
      */
-    public boolean normalRecordIsExisted(Integer patientId, Integer normalId, String date);
+    public boolean normalRecordIsExisted(Integer patientId, Integer normalId);
 
 
     /**
@@ -78,6 +77,8 @@ public interface NormalDao {
      * 获取挂号记录
      *
      * @param phone 用户联系方式
+     * @param begin
+     * @param limit
      * @return java.util.List<com.health.entity.NormalRegistRecord>
      * @author lmk
      * @Date 2021/11/29 18:02

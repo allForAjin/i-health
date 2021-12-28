@@ -51,7 +51,6 @@
     
     </body>
     <%@include file="/page/common/foot.jsp" %>
-    <%@include file="/page/common/logout.jsp" %>
     <%@include file="/page/common/patient_common.jsp" %>
 
 </html>

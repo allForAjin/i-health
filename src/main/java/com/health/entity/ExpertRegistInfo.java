@@ -5,40 +5,60 @@ import java.math.BigDecimal;
 /**
  * @author lmk
  * @version 1.0.0
- * @ClassName NormalRegistInfo.java
+ * @ClassName ExpertRegistInfo.java
  * @Description TODO
- * @createTime 2021-11-25 18:37:00
+ * @createTime 2021-12-23 21:01:45
  */
-public class NormalRegistInfo extends Page{
+public class ExpertRegistInfo {
     private Integer id;
     private Integer hospitalId;
-    private String hospitalName;
-    private String level;
-    private Integer departmentId;
+    private String hospital;
+    private String departmentId;
     private String departmentName;
+    private Integer doctorId;
+    private String doctorName;
+    private String sex;
+    private String title;
     private Integer total;
     private Integer remain;
     private String registDate;
     private String time;
     private BigDecimal cost;
 
-    public NormalRegistInfo() {
-    }
-
-    public NormalRegistInfo(Integer id, Integer hospitalId, String hospitalName, String level,
-                            Integer departmentId, String departmentName, Integer total,
+    public ExpertRegistInfo(Integer id, Integer hospitalId, String hospital,
+                            String departmentId, String departmentName, Integer doctorId,
+                            String doctorName, String sex, String title, Integer total,
                             Integer remain, String registDate, String time, BigDecimal cost) {
         this.id = id;
         this.hospitalId = hospitalId;
-        this.hospitalName = hospitalName;
-        this.level = level;
+        this.hospital = hospital;
         this.departmentId = departmentId;
         this.departmentName = departmentName;
+        this.doctorId = doctorId;
+        this.doctorName = doctorName;
+        this.sex = sex;
+        this.title = title;
         this.total = total;
         this.remain = remain;
         this.registDate = registDate;
         this.time = time;
         this.cost = cost;
+    }
+
+    public ExpertRegistInfo(Integer id,Integer doctorId,String departmentName,
+                            String doctorName,Integer remain,String registDate,
+                            String time, BigDecimal cost) {
+        this.id = id;
+        this.departmentName = departmentName;
+        this.doctorId = doctorId;
+        this.doctorName = doctorName;
+        this.remain = remain;
+        this.registDate = registDate;
+        this.time = time;
+        this.cost = cost;
+    }
+
+    public ExpertRegistInfo() {
     }
 
     public Integer getId() {
@@ -57,27 +77,19 @@ public class NormalRegistInfo extends Page{
         this.hospitalId = hospitalId;
     }
 
-    public String getHospitalName() {
-        return hospitalName;
+    public String getHospital() {
+        return hospital;
     }
 
-    public void setHospitalName(String hospitalName) {
-        this.hospitalName = hospitalName;
+    public void setHospital(String hospital) {
+        this.hospital = hospital;
     }
 
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
-    public Integer getDepartmentId() {
+    public String getDepartmentId() {
         return departmentId;
     }
 
-    public void setDepartmentId(Integer departmentId) {
+    public void setDepartmentId(String departmentId) {
         this.departmentId = departmentId;
     }
 
@@ -87,6 +99,38 @@ public class NormalRegistInfo extends Page{
 
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
+    }
+
+    public Integer getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(Integer doctorId) {
+        this.doctorId = doctorId;
+    }
+
+    public String getDoctorName() {
+        return doctorName;
+    }
+
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Integer getTotal() {
@@ -131,13 +175,16 @@ public class NormalRegistInfo extends Page{
 
     @Override
     public String toString() {
-        return "NormalRegistInfo{" +
+        return "ExpertRegistInfo{" +
                 "id=" + id +
                 ", hospitalId=" + hospitalId +
-                ", hospitalName='" + hospitalName + '\'' +
-                ", level='" + level + '\'' +
-                ", departmentId=" + departmentId +
+                ", hospital='" + hospital + '\'' +
+                ", departmentId='" + departmentId + '\'' +
                 ", departmentName='" + departmentName + '\'' +
+                ", doctorId=" + doctorId +
+                ", doctorName='" + doctorName + '\'' +
+                ", sex='" + sex + '\'' +
+                ", title='" + title + '\'' +
                 ", total=" + total +
                 ", remain=" + remain +
                 ", registDate='" + registDate + '\'' +

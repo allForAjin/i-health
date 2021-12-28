@@ -46,7 +46,7 @@ public class UserServlet extends BaseServlet {
         OperateRecord record = new OperateRecord(null, username, ip, WebUtil.dateToStrong(new Date(), WebUtil.DATETIME), OperateRecord.LOGOUT);
         userService.addUserOperation(record);
         session.invalidate();
-        //response.sendRedirect(request.getContextPath() + "/page/user/login.jsp");
+        response.sendRedirect(request.getContextPath() + "/page/user/login.jsp");
     }
 
     /**

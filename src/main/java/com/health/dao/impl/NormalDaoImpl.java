@@ -24,6 +24,7 @@ public class NormalDaoImpl implements NormalDao {
     public List<NormalRegistInfo> getNormalRegistInfo(String hospitalId, String departmentId, String time, String date) {
         String sql = "select id,department,remain,regist_date,time,cost from normal_regist_info where 1=1 and hospital_id=? and dep_id=?";
         sql += createSql(null, time, date);
+        sql+=" order by regist_date,FIELD(`time`,'上午','下午')";
         List<Object> objectList = SqlUtil.executeQuery(sql, hospitalId, departmentId);
         List<NormalRegistInfo> normalList = new ArrayList<>();
         for (Object objects : objectList) {
@@ -44,9 +45,9 @@ public class NormalDaoImpl implements NormalDao {
     }
 
     @Override
-    public boolean normalRecordIsExisted(Integer patientId, Integer normalId, String date) {
-        String sql = "select count(*) from normal_regist_record where pid=? and normal_id=? and register_date=?";
-        int num = SqlUtil.executeQueryCount(sql, patientId, normalId, date);
+    public boolean normalRecordIsExisted(Integer patientId, Integer normalId) {
+        String sql = "select count(*) from normal_regist_record where pid=? and normal_id=?";
+        int num = SqlUtil.executeQueryCount(sql, patientId, normalId);
         return num > 0;
     }
 
@@ -128,13 +129,13 @@ public class NormalDaoImpl implements NormalDao {
 
     private String createSql(String hospitalId, String time, String date) {
         String partSql = "";
-        if (hospitalId != "" && hospitalId != null) {
+        if ( hospitalId != null&& hospitalId != "") {
             partSql += " and hospital_id='" + hospitalId + "'";
         }
-        if (date != "" && date != null) {
+        if (date != null && date != "") {
             partSql += " and regist_date='" + date + "'";
         }
-        if (time != "" && time != null) {
+        if (time != null && time != "") {
             partSql += " and time='" + time + "'";
         }
         return partSql;

@@ -55,9 +55,11 @@ public class DayInterval implements ServletContextListener {
 //                        "每日日期更新：" +
 //                                adminService.updateNormalRegistDate(new Date()) + "条，"
 //                                + WebUtil.dateToStrong(new Date(), WebUtil.DATE));
-                System.out.println("每日支付状态更新：" + adminService.updatePayStatusEveryday(-1) + "条");
-                //System.out.println("每日剩余号量更新：" + adminService.updateNormalRemainEveryday() + "条");
 
+
+                System.out.println("每日支付状态更新：" + adminService.updatePayStatusEveryday(-1) + "条");
+                System.out.println("添加号源：" + adminService.addNormalRegistEveryday() + "条,日期："+WebUtil.getDateAfter(new Date(), 7));
+                System.out.println("删除今日前门诊记录："+adminService.deleteNormalInfoByDate());
                 //}
             }
             //设置24小时执行一次

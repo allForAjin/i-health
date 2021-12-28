@@ -1,14 +1,12 @@
 package com.health.dao.impl;
 
 import com.health.dao.AdminDao;
-import com.health.entity.Admin;
-import com.health.entity.OperateRecord;
-import com.health.entity.Patient;
-import com.health.entity.User;
+import com.health.entity.*;
 import com.health.utils.SqlUtil;
 import com.health.utils.WebUtil;
 import org.apache.log4j.Logger;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -114,20 +112,57 @@ public class AdminDaoImpl implements AdminDao {
 
     @Override
     public int queryUserCountByPhone(String phone) {
-        String sql="select count(*) from user where phone=?";
-        return SqlUtil.executeQueryCount(sql,phone);
+        String sql = "select count(*) from user where phone=?";
+        return SqlUtil.executeQueryCount(sql, phone);
+    }
+
+    @Override
+    public int queryNormalCountByDate(String date) {
+        String sql = "select count(*) from normal where regist_date=?";
+        return SqlUtil.executeQueryCount(sql, date);
+    }
+
+    @Override
+    public List<NormalRegistInfo> getNormalInfo(String hospitalName, String level, String date, int begin, int limit) {
+        String sql = "select id,hospital_id,hospital,level,dep_id,department,total,remain,regist_date,time,cost from normal_regist_info where 1=1";
+        sql += createNormalSql(hospitalName, level, date);
+        sql += " order by id limit ?,?";
+        List<Object> objectList = SqlUtil.executeQuery(sql, begin, limit);
+        List<NormalRegistInfo> list = new ArrayList<>();
+        for (Object object : objectList) {
+            Object[] result = (Object[]) object;
+            String registDate = WebUtil.dateToStrong((Date) result[8], WebUtil.DATE);
+            list.add(new NormalRegistInfo((Integer) result[0], (Integer) result[1], (String) result[2],
+                    (String) result[3], (Integer) result[4], (String) result[5], (Integer) result[6],
+                    (Integer) result[7], registDate, (String) result[9], (BigDecimal) result[10]));
+        }
+        return list;
+    }
+
+    @Override
+    public int getNormalInfoCount(String hospitalName, String level, String date) {
+        String sql="select count(*) from normal_regist_info where 1=1";
+        sql += createNormalSql(hospitalName, level, date);
+        return SqlUtil.executeQueryCount(sql);
+
+    }
+
+    @Override
+    public int deleteNormalInfoByDate() {
+        String sql="delete from normal where TO_DAYS(NOW())>TO_DAYS(regist_date)";
+        return SqlUtil.executeUpdate(sql);
     }
 
 
     private String createOperateSql(String username, String operate, String type) {
         String partSql = "";
-        if (operate.length() != 0 && operate != null) {
+        if (operate != null && operate.length() != 0) {
             partSql += " and operate='" + operate + "'";
         }
-        if (type.length() != 0 && type != null) {
+        if (type != null && type.length() != 0) {
             partSql += " and type='" + type + "'";
         }
-        if (username.length() != 0 && username != null) {
+        if (username != null && username.length() != 0) {
             String patten = "'^.*" + username + ".*$'";
             partSql += " and username REGEXP " + patten;
         }
@@ -136,12 +171,27 @@ public class AdminDaoImpl implements AdminDao {
 
     private String createPatientSql(String name, String phone) {
         String partSql = "";
-        if (name.length() != 0 && name != null) {
+        if (name != null && name.length() != 0) {
             String patten = "'^.*" + name + ".*$'";
             partSql += " and pName REGEXP " + patten;
         }
-        if (phone.length() != 0 && phone != null) {
+        if (phone != null && phone.length() != 0) {
             partSql = " and pPhone='" + phone + "'";
+        }
+        return partSql;
+    }
+
+    private String createNormalSql(String hospitalName, String level, String date) {
+        String partSql = "";
+        if (level != null && level .length()!=0) {
+            partSql += " and level='" + level + "'";
+        }
+        if (date != null && date.length() != 0) {
+            partSql += " and regist_date='" + date + "'";
+        }
+        if (hospitalName != null && hospitalName.length() != 0) {
+            String patten = "'^.*" + hospitalName + ".*$'";
+            partSql += " and hospital REGEXP " + patten;
         }
         return partSql;
     }

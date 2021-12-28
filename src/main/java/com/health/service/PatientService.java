@@ -37,7 +37,7 @@ public interface PatientService {
     /**
      * 医院信息分页
      *
-     * @param pageNo    当前页起始索引
+     * @param pageNo   当前页起始索引
      * @param pageSize 当前页码
      * @return com.health.entity.MyPage null表示为失败，反之成功
      * @author lmk
@@ -161,9 +161,62 @@ public interface PatientService {
      * @param patientId 患者id
      * @param normalId  挂号id
      * @param id        记录id
-     * @return int
+     * @return int 删除的记录数量
      * @author lmk
      * @Date 2021/12/6 10:44
      */
     public int cancelNormalRegist(Integer patientId, Integer normalId, Integer id);
+
+    /**
+     * 通过选择的科室获取专家信息
+     *
+     * @param departmentId 科室id
+     * @return java.util.List<com.health.entity.Expert> null表示没有或失败
+     * @author lmk
+     * @Date 2021/12/23 21:26
+     */
+    public List<Expert> getExpertInfoByDepartment(String departmentId);
+
+
+    /**
+     * 通过医生id，挂号日期，时间段查询专家门诊挂号信息
+     *
+     * @param doctorId   医生id
+     * @param registDate 挂号日期
+     * @param time       挂号时间段
+     * @return java.util.List<com.health.entity.ExpertRegistInfo> null表示失败或没有该信息
+     * @author lmk
+     * @Date 2021/12/25 18:36
+     */
+    public List<ExpertRegistInfo> getExpertRegistInfo(String doctorId, String registDate, String time);
+
+    /**
+     * 判断专家门诊是否已挂号
+     *
+     * @param patientId 患者id
+     * @param expertId  专家id
+     * @return boolean true为存在，false为不存在
+     * @author lmk
+     * @Date 2021/12/27 17:34
+     */
+    public boolean expertRecordIsExisted(Integer patientId, Integer expertId);
+
+    /**
+     * 专家门诊挂号
+     *
+     * @param record 专家门诊挂号记录
+     * @return int
+     * @author lmk
+     * @Date 2021/12/27 16:57
+     */
+    public int addExpertRegistInfo(ExpertRegistRecord record);
+
+    /**
+     * 挂号时减少门诊剩余号量
+     * @author lmk
+     * @Date 2021/12/27 17:44
+     * @param expertId 专家门诊id
+     * @return int
+     */
+    public int decreaseExpertRegistRecord(Integer expertId);
 }
