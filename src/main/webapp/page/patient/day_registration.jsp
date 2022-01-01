@@ -12,7 +12,7 @@
         <title>当日挂号</title>
         <link rel="stylesheet" href="static/css/style.css">
         <link rel="stylesheet" href="static/css/hospital-info.css">
-        <link rel="stylesheet" href="static/css/bootstrap/bootstrap-datetimepicker.css">
+        
     </head>
     <body>
         <div class="wrap bge6">
@@ -416,8 +416,5 @@
     <%@include file="/page/common/foot.jsp" %>
     <%@include file="/page/common/patient_common.jsp" %>
     <script src="static/js/patient/patient.js"></script>
-    <script src="static/js/bootstrap/bootstrap-datetimepicker.js"></script>
-    <script src="static/js/bootstrap/bootstrap-datetimepicker.zh-CN.js"></script>
-    <script src="static/js/bootstrap/bootstrap-datetimepicker.fr.js"></script>
 
 </html>

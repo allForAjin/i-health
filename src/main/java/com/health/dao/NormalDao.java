@@ -155,4 +155,15 @@ public interface NormalDao {
      * @Date 2021/12/19 10:22
      */
     public int addNormalInfo(Normal normal);
+
+    /**
+     * 通过订单号获取普通门诊挂号数量
+     *
+     * @param orderId 订单号
+     * @return int
+     * @author lmk
+     * @Date 2021/12/29 19:19
+     */
+    public int getNormalCountByOrderId(String orderId);
 }
+

@@ -32,6 +32,14 @@ public interface AdminDao {
 
     /**
      * 获取访客记录表中记录数量
+     * @author lmk
+     * @Date 2021/12/30 21:08
+     * @return int
+     */
+    public int getRecordCount();
+
+    /**
+     * 获取访客记录表中记录数量
      *
      * @param username 用户名
      * @param operate  用户操作
@@ -164,9 +172,30 @@ public interface AdminDao {
 
     /**
      * 删除今日前的门诊记录
+     *
+     * @return int 删除的数量
      * @author lmk
      * @Date 2021/12/22 20:53
-     * @return int 删除的数量
      */
     public int deleteNormalInfoByDate();
+
+    /**
+     * 修改管理员个人信息
+     *
+     * @param id    管理员id
+     * @param admin 管理员信息
+     * @return int
+     * @author lmk
+     * @Date 2021/12/30 19:05
+     */
+    public int updateAdminInfo(Integer id, Admin admin);
+
+    /**
+     * 获取患者总数
+     *
+     * @return int
+     * @author lmk
+     * @Date 2021/12/30 20:36
+     */
+    public int getUserCount();
 }

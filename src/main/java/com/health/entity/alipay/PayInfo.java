@@ -8,18 +8,19 @@ package com.health.entity.alipay;
  * @createTime 2021-12-01 17:21:42
  */
 public class PayInfo {
-    private Integer id;
+    private String id;
     private String phone;
     private String cost;
     private String hospital;
     private String department;
     private String registDate;
     private String time;
+    private String expertName;
 
     public PayInfo() {
     }
 
-    public PayInfo(Integer id, String phone, String cost,
+    public PayInfo(String id, String phone, String cost,
                    String hospital, String department, String registDate,
                    String time) {
         this.id = id;
@@ -31,11 +32,24 @@ public class PayInfo {
         this.time = time;
     }
 
-    public Integer getId() {
+    public PayInfo(String id, String phone, String cost,
+                   String hospital, String department, String registDate,
+                   String time, String expertName) {
+        this.id = id;
+        this.phone = phone;
+        this.cost = cost;
+        this.hospital = hospital;
+        this.department = department;
+        this.registDate = registDate;
+        this.time = time;
+        this.expertName = expertName;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -87,6 +101,14 @@ public class PayInfo {
         this.time = time;
     }
 
+    public String getExpertName() {
+        return expertName;
+    }
+
+    public void setExpertName(String expertName) {
+        this.expertName = expertName;
+    }
+
     @Override
     public String toString() {
         return "PayInfo{" +
@@ -97,6 +119,7 @@ public class PayInfo {
                 ", department='" + department + '\'' +
                 ", registDate='" + registDate + '\'' +
                 ", time='" + time + '\'' +
+                ", expertName='" + expertName + '\'' +
                 '}';
     }
 }

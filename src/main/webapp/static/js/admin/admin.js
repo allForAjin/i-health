@@ -465,3 +465,33 @@ function addPatient(){
 
     });
 }
+
+function getPatientView(){
+    $.ajax({
+        url: 'admin/adminServlet',
+        method: 'post',
+        dataType: 'json',
+        data:{
+            action:'userView'
+        },
+        success:function (result){
+            if (result.code==10000){
+                $("#total").text(result.data.patientCount);
+                $("#online").text(result.data.size);
+                let recordCount=result.data.recordCount;
+                if (recordCount>=10000){
+                    recordCount=String(recordCount/10000);
+                    recordCount+='W';
+                }
+                $("#totalVisitor").text(recordCount);
+            }
+        }
+    });
+}
+
+$(function (){
+    getPatientView();
+    setInterval(function (){
+        getPatientView();
+    },1000*60);
+});

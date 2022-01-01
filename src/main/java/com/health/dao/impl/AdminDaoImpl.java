@@ -40,6 +40,12 @@ public class AdminDaoImpl implements AdminDao {
     }
 
     @Override
+    public int getRecordCount() {
+        String sql = "select count(*) from record_view";
+        return SqlUtil.executeQueryCount(sql);
+    }
+
+    @Override
     public int getRecordCount(String username, String operate, String type) {
         String sql = "select count(*) from record_view where 1=1";
         sql += createOperateSql(username, operate, type);
@@ -54,10 +60,11 @@ public class AdminDaoImpl implements AdminDao {
 
     @Override
     public Admin getAdminInfoByPhone(String phone) {
-        String sql = "select id,username,name from admin where username=?";
+        String sql = "select id,username,name,sex,birth from admin where username=?";
         List<Object> objectList = SqlUtil.executeQuery(sql, phone);
         Object[] object = (Object[]) objectList.get(0);
-        return new Admin((Integer) object[0], (String) object[1], (String) object[2]);
+        return new Admin((Integer) object[0], (String) object[1], (String) object[2],
+                (String) object[3],WebUtil.dateToStrong((Date) object[4],WebUtil.DATE));
     }
 
     @Override
@@ -151,6 +158,18 @@ public class AdminDaoImpl implements AdminDao {
     public int deleteNormalInfoByDate() {
         String sql="delete from normal where TO_DAYS(NOW())>TO_DAYS(regist_date)";
         return SqlUtil.executeUpdate(sql);
+    }
+
+    @Override
+    public int updateAdminInfo(Integer id, Admin admin) {
+        String sql="update admin set username=?,name=?,sex=?,birth=? where id=?";
+        return SqlUtil.executeUpdate(sql,admin.getPhone(),admin.getName(),admin.getSex(),admin.getBirth(),admin.getId());
+    }
+
+    @Override
+    public int getUserCount() {
+        String sql="select count(*) from user";
+        return SqlUtil.executeQueryCount(sql);
     }
 
 

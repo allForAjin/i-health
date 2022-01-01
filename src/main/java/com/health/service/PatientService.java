@@ -213,10 +213,65 @@ public interface PatientService {
 
     /**
      * 挂号时减少门诊剩余号量
-     * @author lmk
-     * @Date 2021/12/27 17:44
+     *
      * @param expertId 专家门诊id
      * @return int
+     * @author lmk
+     * @Date 2021/12/27 17:44
      */
     public int decreaseExpertRegistRecord(Integer expertId);
+
+    /**
+     * 获取专家挂号记录
+     *
+     * @param phone 用户电话
+     * @param begin sql语句起始索引
+     * @param limit 每页条数
+     * @return com.health.utils.PageHelper<com.health.entity.ExpertRegistRecord>
+     * @author lmk
+     * @Date 2021/12/28 20:54
+     */
+    public PageHelper<ExpertRegistRecord> getExpertRegistRecord(String phone, int begin, int limit);
+
+    /**
+     * 查询普通门诊订单是否存在
+     *
+     * @param orderId 订单号
+     * @return boolean true为存在,false为不存在
+     * @author lmk
+     * @Date 2021/12/29 20:40
+     */
+    public boolean normalOrderIdIsExisted(String orderId);
+
+    /**
+     * 查询专家门诊订单是否存在
+     *
+     * @param orderId 订单号
+     * @return boolean true为存在,false为不存在
+     * @author lmk
+     * @Date 2021/12/29 20:40
+     */
+    public boolean expertOrderIdIsExisted(String orderId);
+
+    /**
+     * 专家门诊付款
+     *
+     * @param orderId   订单id
+     * @param payStatus 支付状态
+     * @return int
+     * @author lmk
+     * @Date 2021/12/29 20:52
+     */
+    public int payForExpertRegist(String orderId, Integer payStatus);
+
+    /**
+     * 更新个人信息
+     *
+     * @param id      id
+     * @param patient 信息
+     * @return int
+     * @author lmk
+     * @Date 2021/12/30 18:15
+     */
+    public int updatePatientInfo(Integer id, Patient patient);
 }

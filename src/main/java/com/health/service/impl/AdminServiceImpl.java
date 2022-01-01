@@ -12,9 +12,7 @@ import com.health.utils.WebUtil;
 import org.apache.log4j.Logger;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author lmk
@@ -35,6 +33,11 @@ public class AdminServiceImpl implements AdminService {
         List<OperateRecord> recordList = adminDao.getPage(username, operate, type, begin, limit);
         PageHelper<OperateRecord> pageHelper = new PageHelper<>(recordList, total);
         return pageHelper;
+    }
+
+    @Override
+    public int getRecordCount() {
+        return adminDao.getRecordCount();
     }
 
     @Override
@@ -147,5 +150,15 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public int deleteNormalInfoByDate() {
         return adminDao.deleteNormalInfoByDate();
+    }
+
+    @Override
+    public int updateAdminInfo(Integer id, Admin admin) {
+        return adminDao.updateAdminInfo(id,admin);
+    }
+
+    @Override
+    public int getPatientCount() {
+        return adminDao.getUserCount();
     }
 }

@@ -1,0 +1,8 @@
+2021-12-20 12:53:19  [ http-nio-8001-exec-11:0 ] - [ INFO ]  User{id=3, username='13566320197', password='12345678', type='admin'}
+2021-12-20 13:25:16  [ http-nio-8001-exec-26:0 ] - [ INFO ]  User{id=3, username='13566320197', password='12345678', type='admin'}
+2021-12-20 17:23:00  [ http-nio-8001-exec-36:0 ] - [ INFO ]  User{id=3, username='13566320197', password='12345678', type='admin'}
+2021-12-20 17:23:09  [ http-nio-8001-exec-35:8714 ] - [ INFO ]  User{id=3, username='13566320197', password='12345678', type='admin'}
+2021-12-20 17:23:23  [ http-nio-8001-exec-46:22969 ] - [ INFO ]  User{id=3, username='13566320197', password='12345678', type='admin'}
+2021-12-20 19:55:38  [ http-nio-8001-exec-46:0 ] - [ INFO ]  User{id=3, username='13566320197', password='12345678', type='admin'}
+2021-12-20 20:00:30  [ http-nio-8001-exec-55:292000 ] - [ INFO ]  User{id=3, username='13566320197', password='12345678', type='admin'}
+2021-12-20 20:53:13  [ http-nio-8001-exec-57:3454902 ] - [ INFO ]  User{id=1, username='19121542079', password='12345678', type='patient'}

@@ -1,5 +1,6 @@
 $(function () {
     registRecordTableInit();
+    expertRecordTableInit();
     payModal();
 });
 
@@ -194,7 +195,7 @@ function expertRecordTableInit() {
         }, {
             title: '操作',
             field: 'operation',
-            formatter: registRecordTableOperation,
+            formatter: expertRegistRecordTableOperation,
         }, {
             title: '患者id',
             field: 'patientId',
@@ -250,6 +251,46 @@ function registRecordTableOperation(value, row, index) {
     } else if (row.payStatus == -1 || row.payStatus == -2) {
         return '<span><a href="javascript:void(0);" onclick="deleteNormalRecord(' + row.id + ')">删除记录</a></span>';
     }
+}
+
+
+function expertRegistRecordTableOperation(value, row, index) {
+    if (row.payStatus == 0) {
+        return '<span>\n' +
+            '<a href="javascript:void(0);" data-toggle="modal" data-target="#modal-expert_pay"' +
+            'onclick="payForExpertRegist(' + row.expertId + ')">支付订单</a>&nbsp;<span>丨</span>\n' +
+            '<a href="javascript:void(0);" onclick="cancelExpertRegist(' + row.expertId + ',' + row.id + ')">取消挂号</a></span>';
+    } else if (row.payStatus == 1) {
+        return '<span><a href="javascript:void(0);" data-toggle="modal" data-target="#refund-modal" ' +
+            'onclick="openExpertRefundModal(' + row.expertId + ')">退款</a></span>';
+    } else if (row.payStatus == -1 || row.payStatus == -2) {
+        return '<span><a href="javascript:void(0);" onclick="deleteExpertRecord(' + row.id + ')">删除记录</a></span>';
+    }
+}
+
+function payForExpertRegist(id){
+    var row = $("#expertRecord-table").bootstrapTable('getRowByUniqueId', id);
+    $("#hospital_expert").val(row.hospital);
+    $("#department_expert").val(row.department);
+    $("#expertName").val(row.expertName);
+    $("#registDate_expert").val(row.registDate);
+    $("#time_expert").val(row.time);
+    $("#orderId").val(row.orderId);
+    $("#patientName_expert").val(patientObj.name);
+    $("#phone_expert").val(patientObj.phone);
+    $("#cost_expert").val(row.cost);
+}
+
+function cancelExpertRegist(expertId,id){
+
+}
+
+function openExpertRefundModal(expertId){
+
+}
+
+function deleteExpertRecord(id){
+
 }
 
 /**

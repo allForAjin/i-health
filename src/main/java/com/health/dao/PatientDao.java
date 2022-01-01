@@ -19,13 +19,24 @@ public interface PatientDao {
 
     /**
      * 通过用户名获取患者信息
-     * @author lmk
-     * @Date 2021/11/28 10:15
+     *
      * @param phone 患者账号（手机号）
      * @return com.health.entity.Patient null表示没有该用户
+     * @author lmk
+     * @Date 2021/11/28 10:15
      */
     public Patient getPatientByPhone(String phone);
 
+    /**
+     * 更新个人信息
+     *
+     * @param patient 个人信息
+     * @param id   id
+     * @return int 更新数量
+     * @author lmk
+     * @Date 2021/12/30 18:06
+     */
+    public int updatePatientInfo(Integer id, Patient patient);
 
 
 }

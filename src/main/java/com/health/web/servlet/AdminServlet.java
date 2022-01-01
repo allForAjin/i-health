@@ -13,12 +13,14 @@ import com.health.utils.WebUtil;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -156,14 +158,42 @@ public class AdminServlet extends BaseServlet {
     }
 
     protected void getNormalInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String hospitalName=request.getParameter("hospitalName");
-        String level=request.getParameter("level");
-        String date=request.getParameter("date");
+        String hospitalName = request.getParameter("hospitalName");
+        String level = request.getParameter("level");
+        String date = request.getParameter("date");
 
-        int begin=WebUtil.parseInt(request.getParameter("offset"),0);
-        int limit=WebUtil.parseInt(request.getParameter("limit"),20);
+        int begin = WebUtil.parseInt(request.getParameter("offset"), 0);
+        int limit = WebUtil.parseInt(request.getParameter("limit"), 20);
 
-        PageHelper<NormalRegistInfo> pageHelper= adminService.getNormalInfo(hospitalName,level,date,begin,limit);
-        super.response(response,JsonUtil.toJson(pageHelper));
+        PageHelper<NormalRegistInfo> pageHelper = adminService.getNormalInfo(hospitalName, level, date, begin, limit);
+        super.response(response, JsonUtil.toJson(pageHelper));
     }
+
+    protected void updatePersonInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Admin admin = WebUtil.createBeanByMap(request.getParameterMap(), new Admin());
+        int num = adminService.updateAdminInfo(admin.getId(), admin);
+        ResponseResult<String> result = null;
+        if (num == 1) {
+            result = new ResponseResult<>(Code.SUCCESS, "更新成功");
+        } else {
+            result = new ResponseResult<>(Code.FAIL, "操作失败");
+        }
+        super.response(response, JsonUtil.toJson(result));
+    }
+
+    protected void userView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int patientCount= adminService.getPatientCount();
+        ServletContext context=request.getServletContext();
+        Map<User, String> loginMap =(Map<User, String>) context.getAttribute("loginMap");
+        int size= loginMap.size();
+        int recordCount=adminService.getRecordCount();
+        Map resultMap=new HashMap();
+        resultMap.put("patientCount",patientCount);
+        resultMap.put("size",size);
+        resultMap.put("recordCount",recordCount);
+
+        ResponseResult<Map> result=new ResponseResult<>(Code.SUCCESS,resultMap);
+        super.response(response,JsonUtil.toJson(result));
+    }
+
 }

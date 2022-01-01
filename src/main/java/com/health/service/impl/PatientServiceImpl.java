@@ -183,4 +183,39 @@ public class PatientServiceImpl implements PatientService {
     public int decreaseExpertRegistRecord(Integer expertId) {
         return expertDao.decreaseExpertRegistRemain(String.valueOf(expertId));
     }
+
+    @Override
+    public PageHelper<ExpertRegistRecord> getExpertRegistRecord(String phone, int begin, int limit) {
+        int num=expertDao.getExpertRecordCount(phone);
+        List<ExpertRegistRecord> list= expertDao.getExpertRecord(phone, begin, limit);
+        return new PageHelper<>(list,num);
+    }
+
+    @Override
+    public boolean normalOrderIdIsExisted(String orderId) {
+        int num=normalDao.getNormalCountByOrderId(orderId);
+        if (num>0){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean expertOrderIdIsExisted(String orderId) {
+        int num=expertDao.getExpertCountByOrderId(orderId);
+        if (num>0){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int payForExpertRegist(String orderId, Integer payStatus) {
+        return expertDao.updatePayStatus(orderId,payStatus);
+    }
+
+    @Override
+    public int updatePatientInfo(Integer id, Patient patient) {
+        return patientDao.updatePatientInfo(id,patient);
+    }
 }

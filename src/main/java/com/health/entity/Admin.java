@@ -9,16 +9,30 @@ package com.health.entity;
  */
 public class Admin {
     private Integer id;
-    private String username;
+    private String phone;
     private String name;
+    private String sex;
+    private Integer age;
+    private String birth;
 
     public Admin() {
     }
 
-    public Admin(Integer id, String username, String name) {
+    public Admin(Integer id, String phone, String name, String sex, Integer age, String birth) {
         this.id = id;
-        this.username = username;
+        this.phone = phone;
         this.name = name;
+        this.sex = sex;
+        this.age = age;
+        this.birth = birth;
+    }
+
+    public Admin(Integer id, String phone, String name, String sex, String birth) {
+        this.id = id;
+        this.phone = phone;
+        this.name = name;
+        this.sex = sex;
+        this.birth = birth;
     }
 
     public Integer getId() {
@@ -29,12 +43,12 @@ public class Admin {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getName() {
@@ -45,12 +59,39 @@ public class Admin {
         this.name = name;
     }
 
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getBirth() {
+        return birth;
+    }
+
+    public void setBirth(String birth) {
+        this.birth = birth;
+    }
+
     @Override
     public String toString() {
         return "Admin{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
+                ", phone='" + phone + '\'' +
                 ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", age=" + age +
+                ", birth='" + birth + '\'' +
                 '}';
     }
 }

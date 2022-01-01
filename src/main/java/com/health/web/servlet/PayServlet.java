@@ -36,7 +36,7 @@ public class PayServlet extends BaseServlet {
         super.doPost(request, response);
     }
 
-    protected void normalRegistPay(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void registPay(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String tradeNo = request.getParameter("id");
         String totalAmount = request.getParameter("cost");
         PayInfo info = WebUtil.createBeanByMap(request.getParameterMap(), new PayInfo());
@@ -54,23 +54,26 @@ public class PayServlet extends BaseServlet {
         super.response(response, result);
     }
 
+//    protected void expertRegistPay(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//    }
+
     protected void normalRegistPayRefund(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String tradeNo = request.getParameter("id");
         String totalAmount = request.getParameter("cost");
 
         String result = "";
         result = AliPayUtil.alipayRefund(tradeNo, totalAmount, "不需要了", null);
-        JSONObject jsonObject= JSON.parseObject(result);
-        String code=(String) jsonObject.getJSONObject("alipay_trade_refund_response").get("code");
+        JSONObject jsonObject = JSON.parseObject(result);
+        String code = (String) jsonObject.getJSONObject("alipay_trade_refund_response").get("code");
 
-        Map<String,String> map=new HashMap<>();
-        int num=-1;
-        if("10000".equals(code)){
-            num=patientService.payForNormalRegist(tradeNo, -2);
+        Map<String, String> map = new HashMap<>();
+        int num = -1;
+        if ("10000".equals(code)) {
+            num = patientService.payForNormalRegist(tradeNo, -2);
         }
 
-        if (num>=1){
-            map.put("result","success");
+        if (num >= 1) {
+            map.put("result", "success");
         }
 
         super.response(response, JsonUtil.toJson(map));

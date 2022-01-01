@@ -24,7 +24,7 @@ public class NormalDaoImpl implements NormalDao {
     public List<NormalRegistInfo> getNormalRegistInfo(String hospitalId, String departmentId, String time, String date) {
         String sql = "select id,department,remain,regist_date,time,cost from normal_regist_info where 1=1 and hospital_id=? and dep_id=?";
         sql += createSql(null, time, date);
-        sql+=" order by regist_date,FIELD(`time`,'上午','下午')";
+        sql += " order by regist_date,FIELD(`time`,'上午','下午')";
         List<Object> objectList = SqlUtil.executeQuery(sql, hospitalId, departmentId);
         List<NormalRegistInfo> normalList = new ArrayList<>();
         for (Object objects : objectList) {
@@ -123,13 +123,20 @@ public class NormalDaoImpl implements NormalDao {
 
     @Override
     public int addNormalInfo(Normal normal) {
-        String sql="insert into normal (dep_id,total,remain,regist_date,time) values (?,?,?,?,?)";
-        return SqlUtil.executeUpdate(sql,normal.getDepartmentId(),normal.getTotal(),normal.getRemain(),normal.getRegistDate(),normal.getTime());
+        String sql = "insert into normal (dep_id,total,remain,regist_date,time) values (?,?,?,?,?)";
+        return SqlUtil.executeUpdate(sql, normal.getDepartmentId(), normal.getTotal(), normal.getRemain(), normal.getRegistDate(), normal.getTime());
     }
+
+    @Override
+    public int getNormalCountByOrderId(String orderId) {
+        String sql = "select count(*) from normal_regist_record where order_id=?";
+        return SqlUtil.executeQueryCount(sql, orderId);
+    }
+
 
     private String createSql(String hospitalId, String time, String date) {
         String partSql = "";
-        if ( hospitalId != null&& hospitalId != "") {
+        if (hospitalId != null && hospitalId != "") {
             partSql += " and hospital_id='" + hospitalId + "'";
         }
         if (date != null && date != "") {

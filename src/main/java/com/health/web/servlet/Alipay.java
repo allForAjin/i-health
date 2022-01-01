@@ -21,8 +21,20 @@ public class Alipay extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String body = request.getParameter("body");
+        try {
+            System.out.println(body);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         String orderId = request.getParameter("out_trade_no");
-        patientService.payForNormalRegist(orderId, 1);
+        if (patientService.normalOrderIdIsExisted(orderId)){
+            patientService.payForNormalRegist(orderId, 1);
+        }else if(patientService.expertOrderIdIsExisted(orderId)){
+            patientService.payForExpertRegist(orderId,1);
+        }
+
         ServletContext application = request.getServletContext();
         String basePath = (String) application.getAttribute("basePath");
         response.sendRedirect(basePath + "page/patient/regist_record.jsp");

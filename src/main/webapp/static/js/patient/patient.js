@@ -7,7 +7,7 @@ $(function () {
     /**
      * 日期框设置
      */
-    var date = new Date();
+    const date = new Date();
 
     $('#regist-datetimepicker').datetimepicker({
         language: 'zh',
@@ -29,6 +29,7 @@ $(function () {
 
 /**
  * 分页条设置
+ * 逻辑复杂，切勿乱改！！！
  */
 $(function () {
     getHospitalForPage(1);
@@ -620,7 +621,6 @@ $(function () {
  * @type {number}
  */
 var time = 60;
-
 function getCode(obj) {
     if (time === 0) {
         time = 60;
@@ -638,12 +638,11 @@ function getCode(obj) {
 
 
 var code = "";
-
 function getMessage(obj) {
     obj.prop('disabled', true);
     getCode(obj);
     $.ajax({
-        url: 'patient/patientServlet',
+        url: 'message',
         async: false,
         method: 'post',
         data: {
@@ -670,7 +669,6 @@ function getMessage(obj) {
             }
         }
     });
-
 }
 
 /**

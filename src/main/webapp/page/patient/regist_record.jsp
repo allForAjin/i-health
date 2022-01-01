@@ -100,7 +100,7 @@
                         <h4 class="modal-title" id="myModalLabel">订单信息确认</h4>
                     </div>
                     <form id="pay-form" method="post" action="pay/goAlipay">
-                        <input type="hidden" name="action" value="normalRegistPay">
+                        <input type="hidden" name="action" value="registPay">
                         <div class="scroll">
                             <div class="modal-body">
                                 <input type="hidden" name="remain" id="remain">
@@ -134,6 +134,60 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                                 <button type="submit" class="btn btn-primary" id="conform-pay">提交订单</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+        <div class="modal fade" id="modal-expert_pay" tabindex="-1" role="dialog" aria-labelledby="payModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title" id="expertModalLabel">订单信息确认</h4>
+                    </div>
+                    <form id="expertPay-form" method="post" action="pay/goAlipay">
+                        <input type="hidden" name="action" value="registPay">
+                        <div class="scroll">
+                            <div class="modal-body">
+                                <input type="hidden" name="remain" id="expert_remain">
+                            
+                                <label for="orderId" class="control-label">订单号:</label>
+                                <input type="text" class="form-control" id="orderId" name="id" readonly>
+                                
+                                <label for="hospital_expert" class="control-label">医院名称:</label>
+                                <input type="text" class="form-control" id="hospital_expert" name="hospital" readonly>
+                            
+                                <label for="department_expert" class="control-label">挂号科室:</label>
+                                <input type="text" class="form-control" id="department_expert" name="department" readonly>
+    
+                                <label for="expertName" class="control-label">专家姓名:</label>
+                                <input type="text" class="form-control" id="expertName" name="expertName" readonly>
+                            
+                                <label for="registDate_expert" class="control-label">挂号日期:</label>
+                                <input type="text" class="form-control" id="registDate_expert" name="registDate" readonly>
+                            
+                                <label for="time_expert" class="control-label">时间段:</label>
+                                <input type="text" class="form-control" id="time_expert" name="time" readonly>
+                            
+                                <label for="patientName_expert" class="control-label">姓名:</label>
+                                <input type="text" class="form-control" id="patientName_expert" name="patientName" readonly>
+                            
+                                <label for="phone_expert" class="control-label">手机号:</label>
+                                <input type="text" class="form-control" id="phone_expert" name="phone" readonly>
+                            
+                                <label for="cost_expert" class="control-label">支付金额:</label>
+                                <input type="text" class="form-control" id="cost_expert" name="cost" readonly>
+                        
+                            </div>
+                        
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                <button type="submit" class="btn btn-primary" id="confirm-pay_expert">提交订单</button>
                             </div>
                         </div>
                     </form>

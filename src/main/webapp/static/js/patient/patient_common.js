@@ -28,6 +28,7 @@ $(function (){
                 name:result.name,
                 sex:result.sex,
                 age:result.age,
+                birth:result.birth
             };
         }
     });

@@ -20,8 +20,8 @@
                         </div>
                         <ul class="nav nav-pills nav-stacked ul-menu">
                             <li class="active"><a href="page/patient/patient_site.jsp">首页</a></li>
-                            <li><a href="page/patient/day_registration.jsp">当日挂号</a></li>
-                            <li><a href="page/patient/regist_record.jsp">预约-挂号记录</a></li>
+                            <li><a href="page/patient/day_registration.jsp">预约挂号</a></li>
+                            <li><a href="page/patient/regist_record.jsp">预约记录</a></li>
                             <li><a href="#">导航3</a></li>
                             <li><a href="#">导航4</a></li>
                         </ul>

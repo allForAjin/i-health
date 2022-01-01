@@ -59,10 +59,53 @@ public interface ExpertDao {
 
     /**
      * 减少专家门诊剩余量
-     * @author lmk
-     * @Date 2021/12/27 17:40
+     *
      * @param expertId 专家门诊id
      * @return int 更新条数
+     * @author lmk
+     * @Date 2021/12/27 17:40
      */
     public int decreaseExpertRegistRemain(String expertId);
+
+    /**
+     * 查询用户专家挂号数量
+     *
+     * @param phone 用户账号
+     * @return int 记录数量
+     * @author lmk
+     * @Date 2021/12/28 15:07
+     */
+    public int getExpertRecordCount(String phone);
+
+    /**
+     * 获取专家门诊挂号信息
+     *
+     * @param phone 用户账号
+     * @param begin 分页起始索引
+     * @param limit 每页数量
+     * @return java.util.List<com.health.entity.ExpertRegistRecord> null表示无
+     * @author lmk
+     * @Date 2021/12/28 15:10
+     */
+    public List<ExpertRegistRecord> getExpertRecord(String phone,int begin,int limit);
+
+    /**
+     * 通过订单号获取专家门诊挂号数量
+     *
+     * @param orderId 订单号
+     * @return int 数量
+     * @author lmk
+     * @Date 2021/12/29 19:19
+     */
+    public int getExpertCountByOrderId(String orderId);
+
+    /**
+     * 更新专家门诊支付状态
+     * @author lmk
+     * @Date 2021/12/29 20:46
+     * @param orderId 订单id
+     * @param payStatus 更新后的状态
+     * @return int
+     */
+    public int updatePayStatus(String orderId,Integer payStatus);
 }

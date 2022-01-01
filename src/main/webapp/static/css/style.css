@@ -219,7 +219,7 @@ li {
     margin-top: 30px;
     height: auto;
     background-color: #fff;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+    box-shadow: 1px 1px 2px 1px rgb(0 0 0 / 10%);
     padding: 10px 30px;
 }
 
@@ -240,7 +240,7 @@ li {
     height: 50px;
     line-height: 50px;
     border-bottom: 1px solid #eee;
-    padding: 0 15px;
+    padding: 0 20px;
     font-size: 16px;
     color: #666;
 }
@@ -253,6 +253,7 @@ li {
 
 .all-info .view-text {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .view-text .li-box {
@@ -660,4 +661,17 @@ a :focus {
 
 .modal-input {
     margin-bottom: 10px;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+#code{
+    display: inline-block;
+    width: 69%;
+}
+
+#getCode{
+    width: 30%;
 }

@@ -10,15 +10,14 @@
     </filter>
     <filter-mapping>
         <filter-name>UserFilter</filter-name>
-        <url-pattern>/page/user/*</url-pattern>
+        <url-pattern>/page/user/login.jsp</url-pattern>
+        <url-pattern>/page/user/regist.jsp</url-pattern>
+        <url-pattern>/page/common/*</url-pattern>
     </filter-mapping>
     <listener>
         <listener-class>com.health.web.listener.LoginListener</listener-class>
     </listener>
-        <filter-mapping>
-        <filter-name>UserFilter</filter-name>
-        <url-pattern>/page/common/welcome.jsp</url-pattern>
-    </filter-mapping>
+
 
 <!--    patient资源过滤-->
     <filter>
@@ -29,6 +28,7 @@
         <filter-name>PatientFilter</filter-name>
         <url-pattern>/page/patient/*</url-pattern>
         <url-pattern>/patient/*</url-pattern>
+        <url-pattern>/user/update.jsp</url-pattern>
     </filter-mapping>
 
 
@@ -54,10 +54,8 @@
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
         <url-pattern>/page/admin/*</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>AdminFilter</filter-name>
         <url-pattern>/admin/*</url-pattern>
+        <url-pattern>/user/update.jsp</url-pattern>
     </filter-mapping>
 
     <servlet>

@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="static/css/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="static/css/bootstrap/bootstrap-table.min.css">
 <link rel="stylesheet" href="static/css/bootstrap/bootstrap-select.min.css">
+<link rel="stylesheet" href="static/css/bootstrap/bootstrap-datetimepicker.css">
 <link rel="stylesheet" href="static/css/icon/iconfont.css">
 
 

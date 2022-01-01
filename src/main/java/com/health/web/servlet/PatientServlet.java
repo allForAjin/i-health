@@ -29,7 +29,7 @@ import java.util.*;
 @WebServlet(name = "PatientServlet", value = "/patient/patientServlet")
 public class PatientServlet extends BaseServlet {
     private final PatientService patientService = new PatientServiceImpl();
-    private final Timer timer = new Timer();
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -115,62 +115,7 @@ public class PatientServlet extends BaseServlet {
 
     }
 
-    protected void getMessage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String phone = request.getParameter("phone");
-        String code = MessageUtil.createCode();
-        String result = MessageUtil.sendCode(phone, code);
 
-        System.out.println(result);
-        Map map = JsonUtil.convertJsonToMap(result);
-        HttpSession session = request.getSession();
-        session.setAttribute("messageCode", code);
-
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                session.removeAttribute("messageCode");
-                System.out.println("验证码session删除成功！");
-                timer.cancel();
-            }
-
-        }, 1000 * 60 * 5);
-
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("resultCode", map.get("code"));
-        jsonObject.put("messageCode", code);
-
-        super.response(response, JSONObject.toJSONString(jsonObject));
-    }
-
-    /**
-     * 判断验证码是否正确
-     *
-     * @param code        前端回传验证码
-     * @param correctCode 正确验证码
-     * @param request     请求
-     * @param response    响应
-     * @return boolean
-     * @author lmk
-     * @Date 2021/12/27 16:19
-     */
-    private boolean messageCodeIsCorrected(String code, String correctCode, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ResponseResult<String> result = null;
-        System.out.println("code:"+code+",correctCode:"+correctCode);
-        if (correctCode != null) {
-            if (!correctCode.equals(code)) {
-                result = new ResponseResult<>(Code.FAIL, "验证码错误！");
-                super.response(response, JsonUtil.toJson(result));
-                return false;
-            } else {
-                request.getSession().removeAttribute("messageCode");
-                return true;
-            }
-        } else {
-            result = new ResponseResult<>(Code.OVER, "验证码已过期！");
-            super.response(response, JsonUtil.toJson(result));
-            return false;
-        }
-    }
 
     /**
      * 功能描述
@@ -191,8 +136,8 @@ public class PatientServlet extends BaseServlet {
 
         String data = request.getParameter("confirmData");
         Integer remain = WebUtil.parseInt(request.getParameter("remain"), 0);
-        if (remain<=0){
-            result=new ResponseResult<>(Code.FAIL,"无号");
+        if (remain <= 0) {
+            result = new ResponseResult<>(Code.FAIL, "无号");
             super.response(response, JsonUtil.toJson(result));
             return;
         }
@@ -243,8 +188,8 @@ public class PatientServlet extends BaseServlet {
 
         String data = request.getParameter("confirmData");
         Integer remain = WebUtil.parseInt(request.getParameter("remain"), 0);
-        if (remain<=0){
-            result=new ResponseResult<>(Code.FAIL,"缺少号量！");
+        if (remain <= 0) {
+            result = new ResponseResult<>(Code.FAIL, "缺少号量！");
             super.response(response, JsonUtil.toJson(result));
             return;
         }
@@ -287,22 +232,28 @@ public class PatientServlet extends BaseServlet {
         int limit = WebUtil.parseInt(request.getParameter("limit"), 5);
         PageHelper<NormalRegistRecord> pageHelper = patientService.getNormalRegistRecordByPhone(phone, offset, limit);
 
-        super.response(response, JSON.toJSONString(pageHelper));
+        super.response(response, JsonUtil.toJson(pageHelper));
     }
 
     protected void getExpertRegistRecord(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String phone = request.getParameter("phone");
+        int offset = WebUtil.parseInt(request.getParameter("offset"), 0);
+        int limit = WebUtil.parseInt(request.getParameter("limit"), 5);
+
+        PageHelper<ExpertRegistRecord> pageHelper = patientService.getExpertRegistRecord(phone, offset, limit);
+        super.response(response, JsonUtil.toJson(pageHelper));
 
     }
 
-        /**
-         * 功能描述
-         *
-         * @param request
-         * @param response
-         * @return void
-         * @author lmk
-         * @Date 2021/12/27 16:46
-         */
+    /**
+     * 功能描述
+     *
+     * @param request
+     * @param response
+     * @return void
+     * @author lmk
+     * @Date 2021/12/27 16:46
+     */
     protected void deleteNormalRecord(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
 
@@ -414,6 +365,18 @@ public class PatientServlet extends BaseServlet {
             result = new ResponseResult<>(Code.SUCCESS, expertRegistInfoList);
         } else {
             result = new ResponseResult<>(Code.FAIL, null);
+        }
+        super.response(response, JsonUtil.toJson(result));
+    }
+
+    protected void updatePersonInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Patient patient = WebUtil.createBeanByMap(request.getParameterMap(), new Patient());
+        int num = patientService.updatePatientInfo(patient.getId(), patient);
+        ResponseResult<String> result=null;
+        if (num == 1) {
+            result=new ResponseResult<>(Code.SUCCESS,"更新成功");
+        }else {
+            result=new ResponseResult<>(Code.FAIL,"操作失败");
         }
         super.response(response, JsonUtil.toJson(result));
     }

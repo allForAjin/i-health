@@ -28,6 +28,8 @@ $(function (){
                     id:data.id,
                     phone:data.phone,
                     name:data.name,
+                    sex:data.sex,
+                    birth:data.birth
                 };
             }
 

@@ -40,7 +40,7 @@
 
                     <div class="admin-view">
                         <div class="admin_view_title">
-                            概览
+                            用户概览
                         </div>
                         <div class="all-info">
                             <ul class="view-text">
@@ -49,7 +49,7 @@
                                         用户总数
                                     </p>
                                     <div class="li-val">
-                                        <a href="page/admin/admin_site.jsp" class="li-link" id="total">10</a>
+                                        <a href="page/admin/admin_site.jsp" class="li-link" id="total"></a>
                                     </div>
                                 </li>
                                 <li class="li-box col-xs-4 col-sm-4 col-md-4 col-lg-3">
@@ -57,10 +57,17 @@
                                         在线用户
                                     </p>
                                     <div class="li-val">
-                                        <a href="page/admin/admin_site.jsp" class="li-link" id="online">10</a>
+                                        <a href="page/admin/admin_site.jsp" class="li-link" id="online"></a>
                                     </div>
                                 </li>
-                                <li class="li-box col-xs-4 col-sm-4 col-md-4 col-lg-3"></li>
+                                <li class="li-box col-xs-4 col-sm-4 col-md-4 col-lg-3">
+                                    <p class="box-name">
+                                        总访问量
+                                    </p>
+                                    <div class="li-val">
+                                        <a href="page/admin/admin_site.jsp" class="li-link" id="totalVisitor"></a>
+                                    </div>
+                                </li>
                                 <li class="li-box col-xs-4 col-sm-4 col-md-4 col-lg-3"></li>
                             </ul>
                         </div>
@@ -74,4 +81,5 @@
 </body>
     <%@include file="/page/common/foot.jsp"%>
     <%@include file="/page/common/admin_common.jsp" %>
+    <script src="static/js/admin/admin.js"></script>
 </html>

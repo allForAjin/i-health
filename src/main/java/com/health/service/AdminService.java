@@ -33,6 +33,14 @@ public interface AdminService {
     public PageHelper<OperateRecord> getRecordPage(String username, String operate, String type, int begin, int limit);
 
     /**
+     * 获取访客记录表中记录数量
+     * @author lmk
+     * @Date 2021/12/30 21:09
+     * @return int
+     */
+    public int getRecordCount();
+
+    /**
      * 更新门诊日期
      *
      * @param date 当日日期
@@ -150,10 +158,31 @@ public interface AdminService {
 
     /**
      * 删除今日前的门诊记录
+     *
+     * @return int 删除的数量
      * @author lmk
      * @Date 2021/12/22 20:53
-     * @return int 删除的数量
      */
     public int deleteNormalInfoByDate();
+
+    /**
+     * 更新管理员个人信息
+     *
+     * @param id    管理员id
+     * @param admin 管理员信息
+     * @return int
+     * @author lmk
+     * @Date 2021/12/30 19:09
+     */
+    public int updateAdminInfo(Integer id, Admin admin);
+
+    /**
+     * 获取患者总数
+     *
+     * @return int
+     * @author lmk
+     * @Date 2021/12/30 20:39
+     */
+    public int getPatientCount();
 
 }

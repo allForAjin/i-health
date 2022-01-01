@@ -1,0 +1,493 @@
+2021-12-30 11:25:11  [ http-nio-8001-exec-9:0 ] - [ INFO ]  User{id=1, username='19121542079', password='12345678', type='patient'}
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10713 ] - [ DEBUG ]  Setting default value: false
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10713 ] - [ DEBUG ]  Converting 'Boolean' value 'false' to type 'Boolean'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10713 ] - [ DEBUG ]      No conversion required, value is already a Boolean
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10723 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10723 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Byte'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10723 ] - [ DEBUG ]      Converted to Byte value '0'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10727 ] - [ DEBUG ]  Setting default value:  
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10728 ] - [ DEBUG ]  Converting 'Character' value ' ' to type 'Character'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10728 ] - [ DEBUG ]      No conversion required, value is already a Character
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10728 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10728 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Double'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10728 ] - [ DEBUG ]      Converted to Double value '0.0'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10733 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10733 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Float'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10734 ] - [ DEBUG ]      Converted to Float value '0.0'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10736 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10736 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Integer'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10737 ] - [ DEBUG ]      No conversion required, value is already a Integer
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10739 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10740 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Long'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10740 ] - [ DEBUG ]      Converted to Long value '0'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10742 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10743 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Short'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10743 ] - [ DEBUG ]      Converted to Short value '0'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10745 ] - [ DEBUG ]  Setting default value: 0.0
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10746 ] - [ DEBUG ]  Converting 'BigDecimal' value '0.0' to type 'BigDecimal'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10746 ] - [ DEBUG ]      No conversion required, value is already a BigDecimal
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10749 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10750 ] - [ DEBUG ]  Converting 'BigInteger' value '0' to type 'BigInteger'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10750 ] - [ DEBUG ]      No conversion required, value is already a BigInteger
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10750 ] - [ DEBUG ]  Setting default value: false
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10750 ] - [ DEBUG ]  Converting 'Boolean' value 'false' to type 'Boolean'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10751 ] - [ DEBUG ]      No conversion required, value is already a Boolean
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10751 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10751 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Byte'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10751 ] - [ DEBUG ]      Converted to Byte value '0'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10751 ] - [ DEBUG ]  Setting default value:  
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10751 ] - [ DEBUG ]  Converting 'Character' value ' ' to type 'Character'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10751 ] - [ DEBUG ]      No conversion required, value is already a Character
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10752 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10752 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Double'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10752 ] - [ DEBUG ]      Converted to Double value '0.0'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10753 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10753 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Float'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10753 ] - [ DEBUG ]      Converted to Float value '0.0'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10753 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10753 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Integer'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10753 ] - [ DEBUG ]      No conversion required, value is already a Integer
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10753 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10753 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Long'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10754 ] - [ DEBUG ]      Converted to Long value '0'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10754 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10754 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Short'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10754 ] - [ DEBUG ]      Converted to Short value '0'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10758 ] - [ DEBUG ]  Setting default value: 
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10758 ] - [ DEBUG ]  Converting 'String' value '' to type 'String'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10781 ] - [ DEBUG ]  Setting default value: [Z@567e4e58
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10781 ] - [ DEBUG ]  Converting 'boolean[]' value '[Z@567e4e58' to type 'boolean[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10781 ] - [ DEBUG ]      No conversion required, value is already a boolean[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10782 ] - [ DEBUG ]  Setting default value: [B@66f5f128
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10782 ] - [ DEBUG ]  Converting 'byte[]' value '[B@66f5f128' to type 'byte[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10782 ] - [ DEBUG ]      No conversion required, value is already a byte[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10782 ] - [ DEBUG ]  Setting default value: [C@4fdeddfc
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10783 ] - [ DEBUG ]  Converting 'char[]' value '[C@4fdeddfc' to type 'char[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10783 ] - [ DEBUG ]      No conversion required, value is already a char[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10783 ] - [ DEBUG ]  Setting default value: [D@2f18554
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10783 ] - [ DEBUG ]  Converting 'double[]' value '[D@2f18554' to type 'double[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10783 ] - [ DEBUG ]      No conversion required, value is already a double[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10784 ] - [ DEBUG ]  Setting default value: [F@265917dc
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10784 ] - [ DEBUG ]  Converting 'float[]' value '[F@265917dc' to type 'float[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10784 ] - [ DEBUG ]      No conversion required, value is already a float[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10784 ] - [ DEBUG ]  Setting default value: [I@6f6cde8e
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10784 ] - [ DEBUG ]  Converting 'int[]' value '[I@6f6cde8e' to type 'int[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]      No conversion required, value is already a int[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]  Setting default value: [J@56e4dfa2
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]  Converting 'long[]' value '[J@56e4dfa2' to type 'long[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]      No conversion required, value is already a long[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]  Setting default value: [S@58313b0f
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]  Converting 'short[]' value '[S@58313b0f' to type 'short[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]      No conversion required, value is already a short[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]  Setting default value: [Ljava.math.BigDecimal;@36383022
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]  Converting 'BigDecimal[]' value '[Ljava.math.BigDecimal;@36383022' to type 'BigDecimal[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]      No conversion required, value is already a BigDecimal[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]  Setting default value: [Ljava.math.BigInteger;@4f40d15d
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]  Converting 'BigInteger[]' value '[Ljava.math.BigInteger;@4f40d15d' to type 'BigInteger[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]      No conversion required, value is already a BigInteger[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Boolean;@69b6e824
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]  Converting 'Boolean[]' value '[Ljava.lang.Boolean;@69b6e824' to type 'Boolean[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]      No conversion required, value is already a Boolean[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Byte;@576d9256
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10785 ] - [ DEBUG ]  Converting 'Byte[]' value '[Ljava.lang.Byte;@576d9256' to type 'Byte[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10789 ] - [ DEBUG ]      No conversion required, value is already a Byte[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10789 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Character;@54f6e35f
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10789 ] - [ DEBUG ]  Converting 'Character[]' value '[Ljava.lang.Character;@54f6e35f' to type 'Character[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10789 ] - [ DEBUG ]      No conversion required, value is already a Character[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10789 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Double;@2a6d0ec
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10789 ] - [ DEBUG ]  Converting 'Double[]' value '[Ljava.lang.Double;@2a6d0ec' to type 'Double[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10789 ] - [ DEBUG ]      No conversion required, value is already a Double[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10789 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Float;@156d1455
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10793 ] - [ DEBUG ]  Converting 'Float[]' value '[Ljava.lang.Float;@156d1455' to type 'Float[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10793 ] - [ DEBUG ]      No conversion required, value is already a Float[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10793 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Integer;@8661db4
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10793 ] - [ DEBUG ]  Converting 'Integer[]' value '[Ljava.lang.Integer;@8661db4' to type 'Integer[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10794 ] - [ DEBUG ]      No conversion required, value is already a Integer[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10794 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Long;@14b9ebb8
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10794 ] - [ DEBUG ]  Converting 'Long[]' value '[Ljava.lang.Long;@14b9ebb8' to type 'Long[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10794 ] - [ DEBUG ]      No conversion required, value is already a Long[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10794 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Short;@c825afd
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10795 ] - [ DEBUG ]  Converting 'Short[]' value '[Ljava.lang.Short;@c825afd' to type 'Short[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10795 ] - [ DEBUG ]      No conversion required, value is already a Short[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10795 ] - [ DEBUG ]  Setting default value: [Ljava.lang.String;@622826b9
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10795 ] - [ DEBUG ]  Converting 'String[]' value '[Ljava.lang.String;@622826b9' to type 'String[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10795 ] - [ DEBUG ]      No conversion required, value is already a String[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10795 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Class;@5d7532f4
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10795 ] - [ DEBUG ]  Converting 'Class[]' value '[Ljava.lang.Class;@5d7532f4' to type 'Class[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10795 ] - [ DEBUG ]      No conversion required, value is already a Class[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10795 ] - [ DEBUG ]  Setting default value: [Ljava.util.Date;@433ece15
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10795 ] - [ DEBUG ]  Converting 'Date[]' value '[Ljava.util.Date;@433ece15' to type 'Date[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10795 ] - [ DEBUG ]      No conversion required, value is already a Date[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10795 ] - [ DEBUG ]  Setting default value: [Ljava.util.Calendar;@6661e438
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10795 ] - [ DEBUG ]  Converting 'Calendar[]' value '[Ljava.util.Calendar;@6661e438' to type 'Calendar[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10803 ] - [ DEBUG ]      No conversion required, value is already a Calendar[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10803 ] - [ DEBUG ]  Setting default value: [Ljava.io.File;@278cb2bf
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10803 ] - [ DEBUG ]  Converting 'java.io.File[]' value '[Ljava.io.File;@278cb2bf' to type 'java.io.File[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10803 ] - [ DEBUG ]      No conversion required, value is already a java.io.File[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10803 ] - [ DEBUG ]  Setting default value: [Ljava.sql.Date;@73b95f7b
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10803 ] - [ DEBUG ]  Converting 'java.sql.Date[]' value '[Ljava.sql.Date;@73b95f7b' to type 'java.sql.Date[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10803 ] - [ DEBUG ]      No conversion required, value is already a java.sql.Date[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10807 ] - [ DEBUG ]  Setting default value: [Ljava.sql.Time;@1fffa2d7
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10807 ] - [ DEBUG ]  Converting 'java.sql.Time[]' value '[Ljava.sql.Time;@1fffa2d7' to type 'java.sql.Time[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10807 ] - [ DEBUG ]      No conversion required, value is already a java.sql.Time[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10807 ] - [ DEBUG ]  Setting default value: [Ljava.sql.Timestamp;@3dceb577
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10807 ] - [ DEBUG ]  Converting 'java.sql.Timestamp[]' value '[Ljava.sql.Timestamp;@3dceb577' to type 'java.sql.Timestamp[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10808 ] - [ DEBUG ]      No conversion required, value is already a java.sql.Timestamp[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10808 ] - [ DEBUG ]  Setting default value: [Ljava.net.URL;@254ff3b7
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10808 ] - [ DEBUG ]  Converting 'java.net.URL[]' value '[Ljava.net.URL;@254ff3b7' to type 'java.net.URL[]'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10808 ] - [ DEBUG ]      No conversion required, value is already a java.net.URL[]
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10833 ] - [ DEBUG ]  BeanUtils.populate(Patient{id=null, phone='null', name='null', sex='null', age=null, birth='null'}, org.apache.catalina.util.ParameterMap@77e21642)
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10855 ] - [ DEBUG ]  Convert string '' to class 'java.lang.String'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10855 ] - [ DEBUG ]  Converting 'String' value '' to type 'String'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10855 ] - [ DEBUG ]  Convert string '' to class 'java.lang.String'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10855 ] - [ DEBUG ]  Converting 'String' value '' to type 'String'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10855 ] - [ DEBUG ]  Convert string 'male' to class 'java.lang.String'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10855 ] - [ DEBUG ]  Converting 'String' value 'male' to type 'String'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10855 ] - [ DEBUG ]  Convert string '' to class 'java.lang.String'
+2021-12-30 11:25:22  [ http-nio-8001-exec-7:10855 ] - [ DEBUG ]  Converting 'String' value '' to type 'String'
+2021-12-30 11:40:10  [ http-nio-8001-exec-7:0 ] - [ INFO ]  User{id=1, username='19121542079', password='12345678', type='patient'}
+2021-12-30 11:41:42  [ http-nio-8001-exec-12:1 ] - [ INFO ]  User{id=1, username='19121542079', password='12345678', type='patient'}
+2021-12-30 16:43:09  [ http-nio-8001-exec-7:0 ] - [ INFO ]  User{id=1, username='19121542079', password='12345678', type='patient'}
+2021-12-30 16:44:23  [ http-nio-8001-exec-8:73908 ] - [ INFO ]  User{id=3, username='13566320197', password='12345678', type='admin'}
+2021-12-30 16:46:17  [ http-nio-8001-exec-2:187693 ] - [ INFO ]  User{id=1, username='19121542079', password='12345678', type='patient'}
+2021-12-30 17:44:50  [ http-nio-8001-exec-4:0 ] - [ INFO ]  User{id=1, username='19121542079', password='12345678', type='patient'}
+2021-12-30 17:51:14  [ http-nio-8001-exec-11:0 ] - [ INFO ]  User{id=1, username='19121542079', password='12345678', type='patient'}
+2021-12-30 17:51:15  [ http-nio-8001-exec-18:1087 ] - [ INFO ]  User{id=1, username='19121542079', password='12345678', type='patient'}
+2021-12-30 17:52:31  [ http-nio-8001-exec-19:0 ] - [ INFO ]  User{id=1, username='19121542079', password='12345678', type='patient'}
+2021-12-30 18:59:49  [ http-nio-8001-exec-33:0 ] - [ INFO ]  User{id=1, username='19121542079', password='12345678', type='patient'}
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13881 ] - [ DEBUG ]  Setting default value: false
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13882 ] - [ DEBUG ]  Converting 'Boolean' value 'false' to type 'Boolean'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13882 ] - [ DEBUG ]      No conversion required, value is already a Boolean
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13885 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13885 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Byte'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13885 ] - [ DEBUG ]      Converted to Byte value '0'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13886 ] - [ DEBUG ]  Setting default value:  
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13886 ] - [ DEBUG ]  Converting 'Character' value ' ' to type 'Character'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13886 ] - [ DEBUG ]      No conversion required, value is already a Character
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13887 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13887 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Double'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13887 ] - [ DEBUG ]      Converted to Double value '0.0'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13888 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13889 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Float'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13889 ] - [ DEBUG ]      Converted to Float value '0.0'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13890 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13890 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Integer'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13890 ] - [ DEBUG ]      No conversion required, value is already a Integer
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13891 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13891 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Long'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13891 ] - [ DEBUG ]      Converted to Long value '0'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13893 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13893 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Short'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13893 ] - [ DEBUG ]      Converted to Short value '0'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13894 ] - [ DEBUG ]  Setting default value: 0.0
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13894 ] - [ DEBUG ]  Converting 'BigDecimal' value '0.0' to type 'BigDecimal'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13894 ] - [ DEBUG ]      No conversion required, value is already a BigDecimal
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13896 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13896 ] - [ DEBUG ]  Converting 'BigInteger' value '0' to type 'BigInteger'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13896 ] - [ DEBUG ]      No conversion required, value is already a BigInteger
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13896 ] - [ DEBUG ]  Setting default value: false
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13896 ] - [ DEBUG ]  Converting 'Boolean' value 'false' to type 'Boolean'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13896 ] - [ DEBUG ]      No conversion required, value is already a Boolean
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13896 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13896 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Byte'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13896 ] - [ DEBUG ]      Converted to Byte value '0'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13896 ] - [ DEBUG ]  Setting default value:  
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13897 ] - [ DEBUG ]  Converting 'Character' value ' ' to type 'Character'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13897 ] - [ DEBUG ]      No conversion required, value is already a Character
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13897 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13897 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Double'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13897 ] - [ DEBUG ]      Converted to Double value '0.0'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13897 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13897 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Float'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13897 ] - [ DEBUG ]      Converted to Float value '0.0'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13897 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13897 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Integer'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13897 ] - [ DEBUG ]      No conversion required, value is already a Integer
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13897 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13897 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Long'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13897 ] - [ DEBUG ]      Converted to Long value '0'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13897 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13897 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Short'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13898 ] - [ DEBUG ]      Converted to Short value '0'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13899 ] - [ DEBUG ]  Setting default value: 
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13899 ] - [ DEBUG ]  Converting 'String' value '' to type 'String'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]  Setting default value: [Z@6443cf80
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]  Converting 'boolean[]' value '[Z@6443cf80' to type 'boolean[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]      No conversion required, value is already a boolean[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]  Setting default value: [B@3931c115
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]  Converting 'byte[]' value '[B@3931c115' to type 'byte[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]      No conversion required, value is already a byte[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]  Setting default value: [C@16140111
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]  Converting 'char[]' value '[C@16140111' to type 'char[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]      No conversion required, value is already a char[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]  Setting default value: [D@afe834f
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]  Converting 'double[]' value '[D@afe834f' to type 'double[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]      No conversion required, value is already a double[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]  Setting default value: [F@703b725f
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]  Converting 'float[]' value '[F@703b725f' to type 'float[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]      No conversion required, value is already a float[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]  Setting default value: [I@47b53c24
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]  Converting 'int[]' value '[I@47b53c24' to type 'int[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]      No conversion required, value is already a int[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]  Setting default value: [J@711fa14a
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]  Converting 'long[]' value '[J@711fa14a' to type 'long[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]      No conversion required, value is already a long[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]  Setting default value: [S@f05a0dd
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13909 ] - [ DEBUG ]  Converting 'short[]' value '[S@f05a0dd' to type 'short[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13910 ] - [ DEBUG ]      No conversion required, value is already a short[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13910 ] - [ DEBUG ]  Setting default value: [Ljava.math.BigDecimal;@248782e8
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13910 ] - [ DEBUG ]  Converting 'BigDecimal[]' value '[Ljava.math.BigDecimal;@248782e8' to type 'BigDecimal[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13910 ] - [ DEBUG ]      No conversion required, value is already a BigDecimal[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13910 ] - [ DEBUG ]  Setting default value: [Ljava.math.BigInteger;@462433bc
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13910 ] - [ DEBUG ]  Converting 'BigInteger[]' value '[Ljava.math.BigInteger;@462433bc' to type 'BigInteger[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13910 ] - [ DEBUG ]      No conversion required, value is already a BigInteger[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13910 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Boolean;@7c8d2e47
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13910 ] - [ DEBUG ]  Converting 'Boolean[]' value '[Ljava.lang.Boolean;@7c8d2e47' to type 'Boolean[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13910 ] - [ DEBUG ]      No conversion required, value is already a Boolean[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Byte;@3fb8c12b
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]  Converting 'Byte[]' value '[Ljava.lang.Byte;@3fb8c12b' to type 'Byte[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]      No conversion required, value is already a Byte[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Character;@651f3b66
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]  Converting 'Character[]' value '[Ljava.lang.Character;@651f3b66' to type 'Character[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]      No conversion required, value is already a Character[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Double;@71de1a4d
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]  Converting 'Double[]' value '[Ljava.lang.Double;@71de1a4d' to type 'Double[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]      No conversion required, value is already a Double[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Float;@33ccced4
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]  Converting 'Float[]' value '[Ljava.lang.Float;@33ccced4' to type 'Float[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]      No conversion required, value is already a Float[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Integer;@bf1757b
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]  Converting 'Integer[]' value '[Ljava.lang.Integer;@bf1757b' to type 'Integer[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]      No conversion required, value is already a Integer[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Long;@51a75a31
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13911 ] - [ DEBUG ]  Converting 'Long[]' value '[Ljava.lang.Long;@51a75a31' to type 'Long[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13912 ] - [ DEBUG ]      No conversion required, value is already a Long[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13912 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Short;@3bbb4ef6
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13912 ] - [ DEBUG ]  Converting 'Short[]' value '[Ljava.lang.Short;@3bbb4ef6' to type 'Short[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13912 ] - [ DEBUG ]      No conversion required, value is already a Short[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13912 ] - [ DEBUG ]  Setting default value: [Ljava.lang.String;@105ec416
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13912 ] - [ DEBUG ]  Converting 'String[]' value '[Ljava.lang.String;@105ec416' to type 'String[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13912 ] - [ DEBUG ]      No conversion required, value is already a String[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13916 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Class;@26fb8b8f
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13916 ] - [ DEBUG ]  Converting 'Class[]' value '[Ljava.lang.Class;@26fb8b8f' to type 'Class[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13916 ] - [ DEBUG ]      No conversion required, value is already a Class[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13916 ] - [ DEBUG ]  Setting default value: [Ljava.util.Date;@4756bd58
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13916 ] - [ DEBUG ]  Converting 'Date[]' value '[Ljava.util.Date;@4756bd58' to type 'Date[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13916 ] - [ DEBUG ]      No conversion required, value is already a Date[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13916 ] - [ DEBUG ]  Setting default value: [Ljava.util.Calendar;@4191032b
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13916 ] - [ DEBUG ]  Converting 'Calendar[]' value '[Ljava.util.Calendar;@4191032b' to type 'Calendar[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13916 ] - [ DEBUG ]      No conversion required, value is already a Calendar[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13916 ] - [ DEBUG ]  Setting default value: [Ljava.io.File;@49828939
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13916 ] - [ DEBUG ]  Converting 'java.io.File[]' value '[Ljava.io.File;@49828939' to type 'java.io.File[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13916 ] - [ DEBUG ]      No conversion required, value is already a java.io.File[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13917 ] - [ DEBUG ]  Setting default value: [Ljava.sql.Date;@6f487e4d
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13917 ] - [ DEBUG ]  Converting 'java.sql.Date[]' value '[Ljava.sql.Date;@6f487e4d' to type 'java.sql.Date[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13917 ] - [ DEBUG ]      No conversion required, value is already a java.sql.Date[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13917 ] - [ DEBUG ]  Setting default value: [Ljava.sql.Time;@6bb02f0a
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13917 ] - [ DEBUG ]  Converting 'java.sql.Time[]' value '[Ljava.sql.Time;@6bb02f0a' to type 'java.sql.Time[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13917 ] - [ DEBUG ]      No conversion required, value is already a java.sql.Time[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13917 ] - [ DEBUG ]  Setting default value: [Ljava.sql.Timestamp;@2c0b0111
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13917 ] - [ DEBUG ]  Converting 'java.sql.Timestamp[]' value '[Ljava.sql.Timestamp;@2c0b0111' to type 'java.sql.Timestamp[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13917 ] - [ DEBUG ]      No conversion required, value is already a java.sql.Timestamp[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13917 ] - [ DEBUG ]  Setting default value: [Ljava.net.URL;@45911e36
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13917 ] - [ DEBUG ]  Converting 'java.net.URL[]' value '[Ljava.net.URL;@45911e36' to type 'java.net.URL[]'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13920 ] - [ DEBUG ]      No conversion required, value is already a java.net.URL[]
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13930 ] - [ DEBUG ]  BeanUtils.populate(Patient{id=null, phone='null', name='null', sex='null', age=null, birth='null'}, org.apache.catalina.util.ParameterMap@72cc13a7)
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13940 ] - [ DEBUG ]  Convert string '' to class 'java.lang.Integer'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13940 ] - [ DEBUG ]  Converting 'String' value '' to type 'Integer'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13940 ] - [ DEBUG ]      Using default Integer value '0'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13940 ] - [ DEBUG ]      Converted to Integer value '0'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13940 ] - [ DEBUG ]  Convert string '林星' to class 'java.lang.String'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13940 ] - [ DEBUG ]  Converting 'String' value '林星' to type 'String'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13940 ] - [ DEBUG ]  Convert string '19121542079' to class 'java.lang.String'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13940 ] - [ DEBUG ]  Converting 'String' value '19121542079' to type 'String'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13940 ] - [ DEBUG ]  Convert string 'male' to class 'java.lang.String'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13940 ] - [ DEBUG ]  Converting 'String' value 'male' to type 'String'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13940 ] - [ DEBUG ]  Convert string '2001-03-31' to class 'java.lang.String'
+2021-12-30 19:00:03  [ http-nio-8001-exec-27:13940 ] - [ DEBUG ]  Converting 'String' value '2001-03-31' to type 'String'
+2021-12-30 19:01:55  [ http-nio-8001-exec-41:126231 ] - [ DEBUG ]  BeanUtils.populate(Patient{id=null, phone='null', name='null', sex='null', age=null, birth='null'}, org.apache.catalina.util.ParameterMap@1f86655d)
+2021-12-30 19:01:55  [ http-nio-8001-exec-41:126231 ] - [ DEBUG ]  Convert string '1' to class 'java.lang.Integer'
+2021-12-30 19:01:55  [ http-nio-8001-exec-41:126231 ] - [ DEBUG ]  Converting 'String' value '1' to type 'Integer'
+2021-12-30 19:01:55  [ http-nio-8001-exec-41:126231 ] - [ DEBUG ]      No NumberFormat, using default conversion
+2021-12-30 19:01:55  [ http-nio-8001-exec-41:126231 ] - [ DEBUG ]      Converted to Integer value '1'
+2021-12-30 19:01:55  [ http-nio-8001-exec-41:126231 ] - [ DEBUG ]  Convert string '林星' to class 'java.lang.String'
+2021-12-30 19:01:55  [ http-nio-8001-exec-41:126232 ] - [ DEBUG ]  Converting 'String' value '林星' to type 'String'
+2021-12-30 19:01:55  [ http-nio-8001-exec-41:126232 ] - [ DEBUG ]  Convert string '19121542079' to class 'java.lang.String'
+2021-12-30 19:01:55  [ http-nio-8001-exec-41:126232 ] - [ DEBUG ]  Converting 'String' value '19121542079' to type 'String'
+2021-12-30 19:01:55  [ http-nio-8001-exec-41:126232 ] - [ DEBUG ]  Convert string 'male' to class 'java.lang.String'
+2021-12-30 19:01:55  [ http-nio-8001-exec-41:126232 ] - [ DEBUG ]  Converting 'String' value 'male' to type 'String'
+2021-12-30 19:01:55  [ http-nio-8001-exec-41:126232 ] - [ DEBUG ]  Convert string '2001-03-30' to class 'java.lang.String'
+2021-12-30 19:01:55  [ http-nio-8001-exec-41:126232 ] - [ DEBUG ]  Converting 'String' value '2001-03-30' to type 'String'
+2021-12-30 19:12:03  [ http-nio-8001-exec-41:0 ] - [ INFO ]  User{id=1, username='19121542079', password='12345678', type='patient'}
+2021-12-30 19:12:25  [ http-nio-8001-exec-48:21727 ] - [ INFO ]  User{id=3, username='13566320197', password='12345678', type='admin'}
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45621 ] - [ DEBUG ]  Setting default value: false
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45621 ] - [ DEBUG ]  Converting 'Boolean' value 'false' to type 'Boolean'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45621 ] - [ DEBUG ]      No conversion required, value is already a Boolean
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45624 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45624 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Byte'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45624 ] - [ DEBUG ]      Converted to Byte value '0'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45625 ] - [ DEBUG ]  Setting default value:  
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45626 ] - [ DEBUG ]  Converting 'Character' value ' ' to type 'Character'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45626 ] - [ DEBUG ]      No conversion required, value is already a Character
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45626 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45627 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Double'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45627 ] - [ DEBUG ]      Converted to Double value '0.0'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45628 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45628 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Float'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45628 ] - [ DEBUG ]      Converted to Float value '0.0'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45628 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45628 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Integer'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45628 ] - [ DEBUG ]      No conversion required, value is already a Integer
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45630 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45630 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Long'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45630 ] - [ DEBUG ]      Converted to Long value '0'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45631 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45631 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Short'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45631 ] - [ DEBUG ]      Converted to Short value '0'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45632 ] - [ DEBUG ]  Setting default value: 0.0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45632 ] - [ DEBUG ]  Converting 'BigDecimal' value '0.0' to type 'BigDecimal'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45632 ] - [ DEBUG ]      No conversion required, value is already a BigDecimal
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45633 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45633 ] - [ DEBUG ]  Converting 'BigInteger' value '0' to type 'BigInteger'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45633 ] - [ DEBUG ]      No conversion required, value is already a BigInteger
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45633 ] - [ DEBUG ]  Setting default value: false
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45633 ] - [ DEBUG ]  Converting 'Boolean' value 'false' to type 'Boolean'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45633 ] - [ DEBUG ]      No conversion required, value is already a Boolean
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45633 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45633 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Byte'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]      Converted to Byte value '0'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]  Setting default value:  
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]  Converting 'Character' value ' ' to type 'Character'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]      No conversion required, value is already a Character
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Double'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]      Converted to Double value '0.0'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Float'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]      Converted to Float value '0.0'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Integer'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]      No conversion required, value is already a Integer
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Long'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]      Converted to Long value '0'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]  Setting default value: 0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]  Converting 'Integer' value '0' to type 'Short'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45634 ] - [ DEBUG ]      Converted to Short value '0'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45636 ] - [ DEBUG ]  Setting default value: 
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45636 ] - [ DEBUG ]  Converting 'String' value '' to type 'String'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]  Setting default value: [Z@35ccf162
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]  Converting 'boolean[]' value '[Z@35ccf162' to type 'boolean[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]      No conversion required, value is already a boolean[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]  Setting default value: [B@43760393
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]  Converting 'byte[]' value '[B@43760393' to type 'byte[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]      No conversion required, value is already a byte[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]  Setting default value: [C@254a8984
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]  Converting 'char[]' value '[C@254a8984' to type 'char[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]      No conversion required, value is already a char[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]  Setting default value: [D@1ed5f7d1
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]  Converting 'double[]' value '[D@1ed5f7d1' to type 'double[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]      No conversion required, value is already a double[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]  Setting default value: [F@4c404288
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]  Converting 'float[]' value '[F@4c404288' to type 'float[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]      No conversion required, value is already a float[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]  Setting default value: [I@3f59ba08
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]  Converting 'int[]' value '[I@3f59ba08' to type 'int[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]      No conversion required, value is already a int[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]  Setting default value: [J@4e2e12ce
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45649 ] - [ DEBUG ]  Converting 'long[]' value '[J@4e2e12ce' to type 'long[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]      No conversion required, value is already a long[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Setting default value: [S@7f740fa5
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Converting 'short[]' value '[S@7f740fa5' to type 'short[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]      No conversion required, value is already a short[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Setting default value: [Ljava.math.BigDecimal;@316e56c1
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Converting 'BigDecimal[]' value '[Ljava.math.BigDecimal;@316e56c1' to type 'BigDecimal[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]      No conversion required, value is already a BigDecimal[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Setting default value: [Ljava.math.BigInteger;@4315231e
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Converting 'BigInteger[]' value '[Ljava.math.BigInteger;@4315231e' to type 'BigInteger[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]      No conversion required, value is already a BigInteger[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Boolean;@7d93e1d0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Converting 'Boolean[]' value '[Ljava.lang.Boolean;@7d93e1d0' to type 'Boolean[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]      No conversion required, value is already a Boolean[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Byte;@2245d0e0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Converting 'Byte[]' value '[Ljava.lang.Byte;@2245d0e0' to type 'Byte[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]      No conversion required, value is already a Byte[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Character;@61de5237
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Converting 'Character[]' value '[Ljava.lang.Character;@61de5237' to type 'Character[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]      No conversion required, value is already a Character[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Double;@bb980c1
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Converting 'Double[]' value '[Ljava.lang.Double;@bb980c1' to type 'Double[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]      No conversion required, value is already a Double[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Float;@69467d07
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Converting 'Float[]' value '[Ljava.lang.Float;@69467d07' to type 'Float[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]      No conversion required, value is already a Float[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45650 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Integer;@6588621f
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45651 ] - [ DEBUG ]  Converting 'Integer[]' value '[Ljava.lang.Integer;@6588621f' to type 'Integer[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45651 ] - [ DEBUG ]      No conversion required, value is already a Integer[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Long;@7654cb73
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]  Converting 'Long[]' value '[Ljava.lang.Long;@7654cb73' to type 'Long[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]      No conversion required, value is already a Long[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Short;@312ce2f0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]  Converting 'Short[]' value '[Ljava.lang.Short;@312ce2f0' to type 'Short[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]      No conversion required, value is already a Short[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]  Setting default value: [Ljava.lang.String;@6bd80f97
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]  Converting 'String[]' value '[Ljava.lang.String;@6bd80f97' to type 'String[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]      No conversion required, value is already a String[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]  Setting default value: [Ljava.lang.Class;@4d660069
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]  Converting 'Class[]' value '[Ljava.lang.Class;@4d660069' to type 'Class[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]      No conversion required, value is already a Class[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]  Setting default value: [Ljava.util.Date;@1d3955e5
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]  Converting 'Date[]' value '[Ljava.util.Date;@1d3955e5' to type 'Date[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]      No conversion required, value is already a Date[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]  Setting default value: [Ljava.util.Calendar;@4b540fd0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]  Converting 'Calendar[]' value '[Ljava.util.Calendar;@4b540fd0' to type 'Calendar[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]      No conversion required, value is already a Calendar[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]  Setting default value: [Ljava.io.File;@605b159a
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]  Converting 'java.io.File[]' value '[Ljava.io.File;@605b159a' to type 'java.io.File[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]      No conversion required, value is already a java.io.File[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]  Setting default value: [Ljava.sql.Date;@1d4324b0
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45655 ] - [ DEBUG ]  Converting 'java.sql.Date[]' value '[Ljava.sql.Date;@1d4324b0' to type 'java.sql.Date[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45656 ] - [ DEBUG ]      No conversion required, value is already a java.sql.Date[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45660 ] - [ DEBUG ]  Setting default value: [Ljava.sql.Time;@4a02dc80
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45660 ] - [ DEBUG ]  Converting 'java.sql.Time[]' value '[Ljava.sql.Time;@4a02dc80' to type 'java.sql.Time[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45660 ] - [ DEBUG ]      No conversion required, value is already a java.sql.Time[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45660 ] - [ DEBUG ]  Setting default value: [Ljava.sql.Timestamp;@21c3709f
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45660 ] - [ DEBUG ]  Converting 'java.sql.Timestamp[]' value '[Ljava.sql.Timestamp;@21c3709f' to type 'java.sql.Timestamp[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45660 ] - [ DEBUG ]      No conversion required, value is already a java.sql.Timestamp[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45660 ] - [ DEBUG ]  Setting default value: [Ljava.net.URL;@190c56f8
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45660 ] - [ DEBUG ]  Converting 'java.net.URL[]' value '[Ljava.net.URL;@190c56f8' to type 'java.net.URL[]'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45660 ] - [ DEBUG ]      No conversion required, value is already a java.net.URL[]
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45669 ] - [ DEBUG ]  BeanUtils.populate(Admin{id=null, phone='null', name='null', sex='null', age=null, birth='null'}, org.apache.catalina.util.ParameterMap@aa1e979)
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45675 ] - [ DEBUG ]  Convert string '1' to class 'java.lang.Integer'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45675 ] - [ DEBUG ]  Converting 'String' value '1' to type 'Integer'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45675 ] - [ DEBUG ]      No NumberFormat, using default conversion
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45675 ] - [ DEBUG ]      Converted to Integer value '1'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45675 ] - [ DEBUG ]  Convert string '张三' to class 'java.lang.String'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45675 ] - [ DEBUG ]  Converting 'String' value '张三' to type 'String'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45675 ] - [ DEBUG ]  Convert string '13566320197' to class 'java.lang.String'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45675 ] - [ DEBUG ]  Converting 'String' value '13566320197' to type 'String'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45676 ] - [ DEBUG ]  Convert string '女' to class 'java.lang.String'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45676 ] - [ DEBUG ]  Converting 'String' value '女' to type 'String'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45676 ] - [ DEBUG ]  Convert string '1991-11-15' to class 'java.lang.String'
+2021-12-30 19:12:48  [ http-nio-8001-exec-46:45676 ] - [ DEBUG ]  Converting 'String' value '1991-11-15' to type 'String'
+2021-12-30 19:13:01  [ http-nio-8001-exec-39:57797 ] - [ DEBUG ]  BeanUtils.populate(Admin{id=null, phone='null', name='null', sex='null', age=null, birth='null'}, org.apache.catalina.util.ParameterMap@aa1e979)
+2021-12-30 19:13:01  [ http-nio-8001-exec-39:57798 ] - [ DEBUG ]  Convert string '1' to class 'java.lang.Integer'
+2021-12-30 19:13:01  [ http-nio-8001-exec-39:57798 ] - [ DEBUG ]  Converting 'String' value '1' to type 'Integer'
+2021-12-30 19:13:01  [ http-nio-8001-exec-39:57798 ] - [ DEBUG ]      No NumberFormat, using default conversion
+2021-12-30 19:13:01  [ http-nio-8001-exec-39:57798 ] - [ DEBUG ]      Converted to Integer value '1'
+2021-12-30 19:13:01  [ http-nio-8001-exec-39:57798 ] - [ DEBUG ]  Convert string '张三' to class 'java.lang.String'
+2021-12-30 19:13:01  [ http-nio-8001-exec-39:57798 ] - [ DEBUG ]  Converting 'String' value '张三' to type 'String'
+2021-12-30 19:13:01  [ http-nio-8001-exec-39:57799 ] - [ DEBUG ]  Convert string '13566320197' to class 'java.lang.String'
+2021-12-30 19:13:01  [ http-nio-8001-exec-39:57799 ] - [ DEBUG ]  Converting 'String' value '13566320197' to type 'String'
+2021-12-30 19:13:01  [ http-nio-8001-exec-39:57799 ] - [ DEBUG ]  Convert string '男' to class 'java.lang.String'
+2021-12-30 19:13:01  [ http-nio-8001-exec-39:57799 ] - [ DEBUG ]  Converting 'String' value '男' to type 'String'
+2021-12-30 19:13:01  [ http-nio-8001-exec-39:57799 ] - [ DEBUG ]  Convert string '1991-11-15' to class 'java.lang.String'
+2021-12-30 19:13:01  [ http-nio-8001-exec-39:57799 ] - [ DEBUG ]  Converting 'String' value '1991-11-15' to type 'String'
+2021-12-30 20:31:30  [ http-nio-8001-exec-6:0 ] - [ INFO ]  User{id=3, username='13566320197', password='12345678', type='admin'}
+2021-12-30 20:54:22  [ http-nio-8001-exec-2:0 ] - [ INFO ]  User{id=3, username='13566320197', password='12345678', type='admin'}
+2021-12-30 21:03:04  [ http-nio-8001-exec-15:0 ] - [ INFO ]  User{id=3, username='13566320197', password='12345678', type='admin'}
+2021-12-30 21:04:00  [ http-nio-8001-exec-22:56025 ] - [ INFO ]  User{id=1, username='19121542079', password='12345678', type='patient'}
+2021-12-30 21:15:27  [ http-nio-8001-exec-24:0 ] - [ INFO ]  User{id=3, username='13566320197', password='12345678', type='admin'}
+2021-12-30 22:46:35  [ http-nio-8001-exec-6:0 ] - [ INFO ]  User{id=3, username='13566320197', password='12345678', type='admin'}
+2021-12-30 22:53:41  [ http-nio-8001-exec-5:0 ] - [ INFO ]  User{id=3, username='13566320197', password='12345678', type='admin'}
+2021-12-30 23:03:03  [ http-nio-8001-exec-19:1 ] - [ INFO ]  User{id=3, username='13566320197', password='12345678', type='admin'}
